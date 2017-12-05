@@ -6,7 +6,7 @@
 //  Copyright © 2017年 caobo56. All rights reserved.
 //
 
-#import "ABBasicVC.h"
+#import "CBBasicVCHeader.h"
 
 @interface ABwebView : ABBasicVC
 

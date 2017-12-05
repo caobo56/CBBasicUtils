@@ -8,7 +8,6 @@
 
 #import "ABImagePicker.h"
 #import <MobileCoreServices/MobileCoreServices.h>
-#import "APIClient.h"
 
 const float kScaleHeadImageHeights = 500.0f;
 

@@ -474,6 +474,9 @@
 		A8BC01A41FD6A2700094B423 /* DateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtils.h; sourceTree = "<group>"; };
 		A8BC01A51FD6A2700094B423 /* JsonFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonFileUtils.h; sourceTree = "<group>"; };
 		A8BC01A61FD6A2700094B423 /* MD5Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Utils.m; sourceTree = "<group>"; };
+		A8BC01B91FD6B3370094B423 /* CBUtilsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBUtilsHeader.h; sourceTree = "<group>"; };
+		A8BC01BA1FD6B3D40094B423 /* CBBasicVCHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBBasicVCHeader.h; sourceTree = "<group>"; };
+		A8BC01BB1FD6B5E50094B423 /* CBCatergoryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBCatergoryHeader.h; sourceTree = "<group>"; };
 		A8BCFF501FD68E860094B423 /* BasicUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCFF531FD68E860094B423 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8BCFF541FD68E860094B423 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -504,9 +507,7 @@
 		A8BCFF921FD68EB60094B423 /* ABBasicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBasicVC.h; sourceTree = "<group>"; };
 		A8BCFF931FD68EB60094B423 /* ABRootNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRootNavVC.h; sourceTree = "<group>"; };
 		A8BCFF941FD68EB60094B423 /* DATabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATabBarVC.h; sourceTree = "<group>"; };
-		A8BCFF961FD68EB60094B423 /* ABKeyHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABKeyHeader.h; sourceTree = "<group>"; };
 		A8BCFF971FD68EB60094B423 /* ABCreditHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCreditHeader.h; sourceTree = "<group>"; };
-		A8BCFF981FD68EB60094B423 /* ScreenSizeDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenSizeDefine.h; sourceTree = "<group>"; };
 		A8BCFF9A1FD68EB60094B423 /* LvInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LvInputView.m; sourceTree = "<group>"; };
 		A8BCFF9B1FD68EB60094B423 /* CBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTextField.m; sourceTree = "<group>"; };
 		A8BCFF9C1FD68EB60094B423 /* LvInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LvInputView.xib; sourceTree = "<group>"; };
@@ -638,6 +639,7 @@
 			children = (
 				A8BC00111FD68EB60094B423 /* NSString+URL.m */,
 				A8BC00121FD68EB60094B423 /* UIColor+Help.m */,
+				A8BC001A1FD68EB60094B423 /* UIView+IB.h */,
 				A8BC00131FD68EB60094B423 /* UIView+IB.m */,
 				A8BC00141FD68EB60094B423 /* NSDictionary+NullResult.m */,
 				A8BC00151FD68EB60094B423 /* UIImage+Category.m */,
@@ -645,7 +647,6 @@
 				A8BC00171FD68EB60094B423 /* UIView+DDAddition.m */,
 				A8BC00181FD68EB60094B423 /* UIView+toast.h */,
 				A8BC00191FD68EB60094B423 /* NSData+AES128.h */,
-				A8BC001A1FD68EB60094B423 /* UIView+IB.h */,
 				A8BC001B1FD68EB60094B423 /* NSString+URL.h */,
 				A8BC001C1FD68EB60094B423 /* UIColor+Help.h */,
 				A8BC001D1FD68EB60094B423 /* UIImage+Category.h */,
@@ -654,6 +655,7 @@
 				A8BC00201FD68EB60094B423 /* UIImage+Color.m */,
 				A8BC00211FD68EB60094B423 /* UIView+toast.m */,
 				A8BC00221FD68EB60094B423 /* NSData+AES128.m */,
+				A8BC01BB1FD6B5E50094B423 /* CBCatergoryHeader.h */,
 			);
 			path = Catergory;
 			sourceTree = "<group>";
@@ -662,17 +664,18 @@
 			isa = PBXGroup;
 			children = (
 				A8BC019B1FD6A2700094B423 /* LunarUtil.h */,
+				A8BC01A11FD6A2700094B423 /* LunarUtil.m */,
+				A8BC01A51FD6A2700094B423 /* JsonFileUtils.h */,
 				A8BC019C1FD6A2700094B423 /* JsonFileUtils.m */,
+				A8BC01A41FD6A2700094B423 /* DateUtils.h */,
 				A8BC019D1FD6A2700094B423 /* DateUtils.m */,
+				A8BC01A01FD6A2700094B423 /* MD5Utils.h */,
+				A8BC01A61FD6A2700094B423 /* MD5Utils.m */,
+				A8BC01A31FD6A2700094B423 /* CBVerifyTool.h */,
 				A8BC019E1FD6A2700094B423 /* CBVerifyTool.m */,
 				A8BC019F1FD6A2700094B423 /* MentoreUitls.h */,
-				A8BC01A01FD6A2700094B423 /* MD5Utils.h */,
-				A8BC01A11FD6A2700094B423 /* LunarUtil.m */,
 				A8BC01A21FD6A2700094B423 /* MentoreUitls.m */,
-				A8BC01A31FD6A2700094B423 /* CBVerifyTool.h */,
-				A8BC01A41FD6A2700094B423 /* DateUtils.h */,
-				A8BC01A51FD6A2700094B423 /* JsonFileUtils.h */,
-				A8BC01A61FD6A2700094B423 /* MD5Utils.m */,
+				A8BC01B91FD6B3370094B423 /* CBUtilsHeader.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -750,20 +753,21 @@
 		A8BCFF861FD68EB60094B423 /* BasicVC */ = {
 			isa = PBXGroup;
 			children = (
-				A8BCFF871FD68EB60094B423 /* MBProgressHUD.m */,
 				A8BCFF881FD68EB60094B423 /* ABMustLable.h */,
+				A8BCFF8F1FD68EB60094B423 /* ABMustLable.m */,
+				A8BCFF921FD68EB60094B423 /* ABBasicVC.h */,
 				A8BCFF891FD68EB60094B423 /* ABBasicVC.m */,
+				A8BCFF911FD68EB60094B423 /* ABTableVC.h */,
 				A8BCFF8A1FD68EB60094B423 /* ABTableVC.m */,
+				A8BCFF8E1FD68EB60094B423 /* MBProgressHUD.h */,
+				A8BCFF871FD68EB60094B423 /* MBProgressHUD.m */,
+				A8BCFF901FD68EB60094B423 /* ABImagePicker.h */,
 				A8BCFF8B1FD68EB60094B423 /* ABImagePicker.m */,
+				A8BCFF931FD68EB60094B423 /* ABRootNavVC.h */,
 				A8BCFF8C1FD68EB60094B423 /* ABRootNavVC.m */,
 				A8BCFF8D1FD68EB60094B423 /* DATabBarVC.m */,
-				A8BCFF8E1FD68EB60094B423 /* MBProgressHUD.h */,
-				A8BCFF8F1FD68EB60094B423 /* ABMustLable.m */,
-				A8BCFF901FD68EB60094B423 /* ABImagePicker.h */,
-				A8BCFF911FD68EB60094B423 /* ABTableVC.h */,
-				A8BCFF921FD68EB60094B423 /* ABBasicVC.h */,
-				A8BCFF931FD68EB60094B423 /* ABRootNavVC.h */,
 				A8BCFF941FD68EB60094B423 /* DATabBarVC.h */,
+				A8BC01BA1FD6B3D40094B423 /* CBBasicVCHeader.h */,
 			);
 			path = BasicVC;
 			sourceTree = "<group>";
@@ -771,9 +775,7 @@
 		A8BCFF951FD68EB60094B423 /* MacroAndConstant */ = {
 			isa = PBXGroup;
 			children = (
-				A8BCFF961FD68EB60094B423 /* ABKeyHeader.h */,
 				A8BCFF971FD68EB60094B423 /* ABCreditHeader.h */,
-				A8BCFF981FD68EB60094B423 /* ScreenSizeDefine.h */,
 			);
 			path = MacroAndConstant;
 			sourceTree = "<group>";
