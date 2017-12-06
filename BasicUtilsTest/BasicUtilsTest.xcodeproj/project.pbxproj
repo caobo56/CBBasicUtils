@@ -42,10 +42,10 @@
 
 /* Begin PBXFileReference section */
 		A8BC02451FD7C47A0094B423 /* CBURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBURLSession.m; sourceTree = "<group>"; };
-		A8BC02461FD7C47A0094B423 /* CBNetworkHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNetworkHeader.h; sourceTree = "<group>"; };
 		A8BC02471FD7C47A0094B423 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		A8BC02481FD7C47A0094B423 /* CBURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBURLSession.h; sourceTree = "<group>"; };
 		A8BC02491FD7C47A0094B423 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		A8BC02511FD7C6690094B423 /* ABCreditHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCreditHeader.h; sourceTree = "<group>"; };
 		A8BCFF501FD68E860094B423 /* BasicUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCFF531FD68E860094B423 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8BCFF541FD68E860094B423 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -92,6 +92,7 @@
 		A8BC02431FD7C47A0094B423 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A8BC02501FD7C6690094B423 /* MacroAndConstant */,
 				A8BC02441FD7C47A0094B423 /* Requset */,
 			);
 			name = src;
@@ -102,12 +103,19 @@
 			isa = PBXGroup;
 			children = (
 				A8BC02451FD7C47A0094B423 /* CBURLSession.m */,
-				A8BC02461FD7C47A0094B423 /* CBNetworkHeader.h */,
 				A8BC02471FD7C47A0094B423 /* APIClient.h */,
 				A8BC02481FD7C47A0094B423 /* CBURLSession.h */,
 				A8BC02491FD7C47A0094B423 /* APIClient.m */,
 			);
 			path = Requset;
+			sourceTree = "<group>";
+		};
+		A8BC02501FD7C6690094B423 /* MacroAndConstant */ = {
+			isa = PBXGroup;
+			children = (
+				A8BC02511FD7C6690094B423 /* ABCreditHeader.h */,
+			);
+			path = MacroAndConstant;
 			sourceTree = "<group>";
 		};
 		A8BCFF471FD68E860094B423 = {
