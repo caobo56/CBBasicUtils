@@ -112,15 +112,14 @@ Pod::Spec.new do |s|
 
   # end
 
-  s.subspec "Catergory" do |catergory|
-    catergory.source_files = 'src/Catergory/*.{h,m}'
-    # catergory.source_files = 'src/Catergory/CBCatergoryHeader.h' 
-    # catergory.public_header_files = 'src/Catergory/CBCatergoryHeader.h'
-  end
+  # s.subspec "Catergory" do |catergory|
+  #   catergory.source_files = 'BasicUtils/Catergory/*.{h,m}'
+  #   catergory.public_header_files = 'BasicUtils/Catergory/CBCatergoryHeader.h'
+  # end
 
   s.subspec "MacroAndConstant" do |m_c|
-    m_c.source_files = 'src/MacroAndConstant/*.{h,m}'
-    m_c.public_header_files = 'src/MacroAndConstant/ABCreditHeader.h'
+    m_c.source_files = 'CBBasicUtils/MacroAndConstant/*.{h,m}'
+    m_c.public_header_files = 'CBBasicUtils/MacroAndConstant/ABCreditHeader.h'
   end
 
   s.dependency 'SDWebImage'
