@@ -477,6 +477,7 @@
 		A8BC01B91FD6B3370094B423 /* CBUtilsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBUtilsHeader.h; sourceTree = "<group>"; };
 		A8BC01BA1FD6B3D40094B423 /* CBBasicVCHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBBasicVCHeader.h; sourceTree = "<group>"; };
 		A8BC01BB1FD6B5E50094B423 /* CBCatergoryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBCatergoryHeader.h; sourceTree = "<group>"; };
+		A8BC01BC1FD774A60094B423 /* CBNetworkHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBNetworkHeader.h; sourceTree = "<group>"; };
 		A8BCFF501FD68E860094B423 /* BasicUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCFF531FD68E860094B423 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8BCFF541FD68E860094B423 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -804,6 +805,7 @@
 				A8BCFFA61FD68EB60094B423 /* APIClient.h */,
 				A8BCFFA71FD68EB60094B423 /* CBURLSession.h */,
 				A8BCFFA81FD68EB60094B423 /* APIClient.m */,
+				A8BC01BC1FD774A60094B423 /* CBNetworkHeader.h */,
 			);
 			path = Requset;
 			sourceTree = "<group>";
