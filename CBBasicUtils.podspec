@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.default_subspec = 'Requset','MacroAndConstant'
+  s.default_subspec = 'Requset','MacroAndConstant','Util'
 
   s.subspec "Requset" do |re|
     re.source_files = 'src/Requset/*.{h,m}'
@@ -104,6 +104,11 @@ Pod::Spec.new do |s|
     mc.public_header_files = "src/MacroAndConstant/*.h"
   end
 
+  s.subspec "Util" do |util|
+    util.source_files = 'src/Util/*.{h,m}'
+    util.public_header_files = "src/Util/*.h"
+    util.frameworks = 'UIKit','Foundation','CommonCrypto'
+  end
 
   # s.public_header_files = "Classes/**/*.h"
 
