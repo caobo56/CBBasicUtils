@@ -112,13 +112,18 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "BasicVC" do |bv|
-    bv.source_files = 'src/Util/*.{h,m}'
-    bv.public_header_files = "src/Util/*.h"
+    bv.source_files = 'src/BasicVC/*.{h,m}'
+    bv.public_header_files = "src/BasicVC/*.h"
     bv.frameworks = 'UIKit','Foundation','MobileCoreServices'
     bv.resources = 'src/BasicVC/*.xib'
-
   end
 
+  s.subspec "BasicClass" do |bc|
+    bc.source_files = 'src/BasicClass/*.{h,m}'
+    bc.public_header_files = "src/BasicClass/*.h"
+    bc.frameworks = 'UIKit','Foundation'
+    bc.resources = 'src/BasicClass/*.xib'
+  end
 
   # s.public_header_files = "Classes/**/*.h"
 
