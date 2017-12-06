@@ -34,6 +34,18 @@
 		A82B80211FD7E1E000BD0F7E /* ABwebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B801D1FD7E1E000BD0F7E /* ABwebView.xib */; };
 		A82B80221FD7E1E000BD0F7E /* ABwebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B801D1FD7E1E000BD0F7E /* ABwebView.xib */; };
 		A82B80231FD7E1E000BD0F7E /* ABwebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B801D1FD7E1E000BD0F7E /* ABwebView.xib */; };
+		A82B802C1FD7E2C600BD0F7E /* LvInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80251FD7E2C600BD0F7E /* LvInputView.m */; };
+		A82B802D1FD7E2C600BD0F7E /* LvInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80251FD7E2C600BD0F7E /* LvInputView.m */; };
+		A82B802E1FD7E2C600BD0F7E /* LvInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80251FD7E2C600BD0F7E /* LvInputView.m */; };
+		A82B802F1FD7E2C600BD0F7E /* CBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80261FD7E2C600BD0F7E /* CBTextField.m */; };
+		A82B80301FD7E2C600BD0F7E /* CBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80261FD7E2C600BD0F7E /* CBTextField.m */; };
+		A82B80311FD7E2C600BD0F7E /* CBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80261FD7E2C600BD0F7E /* CBTextField.m */; };
+		A82B80321FD7E2C600BD0F7E /* LvInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B80271FD7E2C600BD0F7E /* LvInputView.xib */; };
+		A82B80331FD7E2C600BD0F7E /* LvInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B80271FD7E2C600BD0F7E /* LvInputView.xib */; };
+		A82B80341FD7E2C600BD0F7E /* LvInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B80271FD7E2C600BD0F7E /* LvInputView.xib */; };
+		A82B80351FD7E2C600BD0F7E /* XXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B802B1FD7E2C600BD0F7E /* XXTextView.m */; };
+		A82B80361FD7E2C600BD0F7E /* XXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B802B1FD7E2C600BD0F7E /* XXTextView.m */; };
+		A82B80371FD7E2C600BD0F7E /* XXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B802B1FD7E2C600BD0F7E /* XXTextView.m */; };
 		A8BC024A1FD7C47A0094B423 /* CBURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02451FD7C47A0094B423 /* CBURLSession.m */; };
 		A8BC024B1FD7C47A0094B423 /* CBURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02451FD7C47A0094B423 /* CBURLSession.m */; };
 		A8BC024C1FD7C47A0094B423 /* CBURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02451FD7C47A0094B423 /* CBURLSession.m */; };
@@ -97,6 +109,13 @@
 		A82B801B1FD7E1E000BD0F7E /* ABwebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABwebView.h; sourceTree = "<group>"; };
 		A82B801C1FD7E1E000BD0F7E /* ABwebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABwebView.m; sourceTree = "<group>"; };
 		A82B801D1FD7E1E000BD0F7E /* ABwebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABwebView.xib; sourceTree = "<group>"; };
+		A82B80251FD7E2C600BD0F7E /* LvInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LvInputView.m; sourceTree = "<group>"; };
+		A82B80261FD7E2C600BD0F7E /* CBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTextField.m; sourceTree = "<group>"; };
+		A82B80271FD7E2C600BD0F7E /* LvInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LvInputView.xib; sourceTree = "<group>"; };
+		A82B80281FD7E2C600BD0F7E /* XXTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXTextView.h; sourceTree = "<group>"; };
+		A82B80291FD7E2C600BD0F7E /* CBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextField.h; sourceTree = "<group>"; };
+		A82B802A1FD7E2C600BD0F7E /* LvInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LvInputView.h; sourceTree = "<group>"; };
+		A82B802B1FD7E2C600BD0F7E /* XXTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXTextView.m; sourceTree = "<group>"; };
 		A8BC02451FD7C47A0094B423 /* CBURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBURLSession.m; sourceTree = "<group>"; };
 		A8BC02471FD7C47A0094B423 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		A8BC02481FD7C47A0094B423 /* CBURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBURLSession.h; sourceTree = "<group>"; };
@@ -185,10 +204,25 @@
 			path = BasicVC;
 			sourceTree = "<group>";
 		};
+		A82B80241FD7E2C600BD0F7E /* BasicClass */ = {
+			isa = PBXGroup;
+			children = (
+				A82B80251FD7E2C600BD0F7E /* LvInputView.m */,
+				A82B80261FD7E2C600BD0F7E /* CBTextField.m */,
+				A82B80271FD7E2C600BD0F7E /* LvInputView.xib */,
+				A82B80281FD7E2C600BD0F7E /* XXTextView.h */,
+				A82B80291FD7E2C600BD0F7E /* CBTextField.h */,
+				A82B802A1FD7E2C600BD0F7E /* LvInputView.h */,
+				A82B802B1FD7E2C600BD0F7E /* XXTextView.m */,
+			);
+			path = BasicClass;
+			sourceTree = "<group>";
+		};
 		A8BC02431FD7C47A0094B423 /* src */ = {
 			isa = PBXGroup;
 			children = (
 				A82B7FF61FD7DD3700BD0F7E /* Resource */,
+				A82B80241FD7E2C600BD0F7E /* BasicClass */,
 				A82B7FFB1FD7DE5600BD0F7E /* BasicVC */,
 				A8BC02A61FD7C77A0094B423 /* Util */,
 				A8BC02501FD7C6690094B423 /* MacroAndConstant */,
@@ -395,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A82B80211FD7E1E000BD0F7E /* ABwebView.xib in Resources */,
+				A82B80321FD7E2C600BD0F7E /* LvInputView.xib in Resources */,
 				A82B7FF81FD7DD3700BD0F7E /* bank.plist in Resources */,
 				A8BCFF601FD68E860094B423 /* LaunchScreen.storyboard in Resources */,
 				A8BCFF5D1FD68E860094B423 /* Assets.xcassets in Resources */,
@@ -407,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A82B80221FD7E1E000BD0F7E /* ABwebView.xib in Resources */,
+				A82B80331FD7E2C600BD0F7E /* LvInputView.xib in Resources */,
 				A82B7FF91FD7DD3700BD0F7E /* bank.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A82B80231FD7E1E000BD0F7E /* ABwebView.xib in Resources */,
+				A82B80341FD7E2C600BD0F7E /* LvInputView.xib in Resources */,
 				A82B7FFA1FD7DD3700BD0F7E /* bank.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8BC024D1FD7C47A0094B423 /* APIClient.m in Sources */,
+				A82B80351FD7E2C600BD0F7E /* XXTextView.m in Sources */,
 				A8BC02BA1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
 				A82B801E1FD7E1E000BD0F7E /* ABwebView.m in Sources */,
 				A82B800F1FD7DE5600BD0F7E /* ABImagePicker.m in Sources */,
@@ -437,7 +475,9 @@
 				A8BCFF581FD68E860094B423 /* ViewController.m in Sources */,
 				A8BC024A1FD7C47A0094B423 /* CBURLSession.m in Sources */,
 				A8BC02B41FD7C77A0094B423 /* JsonFileUtils.m in Sources */,
+				A82B802F1FD7E2C600BD0F7E /* CBTextField.m in Sources */,
 				A8BCFF631FD68E860094B423 /* main.m in Sources */,
+				A82B802C1FD7E2C600BD0F7E /* LvInputView.m in Sources */,
 				A82B80181FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
 				A8BCFF551FD68E860094B423 /* AppDelegate.m in Sources */,
 				A82B80121FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */,
@@ -450,16 +490,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A82B802D1FD7E2C600BD0F7E /* LvInputView.m in Sources */,
 				A82B801F1FD7E1E000BD0F7E /* ABwebView.m in Sources */,
 				A8BC02B81FD7C77A0094B423 /* DateUtils.m in Sources */,
 				A82B80161FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
 				A8BCFF6D1FD68E860094B423 /* BasicUtilsTestTests.m in Sources */,
 				A82B80191FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
+				A82B80301FD7E2C600BD0F7E /* CBTextField.m in Sources */,
 				A8BC02B51FD7C77A0094B423 /* JsonFileUtils.m in Sources */,
 				A8BC02C11FD7C77A0094B423 /* MentoreUitls.m in Sources */,
 				A82B80101FD7DE5600BD0F7E /* ABImagePicker.m in Sources */,
 				A82B800D1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
 				A82B800A1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
+				A82B80361FD7E2C600BD0F7E /* XXTextView.m in Sources */,
 				A8BC02BB1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
 				A82B80131FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */,
 				A8BC024E1FD7C47A0094B423 /* APIClient.m in Sources */,
@@ -471,16 +514,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A82B802E1FD7E2C600BD0F7E /* LvInputView.m in Sources */,
 				A82B80201FD7E1E000BD0F7E /* ABwebView.m in Sources */,
 				A8BC02B91FD7C77A0094B423 /* DateUtils.m in Sources */,
 				A82B80171FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
 				A8BCFF781FD68E860094B423 /* BasicUtilsTestUITests.m in Sources */,
 				A82B801A1FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
+				A82B80311FD7E2C600BD0F7E /* CBTextField.m in Sources */,
 				A8BC02B61FD7C77A0094B423 /* JsonFileUtils.m in Sources */,
 				A8BC02C21FD7C77A0094B423 /* MentoreUitls.m in Sources */,
 				A82B80111FD7DE5600BD0F7E /* ABImagePicker.m in Sources */,
 				A82B800E1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
 				A82B800B1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
+				A82B80371FD7E2C600BD0F7E /* XXTextView.m in Sources */,
 				A8BC02BC1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
 				A82B80141FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */,
 				A8BC024F1FD7C47A0094B423 /* APIClient.m in Sources */,
