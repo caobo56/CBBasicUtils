@@ -107,7 +107,7 @@ Pod::Spec.new do |s|
   s.subspec "Util" do |util|
     util.source_files = 'src/Util/*.{h,m}'
     util.public_header_files = "src/Util/*.h"
-    util.frameworks = 'UIKit','Foundation','CommonCrypto'
+    util.frameworks = 'UIKit','Foundation'
   end
 
   # s.public_header_files = "Classes/**/*.h"

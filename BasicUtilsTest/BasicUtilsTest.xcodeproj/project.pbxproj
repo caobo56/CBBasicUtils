@@ -25,9 +25,6 @@
 		A8BC02C01FD7C77A0094B423 /* MentoreUitls.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */; };
 		A8BC02C11FD7C77A0094B423 /* MentoreUitls.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */; };
 		A8BC02C21FD7C77A0094B423 /* MentoreUitls.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */; };
-		A8BC02C31FD7C77A0094B423 /* MD5Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02B31FD7C77A0094B423 /* MD5Utils.m */; };
-		A8BC02C41FD7C77A0094B423 /* MD5Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02B31FD7C77A0094B423 /* MD5Utils.m */; };
-		A8BC02C51FD7C77A0094B423 /* MD5Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02B31FD7C77A0094B423 /* MD5Utils.m */; };
 		A8BCFF551FD68E860094B423 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCFF541FD68E860094B423 /* AppDelegate.m */; };
 		A8BCFF581FD68E860094B423 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCFF571FD68E860094B423 /* ViewController.m */; };
 		A8BCFF5B1FD68E860094B423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BCFF591FD68E860094B423 /* Main.storyboard */; };
@@ -66,12 +63,10 @@
 		A8BC02AA1FD7C77A0094B423 /* DateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtils.m; sourceTree = "<group>"; };
 		A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBVerifyTool.m; sourceTree = "<group>"; };
 		A8BC02AC1FD7C77A0094B423 /* MentoreUitls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MentoreUitls.h; sourceTree = "<group>"; };
-		A8BC02AD1FD7C77A0094B423 /* MD5Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Utils.h; sourceTree = "<group>"; };
 		A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MentoreUitls.m; sourceTree = "<group>"; };
 		A8BC02B01FD7C77A0094B423 /* CBVerifyTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBVerifyTool.h; sourceTree = "<group>"; };
 		A8BC02B11FD7C77A0094B423 /* DateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtils.h; sourceTree = "<group>"; };
 		A8BC02B21FD7C77A0094B423 /* JsonFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonFileUtils.h; sourceTree = "<group>"; };
-		A8BC02B31FD7C77A0094B423 /* MD5Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Utils.m; sourceTree = "<group>"; };
 		A8BCFF501FD68E860094B423 /* BasicUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCFF531FD68E860094B423 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8BCFF541FD68E860094B423 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -155,8 +150,6 @@
 				A8BC02AA1FD7C77A0094B423 /* DateUtils.m */,
 				A8BC02B21FD7C77A0094B423 /* JsonFileUtils.h */,
 				A8BC02A91FD7C77A0094B423 /* JsonFileUtils.m */,
-				A8BC02AD1FD7C77A0094B423 /* MD5Utils.h */,
-				A8BC02B31FD7C77A0094B423 /* MD5Utils.m */,
 				A8BC02AC1FD7C77A0094B423 /* MentoreUitls.h */,
 				A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */,
 			);
@@ -353,7 +346,6 @@
 			files = (
 				A8BC024D1FD7C47A0094B423 /* APIClient.m in Sources */,
 				A8BC02BA1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
-				A8BC02C31FD7C77A0094B423 /* MD5Utils.m in Sources */,
 				A8BCFF581FD68E860094B423 /* ViewController.m in Sources */,
 				A8BC024A1FD7C47A0094B423 /* CBURLSession.m in Sources */,
 				A8BC02B41FD7C77A0094B423 /* JsonFileUtils.m in Sources */,
@@ -368,7 +360,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8BC02C41FD7C77A0094B423 /* MD5Utils.m in Sources */,
 				A8BC02B81FD7C77A0094B423 /* DateUtils.m in Sources */,
 				A8BCFF6D1FD68E860094B423 /* BasicUtilsTestTests.m in Sources */,
 				A8BC02B51FD7C77A0094B423 /* JsonFileUtils.m in Sources */,
@@ -383,7 +374,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8BC02C51FD7C77A0094B423 /* MD5Utils.m in Sources */,
 				A8BC02B91FD7C77A0094B423 /* DateUtils.m in Sources */,
 				A8BCFF781FD68E860094B423 /* BasicUtilsTestUITests.m in Sources */,
 				A8BC02B61FD7C77A0094B423 /* JsonFileUtils.m in Sources */,
