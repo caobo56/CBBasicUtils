@@ -8,7 +8,7 @@
 
 #import "UIView+toast.h"
 #import <objc/runtime.h>
-#import "CBBasicVCHeader.h"
+#import "MBProgressHUD.h"
 #import "ABCreditHeader.h"
 static char HUDKey;
 static const NSTimeInterval kDuration = 1.5;
