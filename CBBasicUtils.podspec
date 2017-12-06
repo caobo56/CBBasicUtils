@@ -96,11 +96,6 @@ Pod::Spec.new do |s|
       
   # end
 
-  # s.subspec "Requset" do |re|
-  #   re.source_files = 'src/Requset/*.{h,m}'
-  #   re.public_header_files = 'src/Requset/CBNetworkHeader.h'
-  # end
-
   # s.subspec "BasicClass" do |basic_class|
   #   basic_class.source_files = 'src/BasicClass/*.{h,m}'
   #   basic_class.resources    = "src/BasicClass/*.xib"
@@ -112,15 +107,20 @@ Pod::Spec.new do |s|
 
   # end
 
+  s.subspec "Requset" do |re|
+    re.source_files = 'CBBasicUtils/Requset/*.{h,m}'
+    # re.public_header_files = 'CBBasicUtils/**/CBNetworkHeader.h'
+  end
+
   # s.subspec "Catergory" do |catergory|
-  #   catergory.source_files = 'BasicUtils/Catergory/*.{h,m}'
-  #   catergory.public_header_files = 'BasicUtils/Catergory/CBCatergoryHeader.h'
+  #   catergory.source_files = 'CBBasicUtils/Catergory/*.{h,m}'
+  #   catergory.public_header_files = 'CBBasicUtils/Catergory/CBCatergoryHeader.h'
   # end
 
-  s.subspec "MacroAndConstant" do |m_c|
-    m_c.source_files = 'CBBasicUtils/MacroAndConstant/*.{h,m}'
-    m_c.public_header_files = 'CBBasicUtils/MacroAndConstant/ABCreditHeader.h'
-  end
+  # s.subspec "MacroAndConstant" do |m_c|
+  #   m_c.source_files = 'CBBasicUtils/MacroAndConstant/*.{h,m}'
+  #   m_c.public_header_files = 'CBBasicUtils/MacroAndConstant/ABCreditHeader.h'
+  # end
 
   s.dependency 'SDWebImage'
   s.dependency 'Masonry'
