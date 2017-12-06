@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "CBBasicUtils"
   s.version      = "0.9.2"
-  s.summary      = "The basic ios Uitls for caobo."
+  s.summary      = "caobo's BasicUtils."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                         It is a utils used on iOS, which implement by Objective-C.  
+                           It is a utils used on iOS, which implement by Objective-C.  
                    DESC
 
   s.homepage     = "https://github.com/caobo56/CBBasicUtils.git"
@@ -40,6 +40,7 @@ Pod::Spec.new do |s|
   #
 
   s.license = { :type => "MIT", :file => "LICENSE" }
+  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -62,9 +63,10 @@ Pod::Spec.new do |s|
   #  If this Pod runs only on iOS or OS X, then specify the platform and
   #  the deployment target. You can optionally include the target after the platform.
   #
-  s.user_target_xcconfig = { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
-  s.platform     = :ios, '8.0'  
-  s.requires_arc = true  
+
+  # s.platform     = :ios
+  s.platform     = :ios, "8.0"
+
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
   # s.osx.deployment_target = "10.7"
@@ -89,41 +91,15 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  # s.subspec "Util" do |util|
-  #   util.source_files = 'src/Util/*.{h,m}'
-  #   util.resources    = ["src/Resource/bank.plist","src/Resource/24_solar_terms/*.json"]
-  #   util.public_header_files = 'src/Util/CBUtilsHeader.h'
-      
-  # end
-
-  # s.subspec "BasicClass" do |basic_class|
-  #   basic_class.source_files = 'src/BasicClass/*.{h,m}'
-  #   basic_class.resources    = "src/BasicClass/*.xib"
-  # end
-
-  #  s.subspec "BasicVC" do |basic_vc|
-  #   basic_vc.source_files = 'src/BasicVC/*.{h,m}'
-  #   basic_vc.public_header_files = 'src/Util/CBBasicVCHeader.h'
-
-  # end
+  s.default_subspec = 'Requset'
 
   s.subspec "Requset" do |re|
     re.source_files = 'CBBasicUtils/Requset/*.{h,m}'
-    # re.public_header_files = 'CBBasicUtils/**/CBNetworkHeader.h'
+    re.frameworks = 'UIKit','Foundation'
+    re.dependency 'SDWebImage'
+    re.dependency 'Masonry'
   end
 
-  # s.subspec "Catergory" do |catergory|
-  #   catergory.source_files = 'CBBasicUtils/Catergory/*.{h,m}'
-  #   catergory.public_header_files = 'CBBasicUtils/Catergory/CBCatergoryHeader.h'
-  # end
-
-  # s.subspec "MacroAndConstant" do |m_c|
-  #   m_c.source_files = 'CBBasicUtils/MacroAndConstant/*.{h,m}'
-  #   m_c.public_header_files = 'CBBasicUtils/MacroAndConstant/ABCreditHeader.h'
-  # end
-
-  s.dependency 'SDWebImage'
-  s.dependency 'Masonry'
   # s.public_header_files = "Classes/**/*.h"
 
 
