@@ -6,7 +6,6 @@
 //  Copyright © 2017年 caobo56. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#import <CommonCrypto/CommonDigest.h>
 #define FileHashDefaultChunkSizeForReadingData 1024*8 // 8K
 
 @interface MD5Utils :NSObject

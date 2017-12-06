@@ -6,6 +6,7 @@
 //  Copyright © 2017年 caobo56. All rights reserved.
 //
 #import "MD5Utils.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation MD5Utils
 #define CC_MD5_DIGEST_LENGTH 16
