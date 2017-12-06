@@ -115,6 +115,8 @@ Pod::Spec.new do |s|
     bv.source_files = 'src/Util/*.{h,m}'
     bv.public_header_files = "src/Util/*.h"
     bv.frameworks = 'UIKit','Foundation','MobileCoreServices'
+    bv.resources = 'src/BasicVC/*.xib'
+
   end
 
 
