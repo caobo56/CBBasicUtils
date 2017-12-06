@@ -125,6 +125,11 @@ Pod::Spec.new do |s|
     bc.resources = 'src/BasicClass/*.xib'
   end
 
+  s.subspec "Catergory" do |bc|
+    bc.source_files = 'src/Catergory/*.{h,m}'
+    bc.public_header_files = "src/Catergory/*.h"
+    bc.frameworks = 'UIKit','Foundation'
+  end
   # s.public_header_files = "Classes/**/*.h"
 
 
