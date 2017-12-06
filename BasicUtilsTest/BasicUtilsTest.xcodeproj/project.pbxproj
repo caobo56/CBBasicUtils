@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A82B7FF81FD7DD3700BD0F7E /* bank.plist in Resources */ = {isa = PBXBuildFile; fileRef = A82B7FF71FD7DD3700BD0F7E /* bank.plist */; };
+		A82B7FF91FD7DD3700BD0F7E /* bank.plist in Resources */ = {isa = PBXBuildFile; fileRef = A82B7FF71FD7DD3700BD0F7E /* bank.plist */; };
+		A82B7FFA1FD7DD3700BD0F7E /* bank.plist in Resources */ = {isa = PBXBuildFile; fileRef = A82B7FF71FD7DD3700BD0F7E /* bank.plist */; };
 		A8BC024A1FD7C47A0094B423 /* CBURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02451FD7C47A0094B423 /* CBURLSession.m */; };
 		A8BC024B1FD7C47A0094B423 /* CBURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02451FD7C47A0094B423 /* CBURLSession.m */; };
 		A8BC024C1FD7C47A0094B423 /* CBURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02451FD7C47A0094B423 /* CBURLSession.m */; };
@@ -53,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A82B7FF71FD7DD3700BD0F7E /* bank.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bank.plist; sourceTree = "<group>"; };
 		A8BC02451FD7C47A0094B423 /* CBURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBURLSession.m; sourceTree = "<group>"; };
 		A8BC02471FD7C47A0094B423 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		A8BC02481FD7C47A0094B423 /* CBURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBURLSession.h; sourceTree = "<group>"; };
@@ -110,9 +114,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A82B7FF61FD7DD3700BD0F7E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A82B7FF71FD7DD3700BD0F7E /* bank.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		A8BC02431FD7C47A0094B423 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A82B7FF61FD7DD3700BD0F7E /* Resource */,
 				A8BC02A61FD7C77A0094B423 /* Util */,
 				A8BC02501FD7C6690094B423 /* MacroAndConstant */,
 				A8BC02441FD7C47A0094B423 /* Requset */,
@@ -317,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A82B7FF81FD7DD3700BD0F7E /* bank.plist in Resources */,
 				A8BCFF601FD68E860094B423 /* LaunchScreen.storyboard in Resources */,
 				A8BCFF5D1FD68E860094B423 /* Assets.xcassets in Resources */,
 				A8BCFF5B1FD68E860094B423 /* Main.storyboard in Resources */,
@@ -327,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A82B7FF91FD7DD3700BD0F7E /* bank.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A82B7FFA1FD7DD3700BD0F7E /* bank.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

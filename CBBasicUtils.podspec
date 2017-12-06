@@ -108,8 +108,7 @@ Pod::Spec.new do |s|
     util.source_files = 'src/Util/*.{h,m}'
     util.public_header_files = "src/Util/*.h"
     util.frameworks = 'UIKit','Foundation'
-    # util.libraries = 'CommonCrypto'
-
+    util.source = 'src/Resource/*.plist'
   end
 
   # s.public_header_files = "Classes/**/*.h"
