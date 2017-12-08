@@ -82,9 +82,6 @@
 		A8BC02B41FD7C77A0094B423 /* JsonFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02A91FD7C77A0094B423 /* JsonFileUtils.m */; };
 		A8BC02B51FD7C77A0094B423 /* JsonFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02A91FD7C77A0094B423 /* JsonFileUtils.m */; };
 		A8BC02B61FD7C77A0094B423 /* JsonFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02A91FD7C77A0094B423 /* JsonFileUtils.m */; };
-		A8BC02B71FD7C77A0094B423 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AA1FD7C77A0094B423 /* DateUtils.m */; };
-		A8BC02B81FD7C77A0094B423 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AA1FD7C77A0094B423 /* DateUtils.m */; };
-		A8BC02B91FD7C77A0094B423 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AA1FD7C77A0094B423 /* DateUtils.m */; };
 		A8BC02BA1FD7C77A0094B423 /* CBVerifyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */; };
 		A8BC02BB1FD7C77A0094B423 /* CBVerifyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */; };
 		A8BC02BC1FD7C77A0094B423 /* CBVerifyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */; };
@@ -168,12 +165,10 @@
 		A8BC02511FD7C6690094B423 /* ABCreditHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCreditHeader.h; sourceTree = "<group>"; };
 		A8BC02A81FD7C77A0094B423 /* CBUtilsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUtilsHeader.h; sourceTree = "<group>"; };
 		A8BC02A91FD7C77A0094B423 /* JsonFileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonFileUtils.m; sourceTree = "<group>"; };
-		A8BC02AA1FD7C77A0094B423 /* DateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtils.m; sourceTree = "<group>"; };
 		A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBVerifyTool.m; sourceTree = "<group>"; };
 		A8BC02AC1FD7C77A0094B423 /* MentoreUitls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MentoreUitls.h; sourceTree = "<group>"; };
 		A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MentoreUitls.m; sourceTree = "<group>"; };
 		A8BC02B01FD7C77A0094B423 /* CBVerifyTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBVerifyTool.h; sourceTree = "<group>"; };
-		A8BC02B11FD7C77A0094B423 /* DateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtils.h; sourceTree = "<group>"; };
 		A8BC02B21FD7C77A0094B423 /* JsonFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonFileUtils.h; sourceTree = "<group>"; };
 		A8BCFF501FD68E860094B423 /* BasicUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCFF531FD68E860094B423 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -328,8 +323,6 @@
 				A8BC02A81FD7C77A0094B423 /* CBUtilsHeader.h */,
 				A8BC02B01FD7C77A0094B423 /* CBVerifyTool.h */,
 				A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */,
-				A8BC02B11FD7C77A0094B423 /* DateUtils.h */,
-				A8BC02AA1FD7C77A0094B423 /* DateUtils.m */,
 				A8BC02B21FD7C77A0094B423 /* JsonFileUtils.h */,
 				A8BC02A91FD7C77A0094B423 /* JsonFileUtils.m */,
 				A8BC02AC1FD7C77A0094B423 /* MentoreUitls.h */,
@@ -561,7 +554,6 @@
 				A82B80511FD7E45400BD0F7E /* UIColor+Help.m in Sources */,
 				A82B80601FD7E45400BD0F7E /* UIView+DDAddition.m in Sources */,
 				A82B80121FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */,
-				A8BC02B71FD7C77A0094B423 /* DateUtils.m in Sources */,
 				A8BC02C01FD7C77A0094B423 /* MentoreUitls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -573,7 +565,6 @@
 				A82B80671FD7E45400BD0F7E /* UIView+toast.m in Sources */,
 				A82B802D1FD7E2C600BD0F7E /* LvInputView.m in Sources */,
 				A82B801F1FD7E1E000BD0F7E /* ABwebView.m in Sources */,
-				A8BC02B81FD7C77A0094B423 /* DateUtils.m in Sources */,
 				A82B80161FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
 				A8BCFF6D1FD68E860094B423 /* BasicUtilsTestTests.m in Sources */,
 				A82B80191FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
@@ -606,7 +597,6 @@
 				A82B80681FD7E45400BD0F7E /* UIView+toast.m in Sources */,
 				A82B802E1FD7E2C600BD0F7E /* LvInputView.m in Sources */,
 				A82B80201FD7E1E000BD0F7E /* ABwebView.m in Sources */,
-				A8BC02B91FD7C77A0094B423 /* DateUtils.m in Sources */,
 				A82B80171FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
 				A8BCFF781FD68E860094B423 /* BasicUtilsTestUITests.m in Sources */,
 				A82B801A1FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
