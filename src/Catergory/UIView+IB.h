@@ -16,9 +16,7 @@
 @property(nonatomic) IBInspectable UIColor *shadowColor;
 
 @property(nonatomic) IBInspectable CGFloat shadowOpacity;// 阴影透明度
-
 @property(nonatomic) IBInspectable CGFloat shadowRadius;// 阴影扩散的范围控制
-
 @property(nonatomic) IBInspectable CGSize shadowOffset;// 阴影的范围
 
 
