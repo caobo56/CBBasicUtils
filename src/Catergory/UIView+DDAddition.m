@@ -248,6 +248,40 @@
 
 }
 
+-(void)setShadowOpacity:(CGFloat)shadowOpacity{
+    self.layer.shadowOpacity = 0.5;// 阴影透明度
+}
+
+/**
+ 阴影透明度
+ 
+ @param shadowColor 阴影透明度
+ */
+-(void)setShadowColor:(UIColor *)shadowColor{
+    self.layer.shadowColor = shadowColor.CGColor;
+}
+
+
+/**
+ 阴影扩散的范围控制
+ 
+ @param shadowRadius 阴影扩散的范围控制
+ */
+-(void)setShadowRadius:(CGFloat)shadowRadius{
+    self.layer.shadowRadius = shadowRadius;
+}
+
+
+/**
+ 阴影的范围
+ 
+ @param shadowOffset 阴影的范围
+ */
+-(void)setShadowOffset:(CGSize)shadowOffset{
+    self.layer.shadowOffset = shadowOffset;
+}
+
+
 - (id)subviewWithTag:(NSInteger)tag{
     
     for(UIView *view in [self subviews]){

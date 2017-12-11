@@ -52,6 +52,34 @@
 }
 
 
+- (CGFloat)shadowOpacity
+{
+    return self.layer.shadowOpacity;
+}
+
+- (void)setShadowOpacity:(CGFloat)shadowOpacity
+{
+    self.layer.shadowOpacity = shadowOpacity;
+}
 
 
+- (CGFloat)shadowRadius
+{
+    return self.layer.shadowRadius;
+}
+
+- (void)setShadowRadius:(CGFloat)shadowRadius
+{
+    self.layer.shadowRadius = shadowRadius;
+}
+
+- (CGSize)shadowOffset
+{
+    return self.layer.shadowOffset;
+}
+
+- (void)setShadowOffset:(CGSize)shadowOffset
+{
+    self.layer.shadowOffset = shadowOffset;
+}
 @end

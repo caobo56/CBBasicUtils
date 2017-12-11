@@ -127,4 +127,38 @@
  */
 -(void)setborderColor:(UIColor*)borderColor;
 
+
+/**
+ 阴影透明度
+
+ @param shadowOpacity 阴影透明度
+ */
+-(void)setShadowOpacity:(CGFloat)shadowOpacity;
+
+
+/**
+ 阴影透明度
+
+ @param shadowColor 阴影透明度
+ */
+-(void)setShadowColor:(UIColor *)shadowColor;
+
+
+/**
+ 阴影扩散的范围控制
+
+ @param shadowRadius 阴影扩散的范围控制
+ */
+-(void)setShadowRadius:(CGFloat)shadowRadius;
+
+
+/**
+ 阴影的范围
+
+ @param shadowOffset 阴影的范围
+ */
+-(void)setShadowOffset:(CGSize)shadowOffset;
+
+
+
 @end
