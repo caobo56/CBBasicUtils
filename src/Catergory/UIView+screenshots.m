@@ -8,8 +8,6 @@
 
 #import "UIView+screenshots.h"
 
-
-
 @implementation UIView (screenshots)
 /**
  *  获取全屏截图
