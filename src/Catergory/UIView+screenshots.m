@@ -7,7 +7,6 @@
 //
 
 #import "UIView+screenshots.h"
-#import "AppDelegate.h"
 
 
 

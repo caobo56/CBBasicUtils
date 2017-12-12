@@ -82,12 +82,12 @@
 		A8ACB38F1FDFC04A00BE0668 /* UIView+WhenTappendBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3881FDFC04900BE0668 /* UIView+WhenTappendBlocks.m */; };
 		A8ACB3901FDFC04A00BE0668 /* UIView+WhenTappendBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3881FDFC04900BE0668 /* UIView+WhenTappendBlocks.m */; };
 		A8ACB3911FDFC04A00BE0668 /* UIView+WhenTappendBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3881FDFC04900BE0668 /* UIView+WhenTappendBlocks.m */; };
-		A8ACB3961FDFDB9E00BE0668 /* JsonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3921FDFDB9D00BE0668 /* JsonHelper.m */; };
-		A8ACB3971FDFDB9E00BE0668 /* JsonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3921FDFDB9D00BE0668 /* JsonHelper.m */; };
-		A8ACB3981FDFDB9E00BE0668 /* JsonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3921FDFDB9D00BE0668 /* JsonHelper.m */; };
-		A8ACB3991FDFDB9E00BE0668 /* CoreAnimationEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3951FDFDB9E00BE0668 /* CoreAnimationEffect.m */; };
-		A8ACB39A1FDFDB9E00BE0668 /* CoreAnimationEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3951FDFDB9E00BE0668 /* CoreAnimationEffect.m */; };
-		A8ACB39B1FDFDB9E00BE0668 /* CoreAnimationEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3951FDFDB9E00BE0668 /* CoreAnimationEffect.m */; };
+		A8ACB3A01FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB39E1FDFF44C00BE0668 /* CoreAnimationEffect.m */; };
+		A8ACB3A11FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB39E1FDFF44C00BE0668 /* CoreAnimationEffect.m */; };
+		A8ACB3A21FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB39E1FDFF44C00BE0668 /* CoreAnimationEffect.m */; };
+		A8ACB3A31FDFF44C00BE0668 /* JsonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB39F1FDFF44C00BE0668 /* JsonHelper.m */; };
+		A8ACB3A41FDFF44C00BE0668 /* JsonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB39F1FDFF44C00BE0668 /* JsonHelper.m */; };
+		A8ACB3A51FDFF44C00BE0668 /* JsonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB39F1FDFF44C00BE0668 /* JsonHelper.m */; };
 		A8BC024A1FD7C47A0094B423 /* CBURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02451FD7C47A0094B423 /* CBURLSession.m */; };
 		A8BC024B1FD7C47A0094B423 /* CBURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02451FD7C47A0094B423 /* CBURLSession.m */; };
 		A8BC024C1FD7C47A0094B423 /* CBURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02451FD7C47A0094B423 /* CBURLSession.m */; };
@@ -179,10 +179,10 @@
 		A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+screenshots.m"; sourceTree = "<group>"; };
 		A8ACB3871FDFC04900BE0668 /* UIControl+acceptEventInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+acceptEventInterval.m"; sourceTree = "<group>"; };
 		A8ACB3881FDFC04900BE0668 /* UIView+WhenTappendBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WhenTappendBlocks.m"; sourceTree = "<group>"; };
-		A8ACB3921FDFDB9D00BE0668 /* JsonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonHelper.m; sourceTree = "<group>"; };
-		A8ACB3931FDFDB9E00BE0668 /* CoreAnimationEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAnimationEffect.h; sourceTree = "<group>"; };
-		A8ACB3941FDFDB9E00BE0668 /* JsonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonHelper.h; sourceTree = "<group>"; };
-		A8ACB3951FDFDB9E00BE0668 /* CoreAnimationEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationEffect.m; sourceTree = "<group>"; };
+		A8ACB39C1FDFF44C00BE0668 /* CoreAnimationEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAnimationEffect.h; sourceTree = "<group>"; };
+		A8ACB39D1FDFF44C00BE0668 /* JsonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonHelper.h; sourceTree = "<group>"; };
+		A8ACB39E1FDFF44C00BE0668 /* CoreAnimationEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationEffect.m; sourceTree = "<group>"; };
+		A8ACB39F1FDFF44C00BE0668 /* JsonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonHelper.m; sourceTree = "<group>"; };
 		A8BC02451FD7C47A0094B423 /* CBURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBURLSession.m; sourceTree = "<group>"; };
 		A8BC02471FD7C47A0094B423 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		A8BC02481FD7C47A0094B423 /* CBURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBURLSession.h; sourceTree = "<group>"; };
@@ -358,10 +358,10 @@
 				A8BC02A91FD7C77A0094B423 /* JsonFileUtils.m */,
 				A8BC02AC1FD7C77A0094B423 /* MentoreUitls.h */,
 				A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */,
-				A8ACB3931FDFDB9E00BE0668 /* CoreAnimationEffect.h */,
-				A8ACB3951FDFDB9E00BE0668 /* CoreAnimationEffect.m */,
-				A8ACB3941FDFDB9E00BE0668 /* JsonHelper.h */,
-				A8ACB3921FDFDB9D00BE0668 /* JsonHelper.m */,
+				A8ACB39C1FDFF44C00BE0668 /* CoreAnimationEffect.h */,
+				A8ACB39E1FDFF44C00BE0668 /* CoreAnimationEffect.m */,
+				A8ACB39D1FDFF44C00BE0668 /* JsonHelper.h */,
+				A8ACB39F1FDFF44C00BE0668 /* JsonHelper.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -563,13 +563,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8ACB3961FDFDB9E00BE0668 /* JsonHelper.m in Sources */,
 				A8BC024D1FD7C47A0094B423 /* APIClient.m in Sources */,
+				A8ACB3A31FDFF44C00BE0668 /* JsonHelper.m in Sources */,
 				A82B80351FD7E2C600BD0F7E /* XXTextView.m in Sources */,
 				A82B80571FD7E45400BD0F7E /* MBProgressHUD.m in Sources */,
 				A8BC02BA1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
 				A82B801E1FD7E1E000BD0F7E /* ABwebView.m in Sources */,
-				A8ACB3991FDFDB9E00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A82B800F1FD7DE5600BD0F7E /* ABImagePicker.m in Sources */,
 				A82B80151FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
 				A82B80091FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
@@ -587,6 +586,7 @@
 				A8BCFF631FD68E860094B423 /* main.m in Sources */,
 				A82B802C1FD7E2C600BD0F7E /* LvInputView.m in Sources */,
 				A8ACB3891FDFC04A00BE0668 /* UIView+screenshots.m in Sources */,
+				A8ACB3A01FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A82B80541FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80181FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
 				A8BCFF551FD68E860094B423 /* AppDelegate.m in Sources */,
@@ -615,14 +615,13 @@
 				A82B805B1FD7E45400BD0F7E /* NSDictionary+NullResult.m in Sources */,
 				A82B80301FD7E2C600BD0F7E /* CBTextField.m in Sources */,
 				A82B804F1FD7E45400BD0F7E /* NSString+URL.m in Sources */,
+				A8ACB3A11FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A8BC02B51FD7C77A0094B423 /* JsonFileUtils.m in Sources */,
-				A8ACB39A1FDFDB9E00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A82B80551FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80641FD7E45400BD0F7E /* UIImage+Color.m in Sources */,
 				A8BC02C11FD7C77A0094B423 /* MentoreUitls.m in Sources */,
 				A82B80101FD7DE5600BD0F7E /* ABImagePicker.m in Sources */,
 				A82B800D1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
-				A8ACB3971FDFDB9E00BE0668 /* JsonHelper.m in Sources */,
 				A82B80581FD7E45400BD0F7E /* MBProgressHUD.m in Sources */,
 				A82B800A1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
 				A82B80361FD7E2C600BD0F7E /* XXTextView.m in Sources */,
@@ -632,6 +631,7 @@
 				A82B80521FD7E45400BD0F7E /* UIColor+Help.m in Sources */,
 				A8BC024B1FD7C47A0094B423 /* CBURLSession.m in Sources */,
 				A82B805E1FD7E45400BD0F7E /* UIImage+Category.m in Sources */,
+				A8ACB3A41FDFF44C00BE0668 /* JsonHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,14 +652,13 @@
 				A82B805C1FD7E45400BD0F7E /* NSDictionary+NullResult.m in Sources */,
 				A82B80311FD7E2C600BD0F7E /* CBTextField.m in Sources */,
 				A82B80501FD7E45400BD0F7E /* NSString+URL.m in Sources */,
+				A8ACB3A21FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A8BC02B61FD7C77A0094B423 /* JsonFileUtils.m in Sources */,
-				A8ACB39B1FDFDB9E00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A82B80561FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80651FD7E45400BD0F7E /* UIImage+Color.m in Sources */,
 				A8BC02C21FD7C77A0094B423 /* MentoreUitls.m in Sources */,
 				A82B80111FD7DE5600BD0F7E /* ABImagePicker.m in Sources */,
 				A82B800E1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
-				A8ACB3981FDFDB9E00BE0668 /* JsonHelper.m in Sources */,
 				A82B80591FD7E45400BD0F7E /* MBProgressHUD.m in Sources */,
 				A82B800B1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
 				A82B80371FD7E2C600BD0F7E /* XXTextView.m in Sources */,
@@ -669,6 +668,7 @@
 				A82B80531FD7E45400BD0F7E /* UIColor+Help.m in Sources */,
 				A8BC024C1FD7C47A0094B423 /* CBURLSession.m in Sources */,
 				A82B805F1FD7E45400BD0F7E /* UIImage+Category.m in Sources */,
+				A8ACB3A51FDFF44C00BE0668 /* JsonHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

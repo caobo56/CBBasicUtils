@@ -21,7 +21,7 @@
 
 /*!
  * @brief 把字典转换成格式化的JSON格式的字符串
- * @param 字典
+ * @param dic 字典
  * @return 返回字符串
  */
 + (NSString*)dictionaryToJson:(NSDictionary *)dic;
