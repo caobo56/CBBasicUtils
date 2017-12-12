@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "CBUtilsHeader.h"
+#import "UIControl+acceptEventInterval.h"
+#import "UIView+WhenTappendBlocks.h"
 
 @interface ViewController ()
 
@@ -17,6 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view whenTapped:^{
+        NSLog(@"~~~~~~~~~~~~~~~~~~~");
+    }];
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
