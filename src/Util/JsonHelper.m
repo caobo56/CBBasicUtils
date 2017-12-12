@@ -15,7 +15,7 @@
  * @param jsonString JSON格式的字符串
  * @return 返回字典
  */
-- (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
     
     if (jsonString == nil) {
         
@@ -40,11 +40,10 @@
 
 /*!
  * @brief 把字典转换成格式化的JSON格式的字符串
- * @param 字典
+ * @param dic 字典
  * @return 返回字符串
  */
-- (NSString*)dictionaryToJson:(NSDictionary *)dic
-
++ (NSString*)dictionaryToJson:(NSDictionary *)dic
 {
     
     NSError *parseError = nil;
@@ -87,7 +86,7 @@
 
 /*!
  * @brief 把数组转换成格式化的JSON格式的字符串
- * @param 数组
+ * @param arr 数组
  * @return 返回字符串
  */
 + (NSString*)arrayToJson:(NSArray *)arr{
