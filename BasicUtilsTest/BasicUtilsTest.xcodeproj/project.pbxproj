@@ -73,6 +73,9 @@
 		A82B80661FD7E45400BD0F7E /* UIView+toast.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B804C1FD7E45400BD0F7E /* UIView+toast.m */; };
 		A82B80671FD7E45400BD0F7E /* UIView+toast.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B804C1FD7E45400BD0F7E /* UIView+toast.m */; };
 		A82B80681FD7E45400BD0F7E /* UIView+toast.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B804C1FD7E45400BD0F7E /* UIView+toast.m */; };
+		A897962A1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A89796281FE7C7E800807145 /* UIBarButtonItem+Extension.m */; };
+		A897962B1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A89796281FE7C7E800807145 /* UIBarButtonItem+Extension.m */; };
+		A897962C1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A89796281FE7C7E800807145 /* UIBarButtonItem+Extension.m */; };
 		A8ACB3891FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
 		A8ACB38A1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
 		A8ACB38B1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
@@ -173,6 +176,8 @@
 		A82B804A1FD7E45400BD0F7E /* UIView+DDAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DDAddition.h"; sourceTree = "<group>"; };
 		A82B804B1FD7E45400BD0F7E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		A82B804C1FD7E45400BD0F7E /* UIView+toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+toast.m"; sourceTree = "<group>"; };
+		A89796281FE7C7E800807145 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		A89796291FE7C7E800807145 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		A8ACB3831FDFC04800BE0668 /* UIView+WhenTappendBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WhenTappendBlocks.h"; sourceTree = "<group>"; };
 		A8ACB3841FDFC04900BE0668 /* UIControl+acceptEventInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+acceptEventInterval.h"; sourceTree = "<group>"; };
 		A8ACB3851FDFC04900BE0668 /* UIView+screenshots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+screenshots.h"; sourceTree = "<group>"; };
@@ -310,6 +315,8 @@
 				A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */,
 				A8ACB3831FDFC04800BE0668 /* UIView+WhenTappendBlocks.h */,
 				A8ACB3881FDFC04900BE0668 /* UIView+WhenTappendBlocks.m */,
+				A89796291FE7C7E800807145 /* UIBarButtonItem+Extension.h */,
+				A89796281FE7C7E800807145 /* UIBarButtonItem+Extension.m */,
 			);
 			path = Catergory;
 			sourceTree = "<group>";
@@ -569,6 +576,7 @@
 				A82B80571FD7E45400BD0F7E /* MBProgressHUD.m in Sources */,
 				A8BC02BA1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
 				A82B801E1FD7E1E000BD0F7E /* ABwebView.m in Sources */,
+				A897962A1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */,
 				A82B800F1FD7DE5600BD0F7E /* ABImagePicker.m in Sources */,
 				A82B80151FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
 				A82B80091FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
@@ -617,6 +625,7 @@
 				A82B804F1FD7E45400BD0F7E /* NSString+URL.m in Sources */,
 				A8ACB3A11FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A8BC02B51FD7C77A0094B423 /* JsonFileUtils.m in Sources */,
+				A897962B1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */,
 				A82B80551FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80641FD7E45400BD0F7E /* UIImage+Color.m in Sources */,
 				A8BC02C11FD7C77A0094B423 /* MentoreUitls.m in Sources */,
@@ -654,6 +663,7 @@
 				A82B80501FD7E45400BD0F7E /* NSString+URL.m in Sources */,
 				A8ACB3A21FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A8BC02B61FD7C77A0094B423 /* JsonFileUtils.m in Sources */,
+				A897962C1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */,
 				A82B80561FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80651FD7E45400BD0F7E /* UIImage+Color.m in Sources */,
 				A8BC02C21FD7C77A0094B423 /* MentoreUitls.m in Sources */,
