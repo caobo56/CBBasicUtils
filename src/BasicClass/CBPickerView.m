@@ -95,7 +95,7 @@
 }
 
 -(void)setDefaultIndex:(NSInteger)index{
-    if (index < _dataArr.count-1) {
+    if (index <= _dataArr.count-1) {
         _index = index;
         [_pickerView selectRow:index inComponent:0 animated:YES];
     }else{
