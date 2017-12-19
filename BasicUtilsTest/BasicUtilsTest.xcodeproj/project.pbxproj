@@ -76,6 +76,9 @@
 		A897962A1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A89796281FE7C7E800807145 /* UIBarButtonItem+Extension.m */; };
 		A897962B1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A89796281FE7C7E800807145 /* UIBarButtonItem+Extension.m */; };
 		A897962C1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A89796281FE7C7E800807145 /* UIBarButtonItem+Extension.m */; };
+		A89BDEAE1FE8F60000FE12B1 /* CBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */; };
+		A89BDEAF1FE8F60000FE12B1 /* CBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */; };
+		A89BDEB01FE8F60000FE12B1 /* CBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */; };
 		A8ACB3891FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
 		A8ACB38A1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
 		A8ACB38B1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
@@ -114,6 +117,7 @@
 		A8BCFF631FD68E860094B423 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCFF621FD68E860094B423 /* main.m */; };
 		A8BCFF6D1FD68E860094B423 /* BasicUtilsTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCFF6C1FD68E860094B423 /* BasicUtilsTestTests.m */; };
 		A8BCFF781FD68E860094B423 /* BasicUtilsTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCFF771FD68E860094B423 /* BasicUtilsTestUITests.m */; };
+		B3E2789C0F0B94B49B25EF6B /* libPods-BasicUtilsTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0111A4125F4AA8ECD33A8CD /* libPods-BasicUtilsTest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +138,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06BAEDB2E12CE79118C6E904 /* Pods-BasicUtilsTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicUtilsTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasicUtilsTest/Pods-BasicUtilsTest.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B7FF71FD7DD3700BD0F7E /* bank.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bank.plist; sourceTree = "<group>"; };
 		A82B7FFC1FD7DE5600BD0F7E /* CBBasicVCHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBasicVCHeader.h; sourceTree = "<group>"; };
 		A82B7FFD1FD7DE5600BD0F7E /* ABMustLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMustLable.h; sourceTree = "<group>"; };
@@ -178,6 +183,8 @@
 		A82B804C1FD7E45400BD0F7E /* UIView+toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+toast.m"; sourceTree = "<group>"; };
 		A89796281FE7C7E800807145 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		A89796291FE7C7E800807145 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		A89BDEAC1FE8F60000FE12B1 /* CBPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPickerView.h; sourceTree = "<group>"; };
+		A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPickerView.m; sourceTree = "<group>"; };
 		A8ACB3831FDFC04800BE0668 /* UIView+WhenTappendBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WhenTappendBlocks.h"; sourceTree = "<group>"; };
 		A8ACB3841FDFC04900BE0668 /* UIControl+acceptEventInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+acceptEventInterval.h"; sourceTree = "<group>"; };
 		A8ACB3851FDFC04900BE0668 /* UIView+screenshots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+screenshots.h"; sourceTree = "<group>"; };
@@ -216,6 +223,8 @@
 		A8BCFF731FD68E860094B423 /* BasicUtilsTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasicUtilsTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCFF771FD68E860094B423 /* BasicUtilsTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicUtilsTestUITests.m; sourceTree = "<group>"; };
 		A8BCFF791FD68E860094B423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0111A4125F4AA8ECD33A8CD /* libPods-BasicUtilsTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasicUtilsTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAC7A3E67DBD1315B0BC6F35 /* Pods-BasicUtilsTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicUtilsTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasicUtilsTest/Pods-BasicUtilsTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3E2789C0F0B94B49B25EF6B /* libPods-BasicUtilsTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +253,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B305022DBAA37254FADDE1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0111A4125F4AA8ECD33A8CD /* libPods-BasicUtilsTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F05E2316A79D2480D74A8BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06BAEDB2E12CE79118C6E904 /* Pods-BasicUtilsTest.debug.xcconfig */,
+				FAC7A3E67DBD1315B0BC6F35 /* Pods-BasicUtilsTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A82B7FF61FD7DD3700BD0F7E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +311,8 @@
 				A82B80271FD7E2C600BD0F7E /* LvInputView.xib */,
 				A82B80281FD7E2C600BD0F7E /* XXTextView.h */,
 				A82B802B1FD7E2C600BD0F7E /* XXTextView.m */,
+				A89BDEAC1FE8F60000FE12B1 /* CBPickerView.h */,
+				A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */,
 			);
 			path = BasicClass;
 			sourceTree = "<group>";
@@ -380,6 +409,8 @@
 				A8BCFF6B1FD68E860094B423 /* BasicUtilsTestTests */,
 				A8BCFF761FD68E860094B423 /* BasicUtilsTestUITests */,
 				A8BCFF511FD68E860094B423 /* Products */,
+				8F05E2316A79D2480D74A8BD /* Pods */,
+				8B305022DBAA37254FADDE1B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -435,9 +466,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8BCFF7C1FD68E860094B423 /* Build configuration list for PBXNativeTarget "BasicUtilsTest" */;
 			buildPhases = (
+				31753745CA293C8A6DEC211A /* [CP] Check Pods Manifest.lock */,
 				A8BCFF4C1FD68E860094B423 /* Sources */,
 				A8BCFF4D1FD68E860094B423 /* Frameworks */,
 				A8BCFF4E1FD68E860094B423 /* Resources */,
+				1458032EA4A59566DDE8D56A /* [CP] Embed Pods Frameworks */,
+				B43D28F2F19F3F3DD41227AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -565,6 +599,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1458032EA4A59566DDE8D56A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasicUtilsTest/Pods-BasicUtilsTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		31753745CA293C8A6DEC211A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BasicUtilsTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B43D28F2F19F3F3DD41227AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasicUtilsTest/Pods-BasicUtilsTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A8BCFF4C1FD68E860094B423 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -593,6 +678,7 @@
 				A82B802F1FD7E2C600BD0F7E /* CBTextField.m in Sources */,
 				A8BCFF631FD68E860094B423 /* main.m in Sources */,
 				A82B802C1FD7E2C600BD0F7E /* LvInputView.m in Sources */,
+				A89BDEAE1FE8F60000FE12B1 /* CBPickerView.m in Sources */,
 				A8ACB3891FDFC04A00BE0668 /* UIView+screenshots.m in Sources */,
 				A8ACB3A01FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A82B80541FD7E45400BD0F7E /* UIView+IB.m in Sources */,
@@ -617,6 +703,7 @@
 				A82B801F1FD7E1E000BD0F7E /* ABwebView.m in Sources */,
 				A8ACB3901FDFC04A00BE0668 /* UIView+WhenTappendBlocks.m in Sources */,
 				A82B80161FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
+				A89BDEAF1FE8F60000FE12B1 /* CBPickerView.m in Sources */,
 				A8BCFF6D1FD68E860094B423 /* BasicUtilsTestTests.m in Sources */,
 				A82B80191FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
 				A82B80611FD7E45400BD0F7E /* UIView+DDAddition.m in Sources */,
@@ -655,6 +742,7 @@
 				A82B80201FD7E1E000BD0F7E /* ABwebView.m in Sources */,
 				A8ACB3911FDFC04A00BE0668 /* UIView+WhenTappendBlocks.m in Sources */,
 				A82B80171FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
+				A89BDEB01FE8F60000FE12B1 /* CBPickerView.m in Sources */,
 				A8BCFF781FD68E860094B423 /* BasicUtilsTestUITests.m in Sources */,
 				A82B801A1FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
 				A82B80621FD7E45400BD0F7E /* UIView+DDAddition.m in Sources */,
@@ -823,6 +911,7 @@
 		};
 		A8BCFF7D1FD68E860094B423 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06BAEDB2E12CE79118C6E904 /* Pods-BasicUtilsTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -837,6 +926,7 @@
 		};
 		A8BCFF7E1FD68E860094B423 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAC7A3E67DBD1315B0BC6F35 /* Pods-BasicUtilsTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

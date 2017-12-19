@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CBBasicUtils"
-  s.version      = "0.9.92"
+  s.version      = "0.9.93"
   s.summary      = "caobo's BasicUtils."
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/caobo56/CBBasicUtils.git", :tag => "0.9.92" }
+  s.source       = { :git => "https://github.com/caobo56/CBBasicUtils.git", :tag => "0.9.93" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -92,12 +92,6 @@ Pod::Spec.new do |s|
   #
 
   s.default_subspec = 'Requset','MacroAndConstant','Util','BasicVC','BasicClass','Catergory'
-
-  s.subspec "Requset" do |re|
-    re.source_files = 'src/Requset/*.{h,m}'
-    re.public_header_files = "src/Requset/*.h"
-    re.frameworks = 'UIKit','Foundation'
-  end
 
   s.subspec "MacroAndConstant" do |mc|
     mc.source_files = 'src/MacroAndConstant/*.{h,m}'
@@ -112,6 +106,12 @@ Pod::Spec.new do |s|
     util.frameworks = 'UIKit','Foundation','QuartzCore'
   end
 
+  s.subspec "Catergory" do |ca|
+    ca.source_files = 'src/Catergory/*.{h,m}'
+    ca.public_header_files = "src/Catergory/*.h"
+    ca.frameworks = 'UIKit','Foundation','QuartzCore'
+  end
+
   s.subspec "BasicVC" do |bv|
     bv.source_files = 'src/BasicVC/*.{h,m}'
     bv.public_header_files = "src/BasicVC/*.h"
@@ -124,13 +124,17 @@ Pod::Spec.new do |s|
     bc.public_header_files = "src/BasicClass/*.h"
     bc.frameworks = 'UIKit','Foundation'
     bc.resources = 'src/BasicClass/*.xib'
+    bc.dependency = 'CBBasicUtils/MacroAndConstant'
+    bc.dependency = 'CBBasicUtils/Catergory'
+    bc.dependency = 'Masonry'
   end
 
-  s.subspec "Catergory" do |ca|
-    ca.source_files = 'src/Catergory/*.{h,m}'
-    ca.public_header_files = "src/Catergory/*.h"
-    ca.frameworks = 'UIKit','Foundation','QuartzCore'
+  s.subspec "Requset" do |re|
+    re.source_files = 'src/Requset/*.{h,m}'
+    re.public_header_files = "src/Requset/*.h"
+    re.frameworks = 'UIKit','Foundation'
   end
+
   # s.public_header_files = "Classes/**/*.h"
 
 
