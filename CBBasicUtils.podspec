@@ -124,9 +124,9 @@ Pod::Spec.new do |s|
     bc.public_header_files = "src/BasicClass/*.h"
     bc.frameworks = 'UIKit','Foundation'
     bc.resources = 'src/BasicClass/*.xib'
-    bc.dependency = 'CBBasicUtils/MacroAndConstant'
-    bc.dependency = 'CBBasicUtils/Catergory'
-    bc.dependency = 'Masonry'
+    bc.dependency 'Masonry'
+    # bc.dependency 'CBBasicUtils/MacroAndConstant'
+    # bc.dependency 'CBBasicUtils/Catergory'
   end
 
   s.subspec "Requset" do |re|

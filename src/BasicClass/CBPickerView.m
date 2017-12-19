@@ -8,9 +8,11 @@
 
 #import "CBPickerView.h"
 #import "LvInputView.h"
-#import "ABCreditHeader.h"
-#import "UIView+DDAddition.h"
-#import <Masonry.h>
+#import "Masonry.h"
+
+#define SCREEN_HEIGHTL [UIScreen mainScreen].bounds.size.height
+#define SCREEN_WIDTHL [UIScreen mainScreen].bounds.size.width
+#define RGBAlpha(rgbValue,alphaValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:alphaValue]
 
 @interface CBPickerView()<UIPickerViewDelegate,UIPickerViewDataSource>
 
@@ -38,8 +40,7 @@
 }
 
 -(void)addSubview{
-    self.width = SCREEN_WIDTHL;
-    self.height = SCREEN_HEIGHTL;
+    [self setFrame:CGRectMake(0, 0, SCREEN_WIDTHL, SCREEN_HEIGHTL)];
     self.backgroundColor = RGBAlpha(0x000000, 0.5);
     
     _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHTL-216, SCREEN_WIDTHL, 216)];
@@ -128,3 +129,4 @@
 }
 
 @end
+
