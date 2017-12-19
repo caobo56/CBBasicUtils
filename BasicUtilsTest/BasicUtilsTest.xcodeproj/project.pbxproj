@@ -16,9 +16,6 @@
 		A82B800C1FD7DE5600BD0F7E /* ABTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFF1FD7DE5600BD0F7E /* ABTableVC.m */; };
 		A82B800D1FD7DE5600BD0F7E /* ABTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFF1FD7DE5600BD0F7E /* ABTableVC.m */; };
 		A82B800E1FD7DE5600BD0F7E /* ABTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFF1FD7DE5600BD0F7E /* ABTableVC.m */; };
-		A82B800F1FD7DE5600BD0F7E /* ABImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80001FD7DE5600BD0F7E /* ABImagePicker.m */; };
-		A82B80101FD7DE5600BD0F7E /* ABImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80001FD7DE5600BD0F7E /* ABImagePicker.m */; };
-		A82B80111FD7DE5600BD0F7E /* ABImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80001FD7DE5600BD0F7E /* ABImagePicker.m */; };
 		A82B80121FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80011FD7DE5600BD0F7E /* ABRootNavVC.m */; };
 		A82B80131FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80011FD7DE5600BD0F7E /* ABRootNavVC.m */; };
 		A82B80141FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80011FD7DE5600BD0F7E /* ABRootNavVC.m */; };
@@ -144,11 +141,9 @@
 		A82B7FFD1FD7DE5600BD0F7E /* ABMustLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMustLable.h; sourceTree = "<group>"; };
 		A82B7FFE1FD7DE5600BD0F7E /* ABBasicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBasicVC.m; sourceTree = "<group>"; };
 		A82B7FFF1FD7DE5600BD0F7E /* ABTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTableVC.m; sourceTree = "<group>"; };
-		A82B80001FD7DE5600BD0F7E /* ABImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABImagePicker.m; sourceTree = "<group>"; };
 		A82B80011FD7DE5600BD0F7E /* ABRootNavVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRootNavVC.m; sourceTree = "<group>"; };
 		A82B80021FD7DE5600BD0F7E /* DATabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATabBarVC.m; sourceTree = "<group>"; };
 		A82B80031FD7DE5600BD0F7E /* ABMustLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABMustLable.m; sourceTree = "<group>"; };
-		A82B80041FD7DE5600BD0F7E /* ABImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABImagePicker.h; sourceTree = "<group>"; };
 		A82B80051FD7DE5600BD0F7E /* ABTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTableVC.h; sourceTree = "<group>"; };
 		A82B80061FD7DE5600BD0F7E /* ABBasicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBasicVC.h; sourceTree = "<group>"; };
 		A82B80071FD7DE5600BD0F7E /* ABRootNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRootNavVC.h; sourceTree = "<group>"; };
@@ -283,8 +278,6 @@
 			children = (
 				A82B80061FD7DE5600BD0F7E /* ABBasicVC.h */,
 				A82B7FFE1FD7DE5600BD0F7E /* ABBasicVC.m */,
-				A82B80041FD7DE5600BD0F7E /* ABImagePicker.h */,
-				A82B80001FD7DE5600BD0F7E /* ABImagePicker.m */,
 				A82B7FFD1FD7DE5600BD0F7E /* ABMustLable.h */,
 				A82B80031FD7DE5600BD0F7E /* ABMustLable.m */,
 				A82B80071FD7DE5600BD0F7E /* ABRootNavVC.h */,
@@ -662,7 +655,6 @@
 				A8BC02BA1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
 				A82B801E1FD7E1E000BD0F7E /* ABwebView.m in Sources */,
 				A897962A1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */,
-				A82B800F1FD7DE5600BD0F7E /* ABImagePicker.m in Sources */,
 				A82B80151FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
 				A82B80091FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
 				A82B805A1FD7E45400BD0F7E /* NSDictionary+NullResult.m in Sources */,
@@ -716,7 +708,6 @@
 				A82B80551FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80641FD7E45400BD0F7E /* UIImage+Color.m in Sources */,
 				A8BC02C11FD7C77A0094B423 /* MentoreUitls.m in Sources */,
-				A82B80101FD7DE5600BD0F7E /* ABImagePicker.m in Sources */,
 				A82B800D1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
 				A82B80581FD7E45400BD0F7E /* MBProgressHUD.m in Sources */,
 				A82B800A1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
@@ -755,7 +746,6 @@
 				A82B80561FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80651FD7E45400BD0F7E /* UIImage+Color.m in Sources */,
 				A8BC02C21FD7C77A0094B423 /* MentoreUitls.m in Sources */,
-				A82B80111FD7DE5600BD0F7E /* ABImagePicker.m in Sources */,
 				A82B800E1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
 				A82B80591FD7E45400BD0F7E /* MBProgressHUD.m in Sources */,
 				A82B800B1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
