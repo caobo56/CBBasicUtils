@@ -103,9 +103,6 @@
 		A8BC02BA1FD7C77A0094B423 /* CBVerifyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */; };
 		A8BC02BB1FD7C77A0094B423 /* CBVerifyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */; };
 		A8BC02BC1FD7C77A0094B423 /* CBVerifyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */; };
-		A8BC02C01FD7C77A0094B423 /* MentoreUitls.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */; };
-		A8BC02C11FD7C77A0094B423 /* MentoreUitls.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */; };
-		A8BC02C21FD7C77A0094B423 /* MentoreUitls.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */; };
 		A8BCFF551FD68E860094B423 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCFF541FD68E860094B423 /* AppDelegate.m */; };
 		A8BCFF581FD68E860094B423 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCFF571FD68E860094B423 /* ViewController.m */; };
 		A8BCFF5B1FD68E860094B423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BCFF591FD68E860094B423 /* Main.storyboard */; };
@@ -198,8 +195,6 @@
 		A8BC02A81FD7C77A0094B423 /* CBUtilsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUtilsHeader.h; sourceTree = "<group>"; };
 		A8BC02A91FD7C77A0094B423 /* JsonFileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonFileUtils.m; sourceTree = "<group>"; };
 		A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBVerifyTool.m; sourceTree = "<group>"; };
-		A8BC02AC1FD7C77A0094B423 /* MentoreUitls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MentoreUitls.h; sourceTree = "<group>"; };
-		A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MentoreUitls.m; sourceTree = "<group>"; };
 		A8BC02B01FD7C77A0094B423 /* CBVerifyTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBVerifyTool.h; sourceTree = "<group>"; };
 		A8BC02B21FD7C77A0094B423 /* JsonFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonFileUtils.h; sourceTree = "<group>"; };
 		A8BCFF501FD68E860094B423 /* BasicUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -385,8 +380,6 @@
 				A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */,
 				A8BC02B21FD7C77A0094B423 /* JsonFileUtils.h */,
 				A8BC02A91FD7C77A0094B423 /* JsonFileUtils.m */,
-				A8BC02AC1FD7C77A0094B423 /* MentoreUitls.h */,
-				A8BC02AF1FD7C77A0094B423 /* MentoreUitls.m */,
 				A8ACB39C1FDFF44C00BE0668 /* CoreAnimationEffect.h */,
 				A8ACB39E1FDFF44C00BE0668 /* CoreAnimationEffect.m */,
 				A8ACB39D1FDFF44C00BE0668 /* JsonHelper.h */,
@@ -680,7 +673,6 @@
 				A82B80511FD7E45400BD0F7E /* UIColor+Help.m in Sources */,
 				A82B80601FD7E45400BD0F7E /* UIView+DDAddition.m in Sources */,
 				A82B80121FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */,
-				A8BC02C01FD7C77A0094B423 /* MentoreUitls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,7 +699,6 @@
 				A897962B1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */,
 				A82B80551FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80641FD7E45400BD0F7E /* UIImage+Color.m in Sources */,
-				A8BC02C11FD7C77A0094B423 /* MentoreUitls.m in Sources */,
 				A82B800D1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
 				A82B80581FD7E45400BD0F7E /* MBProgressHUD.m in Sources */,
 				A82B800A1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
@@ -745,7 +736,6 @@
 				A897962C1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */,
 				A82B80561FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80651FD7E45400BD0F7E /* UIImage+Color.m in Sources */,
-				A8BC02C21FD7C77A0094B423 /* MentoreUitls.m in Sources */,
 				A82B800E1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
 				A82B80591FD7E45400BD0F7E /* MBProgressHUD.m in Sources */,
 				A82B800B1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
