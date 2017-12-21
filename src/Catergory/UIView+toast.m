@@ -100,13 +100,12 @@ static const float kMargin = 15;
 
 - (void)hideLodingViewWithSuccessMessage:(NSString *)message complete:(void (^)(void))complete
 {
-    UIImage *image = [[UIImage imageNamed:@"success"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *image = [[UIImage imageNamed:@"cb_success"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self hideLodingViewWithTitle:message details:nil image:image duration:kDuration completion:complete];
-
 }
 
 - (void)hideLodingViewWithErrorMessage:(NSString *)message complete:(void (^)(void))complete{
-    UIImage *image = [[UIImage imageNamed:@"error"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *image = [[UIImage imageNamed:@"cb_error"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self hideLodingViewWithTitle:message details:nil image:image duration:kDuration completion:complete];
 }
 

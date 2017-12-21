@@ -20,7 +20,6 @@
     return data;
 }
 
-
 + (id)toArrayOrNSDictionary:(NSData *)jsonData{
     NSError *error = nil;
     id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData
