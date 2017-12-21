@@ -109,7 +109,7 @@ Pod::Spec.new do |s|
   s.subspec "Catergory" do |ca|
     ca.source_files = 'src/Catergory/*.{h,m}'
     ca.public_header_files = "src/Catergory/*.h"
-    ca.resources = "src/Catergory/resource/images/*.png"
+    ca.resources = "src/Catergory/image/*.png"
     ca.dependency 'MBProgressHUD'
     ca.frameworks = 'UIKit','Foundation','QuartzCore'
   end
