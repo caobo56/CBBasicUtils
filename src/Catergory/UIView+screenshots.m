@@ -12,9 +12,9 @@
 /**
  *  获取全屏截图
  */
-- (UIImage *)p_getFullScreenshotsWithView:(UIView *)view
+- (UIImage *)p_getFullScreenshots
 {
-    UIGraphicsBeginImageContext(view.bounds.size);
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, 0.0);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

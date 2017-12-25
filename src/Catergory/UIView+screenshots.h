@@ -13,6 +13,6 @@
 /**
  *  获取全屏截图
  */
-- (UIImage *)p_getFullScreenshotsWithView:(UIView *)view;
+- (UIImage *)p_getFullScreenshots;
 
 @end
