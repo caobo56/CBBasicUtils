@@ -85,6 +85,7 @@
 		A89BDEAE1FE8F60000FE12B1 /* CBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */; };
 		A89BDEAF1FE8F60000FE12B1 /* CBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */; };
 		A89BDEB01FE8F60000FE12B1 /* CBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */; };
+		A8A2BFEF20070E8500CF2275 /* LoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A2BFED20070E8400CF2275 /* LoopProgressView.m */; };
 		A8ACB3891FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
 		A8ACB38A1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
 		A8ACB38B1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
@@ -188,6 +189,8 @@
 		A89796291FE7C7E800807145 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		A89BDEAC1FE8F60000FE12B1 /* CBPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPickerView.h; sourceTree = "<group>"; };
 		A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPickerView.m; sourceTree = "<group>"; };
+		A8A2BFED20070E8400CF2275 /* LoopProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopProgressView.m; sourceTree = "<group>"; };
+		A8A2BFEE20070E8400CF2275 /* LoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopProgressView.h; sourceTree = "<group>"; };
 		A8ACB3831FDFC04800BE0668 /* UIView+WhenTappendBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WhenTappendBlocks.h"; sourceTree = "<group>"; };
 		A8ACB3841FDFC04900BE0668 /* UIControl+acceptEventInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+acceptEventInterval.h"; sourceTree = "<group>"; };
 		A8ACB3851FDFC04900BE0668 /* UIView+screenshots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+screenshots.h"; sourceTree = "<group>"; };
@@ -312,6 +315,8 @@
 				A82B802B1FD7E2C600BD0F7E /* XXTextView.m */,
 				A89BDEAC1FE8F60000FE12B1 /* CBPickerView.h */,
 				A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */,
+				A8A2BFEE20070E8400CF2275 /* LoopProgressView.h */,
+				A8A2BFED20070E8400CF2275 /* LoopProgressView.m */,
 			);
 			path = BasicClass;
 			sourceTree = "<group>";
@@ -697,6 +702,7 @@
 				A82B802C1FD7E2C600BD0F7E /* LvInputView.m in Sources */,
 				A89BDEAE1FE8F60000FE12B1 /* CBPickerView.m in Sources */,
 				A8ACB3891FDFC04A00BE0668 /* UIView+screenshots.m in Sources */,
+				A8A2BFEF20070E8500CF2275 /* LoopProgressView.m in Sources */,
 				A8ACB3A01FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A82B80541FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80181FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
