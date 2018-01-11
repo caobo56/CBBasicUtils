@@ -10,7 +10,8 @@ inhibit_all_warnings!
 target 'BasicUtilsTest' do
     pod 'Masonry'
     pod 'MBProgressHUD'
-    
+    pod 'IGListKit'
+
 post_install do |installer|
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|
