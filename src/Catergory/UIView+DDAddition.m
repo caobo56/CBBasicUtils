@@ -292,7 +292,7 @@
     return nil;
 }
 
-- (UIView*)copy
+- (UIView*)copyView
 {
     NSData * tempArchive = [NSKeyedArchiver archivedDataWithRootObject:self];
     return [NSKeyedUnarchiver unarchiveObjectWithData:tempArchive];

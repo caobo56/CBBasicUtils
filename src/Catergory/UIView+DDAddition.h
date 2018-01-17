@@ -166,5 +166,5 @@
 
  @return return value description
  */
-- (UIView*)copy;
+- (UIView*)copyView;
 @end
