@@ -86,6 +86,10 @@
 		A89BDEAF1FE8F60000FE12B1 /* CBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */; };
 		A89BDEB01FE8F60000FE12B1 /* CBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */; };
 		A8A2BFEF20070E8500CF2275 /* LoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A2BFED20070E8400CF2275 /* LoopProgressView.m */; };
+		A8A2BFF220073FD600CF2275 /* UIButton+MCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A2BFF120073FD600CF2275 /* UIButton+MCLayout.m */; };
+		A8A2BFFA2007568000CF2275 /* NSObject+SwizzleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A2BFF52007568000CF2275 /* NSObject+SwizzleMethod.m */; };
+		A8A2BFFB2007568000CF2275 /* NSArray+ErrorHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A2BFF62007568000CF2275 /* NSArray+ErrorHandle.m */; };
+		A8A2BFFC2007568000CF2275 /* NSMutableArray+ErrorHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A2BFF82007568000CF2275 /* NSMutableArray+ErrorHandle.m */; };
 		A8ACB3891FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
 		A8ACB38A1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
 		A8ACB38B1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
@@ -191,6 +195,14 @@
 		A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPickerView.m; sourceTree = "<group>"; };
 		A8A2BFED20070E8400CF2275 /* LoopProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopProgressView.m; sourceTree = "<group>"; };
 		A8A2BFEE20070E8400CF2275 /* LoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopProgressView.h; sourceTree = "<group>"; };
+		A8A2BFF020073FD600CF2275 /* UIButton+MCLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+MCLayout.h"; sourceTree = "<group>"; };
+		A8A2BFF120073FD600CF2275 /* UIButton+MCLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+MCLayout.m"; sourceTree = "<group>"; };
+		A8A2BFF42007567F00CF2275 /* NSMutableArray+ErrorHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ErrorHandle.h"; sourceTree = "<group>"; };
+		A8A2BFF52007568000CF2275 /* NSObject+SwizzleMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SwizzleMethod.m"; sourceTree = "<group>"; };
+		A8A2BFF62007568000CF2275 /* NSArray+ErrorHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ErrorHandle.m"; sourceTree = "<group>"; };
+		A8A2BFF72007568000CF2275 /* NSArray+ErrorHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ErrorHandle.h"; sourceTree = "<group>"; };
+		A8A2BFF82007568000CF2275 /* NSMutableArray+ErrorHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ErrorHandle.m"; sourceTree = "<group>"; };
+		A8A2BFF92007568000CF2275 /* NSObject+SwizzleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SwizzleMethod.h"; sourceTree = "<group>"; };
 		A8ACB3831FDFC04800BE0668 /* UIView+WhenTappendBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WhenTappendBlocks.h"; sourceTree = "<group>"; };
 		A8ACB3841FDFC04900BE0668 /* UIControl+acceptEventInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+acceptEventInterval.h"; sourceTree = "<group>"; };
 		A8ACB3851FDFC04900BE0668 /* UIView+screenshots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+screenshots.h"; sourceTree = "<group>"; };
@@ -324,6 +336,7 @@
 		A82B80381FD7E45400BD0F7E /* Catergory */ = {
 			isa = PBXGroup;
 			children = (
+				A8A2BFF32007567B00CF2275 /* ArrBounds */,
 				A882D8581FEB47E00016AB0F /* image */,
 				A82B80491FD7E45400BD0F7E /* NSDictionary+NullResult.h */,
 				A82B803E1FD7E45400BD0F7E /* NSDictionary+NullResult.m */,
@@ -349,6 +362,8 @@
 				A8ACB3881FDFC04900BE0668 /* UIView+WhenTappendBlocks.m */,
 				A89796291FE7C7E800807145 /* UIBarButtonItem+Extension.h */,
 				A89796281FE7C7E800807145 /* UIBarButtonItem+Extension.m */,
+				A8A2BFF020073FD600CF2275 /* UIButton+MCLayout.h */,
+				A8A2BFF120073FD600CF2275 /* UIButton+MCLayout.m */,
 			);
 			path = Catergory;
 			sourceTree = "<group>";
@@ -362,6 +377,19 @@
 				A882D85C1FEB47E00016AB0F /* cb_error@2x.png */,
 			);
 			path = image;
+			sourceTree = "<group>";
+		};
+		A8A2BFF32007567B00CF2275 /* ArrBounds */ = {
+			isa = PBXGroup;
+			children = (
+				A8A2BFF72007568000CF2275 /* NSArray+ErrorHandle.h */,
+				A8A2BFF62007568000CF2275 /* NSArray+ErrorHandle.m */,
+				A8A2BFF42007567F00CF2275 /* NSMutableArray+ErrorHandle.h */,
+				A8A2BFF82007568000CF2275 /* NSMutableArray+ErrorHandle.m */,
+				A8A2BFF92007568000CF2275 /* NSObject+SwizzleMethod.h */,
+				A8A2BFF52007568000CF2275 /* NSObject+SwizzleMethod.m */,
+			);
+			path = ArrBounds;
 			sourceTree = "<group>";
 		};
 		A8BC02431FD7C47A0094B423 /* src */ = {
@@ -682,6 +710,7 @@
 				A8BC024D1FD7C47A0094B423 /* APIClient.m in Sources */,
 				A8ACB3A31FDFF44C00BE0668 /* JsonHelper.m in Sources */,
 				A82B80351FD7E2C600BD0F7E /* XXTextView.m in Sources */,
+				A8A2BFFA2007568000CF2275 /* NSObject+SwizzleMethod.m in Sources */,
 				A8BC02BA1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
 				A82B801E1FD7E1E000BD0F7E /* ABwebView.m in Sources */,
 				A897962A1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */,
@@ -693,6 +722,7 @@
 				A82B804E1FD7E45400BD0F7E /* NSString+URL.m in Sources */,
 				A82B800C1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
 				A82B80661FD7E45400BD0F7E /* UIView+toast.m in Sources */,
+				A8A2BFF220073FD600CF2275 /* UIButton+MCLayout.m in Sources */,
 				A8BCFF581FD68E860094B423 /* ViewController.m in Sources */,
 				A8BC024A1FD7C47A0094B423 /* CBURLSession.m in Sources */,
 				A8BC02B41FD7C77A0094B423 /* JsonFileUtils.m in Sources */,
@@ -705,7 +735,9 @@
 				A8A2BFEF20070E8500CF2275 /* LoopProgressView.m in Sources */,
 				A8ACB3A01FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A82B80541FD7E45400BD0F7E /* UIView+IB.m in Sources */,
+				A8A2BFFB2007568000CF2275 /* NSArray+ErrorHandle.m in Sources */,
 				A82B80181FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
+				A8A2BFFC2007568000CF2275 /* NSMutableArray+ErrorHandle.m in Sources */,
 				A8BCFF551FD68E860094B423 /* AppDelegate.m in Sources */,
 				A8ACB38F1FDFC04A00BE0668 /* UIView+WhenTappendBlocks.m in Sources */,
 				A82B80511FD7E45400BD0F7E /* UIColor+Help.m in Sources */,

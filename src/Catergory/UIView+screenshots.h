@@ -15,4 +15,8 @@
  */
 - (UIImage *)p_getFullScreenshots;
 
+
+- (UIImage *)p_getScreenshotsSubView:(UIView *)view;
+
+
 @end
