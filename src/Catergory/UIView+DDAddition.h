@@ -161,4 +161,10 @@
 
 
 
+/**
+ copy
+
+ @return return value description
+ */
+- (UIView*)copy;
 @end
