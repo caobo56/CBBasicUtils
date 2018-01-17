@@ -90,6 +90,7 @@
 		A8A74C61200F237700A29841 /* NSObject+SwizzleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A74C5B200F237700A29841 /* NSObject+SwizzleMethod.m */; };
 		A8A74C62200F237700A29841 /* NSArray+ErrorHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A74C5C200F237700A29841 /* NSArray+ErrorHandle.m */; };
 		A8A74C63200F237700A29841 /* NSMutableArray+ErrorHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A74C5D200F237700A29841 /* NSMutableArray+ErrorHandle.m */; };
+		A8A74C73200F29DE00A29841 /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A74C71200F29DD00A29841 /* NSTimer+Addition.m */; };
 		A8ACB3891FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
 		A8ACB38A1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
 		A8ACB38B1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
@@ -203,6 +204,8 @@
 		A8A74C5E200F237700A29841 /* NSArray+ErrorHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ErrorHandle.h"; sourceTree = "<group>"; };
 		A8A74C5F200F237700A29841 /* NSObject+SwizzleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SwizzleMethod.h"; sourceTree = "<group>"; };
 		A8A74C60200F237700A29841 /* NSMutableArray+ErrorHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ErrorHandle.h"; sourceTree = "<group>"; };
+		A8A74C71200F29DD00A29841 /* NSTimer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Addition.m"; sourceTree = "<group>"; };
+		A8A74C72200F29DD00A29841 /* NSTimer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Addition.h"; sourceTree = "<group>"; };
 		A8ACB3831FDFC04800BE0668 /* UIView+WhenTappendBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WhenTappendBlocks.h"; sourceTree = "<group>"; };
 		A8ACB3841FDFC04900BE0668 /* UIControl+acceptEventInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+acceptEventInterval.h"; sourceTree = "<group>"; };
 		A8ACB3851FDFC04900BE0668 /* UIView+screenshots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+screenshots.h"; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 				A882D8581FEB47E00016AB0F /* image */,
 				A82B80491FD7E45400BD0F7E /* NSDictionary+NullResult.h */,
 				A82B803E1FD7E45400BD0F7E /* NSDictionary+NullResult.m */,
+				A8A74C72200F29DD00A29841 /* NSTimer+Addition.h */,
+				A8A74C71200F29DD00A29841 /* NSTimer+Addition.m */,
 				A82B80461FD7E45400BD0F7E /* NSString+URL.h */,
 				A82B80391FD7E45400BD0F7E /* NSString+URL.m */,
 				A82B80471FD7E45400BD0F7E /* UIColor+Help.h */,
@@ -721,6 +726,7 @@
 				A8ACB38C1FDFC04A00BE0668 /* UIControl+acceptEventInterval.m in Sources */,
 				A82B804E1FD7E45400BD0F7E /* NSString+URL.m in Sources */,
 				A82B800C1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
+				A8A74C73200F29DE00A29841 /* NSTimer+Addition.m in Sources */,
 				A82B80661FD7E45400BD0F7E /* UIView+toast.m in Sources */,
 				A8A2BFF220073FD600CF2275 /* UIButton+MCLayout.m in Sources */,
 				A8BCFF581FD68E860094B423 /* ViewController.m in Sources */,
