@@ -48,7 +48,7 @@
     if (idx < self.count) {
         return [self sxy_objectAtIndexedSubscript:idx];
     }else{
-        NSLog(@" 你的 NSArray数组已经越界了 但是已经帮你处理好了  %ld   %ld", idx, self.count);
+        NSLog(@" 你的 NSArray数组已经越界了 但是已经帮你处理好了  %ld   %ld", (long)idx, (long)self.count);
         return nil;
     }
 }
@@ -57,7 +57,7 @@
     if (index < self.count) {
         return [self sxy_objectAtIndex:index];
     }else{
-        NSLog(@" 你的 NSArray数组已经越界了 但是已经帮你处理好了  %ld   %ld", index, self.count);
+        NSLog(@" 你的 NSArray数组已经越界了 但是已经帮你处理好了  %ld   %ld", (long)index, (long)self.count);
         
         return nil;
     }

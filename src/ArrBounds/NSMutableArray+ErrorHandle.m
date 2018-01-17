@@ -45,7 +45,7 @@
         return [self jz_objectAtIndex:index];
     }else{
         
-        NSLog(@" 你的NSMutableArray数组已经越界 帮你处理好了%ld   %ld   %@", index, self.count, [self class]);
+        NSLog(@" 你的NSMutableArray数组已经越界 帮你处理好了%ld   %ld   %@", (long)index, (long)self.count, [self class]);
         return nil;
     }
 }
@@ -54,7 +54,7 @@
 
         return [self jz_objectAtIndexedSubscript:index];
     }else{
-        NSLog(@" 你的NSMutableArray数组已经越界 帮你处理好了%ld   %ld   %@", index, self.count, [self class]);
+        NSLog(@" 你的NSMutableArray数组已经越界 帮你处理好了%ld   %ld   %@", (long)index, (long)self.count, [self class]);
         return nil;
     }
 }
