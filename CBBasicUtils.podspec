@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CBBasicUtils"
-  s.version      = "1.0.05"
+  s.version      = "1.0.06"
   s.summary      = "caobo's BasicUtils."
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/caobo56/CBBasicUtils.git", :tag => "1.0.05" }
+  s.source       = { :git => "https://github.com/caobo56/CBBasicUtils.git", :tag => "1.0.06" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,7 +91,12 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.default_subspec = 'Requset','MacroAndConstant','Util','BasicVC','BasicClass','Catergory'
+  s.default_subspec = 'ArrBounds','Requset','MacroAndConstant','Util','BasicVC','BasicClass','Catergory'
+
+  s.subspec "ArrBounds" do |mc|
+    mc.source_files = 'src/ArrBounds/*.{h,m}'
+    mc.public_header_files = "src/ArrBounds/*.h"
+  end
 
   s.subspec "MacroAndConstant" do |mc|
     mc.source_files = 'src/MacroAndConstant/*.{h,m}'
