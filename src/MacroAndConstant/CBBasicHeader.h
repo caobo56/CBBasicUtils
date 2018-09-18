@@ -1,13 +1,13 @@
 //
-//  ABCreditHeader.h
+//  CBBasicHeader.h
 //  ABCreditApp
 //
 //  Created by caobo56 on 2017/2/14.
 //  Copyright © 2017年 caobo56. All rights reserved.
 //
 
-#ifndef ABCreditHeader_h
-#define ABCreditHeader_h
+#ifndef CBBasicHeader_h
+#define CBBasicHeader_h
 
 #define SCREENSIZE_IS_35  (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height < 568.0)
 #define SCREENSIZE_IS_40  (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 568.0)
@@ -40,4 +40,4 @@
 
 #define WeakSelf __weak typeof(self) weakSelf = self;
 
-#endif /* ABCreditHeader_h */
+#endif /* CBBasicHeader_h */

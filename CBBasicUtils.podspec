@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CBBasicUtils"
-  s.version      = "1.0.12"
+  s.version      = "1.0.15"
   s.summary      = "caobo's BasicUtils."
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/caobo56/CBBasicUtils.git", :tag => "1.0.11" }
+  s.source       = { :git => "https://github.com/caobo56/CBBasicUtils.git", :tag => "1.0.15" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -124,7 +124,6 @@ Pod::Spec.new do |s|
     bv.source_files = 'src/BasicVC/*.{h,m}'
     bv.public_header_files = "src/BasicVC/*.h"
     bv.frameworks = 'UIKit','Foundation','MobileCoreServices'
-    bv.resources = 'src/BasicVC/*.xib'
   end
 
   s.subspec "BasicClass" do |bc|

@@ -216,7 +216,7 @@
 		A8BC02471FD7C47A0094B423 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		A8BC02481FD7C47A0094B423 /* CBURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBURLSession.h; sourceTree = "<group>"; };
 		A8BC02491FD7C47A0094B423 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
-		A8BC02511FD7C6690094B423 /* ABBasicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBasicHeader.h; sourceTree = "<group>"; };
+		A8BC02511FD7C6690094B423 /* CBBasicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBasicHeader.h; sourceTree = "<group>"; };
 		A8BC02A81FD7C77A0094B423 /* CBUtilsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUtilsHeader.h; sourceTree = "<group>"; };
 		A8BC02A91FD7C77A0094B423 /* JsonFileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonFileUtils.m; sourceTree = "<group>"; };
 		A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBVerifyTool.m; sourceTree = "<group>"; };
@@ -421,7 +421,7 @@
 		A8BC02501FD7C6690094B423 /* MacroAndConstant */ = {
 			isa = PBXGroup;
 			children = (
-				A8BC02511FD7C6690094B423 /* ABBasicHeader.h */,
+				A8BC02511FD7C6690094B423 /* CBBasicHeader.h */,
 			);
 			path = MacroAndConstant;
 			sourceTree = "<group>";
