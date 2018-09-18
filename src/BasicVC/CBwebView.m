@@ -1,18 +1,18 @@
 //
-//  ABwebView.m
+//  CBwebView.m
 //  ABCreditApp
 //
 //  Created by caobo56 on 2017/7/25.
 //  Copyright © 2017年 caobo56. All rights reserved.
 //
 
-#import "ABwebView.h"
+#import "CBwebView.h"
 
-@interface ABwebView ()
+@interface CBwebView ()
 
 @end
 
-@implementation ABwebView
+@implementation CBwebView
 
 - (void)viewDidLoad {
     [super viewDidLoad];

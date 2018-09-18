@@ -1,5 +1,5 @@
 //
-//  DATabBarVC.h
+//  CBTabBarVC.h
 //  ABDigitalAsset
 //
 //  Created by caobo56 on 2017/10/30.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DATabBarVC : UITabBarController
+@interface CBTabBarVC : UITabBarController
 
 @end

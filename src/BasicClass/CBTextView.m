@@ -1,20 +1,20 @@
 //
-//  XXTextView.m
+//  CBTextView.m
 //  Remember
 //
 //  Created by Jason on 2017/5/21.
 //  Copyright © 2017年 ifelseboyxx. All rights reserved.
 //
 
-#import "XXTextView.h"
+#import "CBTextView.h"
 
-@interface XXTextView ()
+@interface CBTextView ()
 
 @property (weak, nonatomic) UILabel *placeholderLabel;
 
 @end
 
-@implementation XXTextView
+@implementation CBTextView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

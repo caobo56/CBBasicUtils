@@ -1,5 +1,5 @@
 //
-//  XXTextView.h
+//  CBTextView.h
 //  Remember
 //
 //  Created by Jason on 2017/5/21.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XXTextView : UITextView
+@interface CBTextView : UITextView
 
 @property (copy, nonatomic, nullable) IBInspectable NSString *xx_placeholder;
 

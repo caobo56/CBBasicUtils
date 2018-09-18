@@ -7,7 +7,7 @@
 //
 
 #import "CBPickerView.h"
-#import "LvInputView.h"
+#import "CBInputView.h"
 #import "Masonry.h"
 
 #define SCREEN_HEIGHTL [UIScreen mainScreen].bounds.size.height
@@ -16,7 +16,7 @@
 
 @interface CBPickerView()<UIPickerViewDelegate,UIPickerViewDataSource>
 
-@property(nonatomic,strong)LvInputView * headView;
+@property(nonatomic,strong)CBInputView * headView;
 
 @property(nonatomic,strong)UIPickerView * pickerView;
 
@@ -49,7 +49,7 @@
     _pickerView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_pickerView];
     
-    _headView = [LvInputView creatInputView];
+    _headView = [CBInputView creatInputView];
     _headView.backgroundColor = [UIColor whiteColor];
     _headView.titlelabel.text = @"请选择";
     [self addSubview:_headView];

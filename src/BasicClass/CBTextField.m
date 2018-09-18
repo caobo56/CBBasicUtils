@@ -7,7 +7,7 @@
 //
 
 #import "CBTextField.h"
-#import "LvInputView.h"
+#import "CBInputView.h"
 
 @interface CBTextField()
 
@@ -47,7 +47,7 @@
 }
 
 -(void)creatKeyBoardBar{
-    LvInputView *view = [LvInputView creatInputView];
+    CBInputView *view = [CBInputView creatInputView];
     view.titlelabel.text = _lvTitle;
     [view.cancelBtn addTarget:self action:@selector(cancelBtnClick:) forControlEvents:(UIControlEventTouchUpInside)];
     [view.completeBtn addTarget:self action:@selector(completeBtnClick:) forControlEvents:(UIControlEventTouchUpInside)];

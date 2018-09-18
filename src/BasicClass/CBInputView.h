@@ -1,5 +1,5 @@
 //
-//  LvInputView.h
+//  CBInputView.h
 //  QMB
 //
 //  Created by LC_MAC-1 on 14-8-28.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LvInputView : UIView
+@interface CBInputView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIButton *completeBtn;
 @property (weak, nonatomic) IBOutlet UILabel *titlelabel;
-+(LvInputView *)creatInputView;
++(CBInputView *)creatInputView;
 @end

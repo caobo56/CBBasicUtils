@@ -1,14 +1,14 @@
 //
-//  ABwebView.h
+//  CBwebView.h
 //  ABCreditApp
 //
 //  Created by caobo56 on 2017/7/25.
 //  Copyright © 2017年 caobo56. All rights reserved.
 //
 
-#import "ABBasicVC.h"
+#import "CBBasicVC.h"
 
-@interface ABwebView : ABBasicVC
+@interface CBwebView : CBBasicVC
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) NSString *url;

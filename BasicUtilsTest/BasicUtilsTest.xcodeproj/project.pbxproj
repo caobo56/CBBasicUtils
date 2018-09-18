@@ -10,39 +10,36 @@
 		A82B7FF81FD7DD3700BD0F7E /* bank.plist in Resources */ = {isa = PBXBuildFile; fileRef = A82B7FF71FD7DD3700BD0F7E /* bank.plist */; };
 		A82B7FF91FD7DD3700BD0F7E /* bank.plist in Resources */ = {isa = PBXBuildFile; fileRef = A82B7FF71FD7DD3700BD0F7E /* bank.plist */; };
 		A82B7FFA1FD7DD3700BD0F7E /* bank.plist in Resources */ = {isa = PBXBuildFile; fileRef = A82B7FF71FD7DD3700BD0F7E /* bank.plist */; };
-		A82B80091FD7DE5600BD0F7E /* ABBasicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFE1FD7DE5600BD0F7E /* ABBasicVC.m */; };
-		A82B800A1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFE1FD7DE5600BD0F7E /* ABBasicVC.m */; };
-		A82B800B1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFE1FD7DE5600BD0F7E /* ABBasicVC.m */; };
-		A82B800C1FD7DE5600BD0F7E /* ABTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFF1FD7DE5600BD0F7E /* ABTableVC.m */; };
-		A82B800D1FD7DE5600BD0F7E /* ABTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFF1FD7DE5600BD0F7E /* ABTableVC.m */; };
-		A82B800E1FD7DE5600BD0F7E /* ABTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFF1FD7DE5600BD0F7E /* ABTableVC.m */; };
-		A82B80121FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80011FD7DE5600BD0F7E /* ABRootNavVC.m */; };
-		A82B80131FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80011FD7DE5600BD0F7E /* ABRootNavVC.m */; };
-		A82B80141FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80011FD7DE5600BD0F7E /* ABRootNavVC.m */; };
-		A82B80151FD7DE5600BD0F7E /* DATabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80021FD7DE5600BD0F7E /* DATabBarVC.m */; };
-		A82B80161FD7DE5600BD0F7E /* DATabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80021FD7DE5600BD0F7E /* DATabBarVC.m */; };
-		A82B80171FD7DE5600BD0F7E /* DATabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80021FD7DE5600BD0F7E /* DATabBarVC.m */; };
-		A82B80181FD7DE5600BD0F7E /* ABMustLable.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80031FD7DE5600BD0F7E /* ABMustLable.m */; };
-		A82B80191FD7DE5600BD0F7E /* ABMustLable.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80031FD7DE5600BD0F7E /* ABMustLable.m */; };
-		A82B801A1FD7DE5600BD0F7E /* ABMustLable.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80031FD7DE5600BD0F7E /* ABMustLable.m */; };
-		A82B801E1FD7E1E000BD0F7E /* ABwebView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B801C1FD7E1E000BD0F7E /* ABwebView.m */; };
-		A82B801F1FD7E1E000BD0F7E /* ABwebView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B801C1FD7E1E000BD0F7E /* ABwebView.m */; };
-		A82B80201FD7E1E000BD0F7E /* ABwebView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B801C1FD7E1E000BD0F7E /* ABwebView.m */; };
-		A82B80211FD7E1E000BD0F7E /* ABwebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B801D1FD7E1E000BD0F7E /* ABwebView.xib */; };
-		A82B80221FD7E1E000BD0F7E /* ABwebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B801D1FD7E1E000BD0F7E /* ABwebView.xib */; };
-		A82B80231FD7E1E000BD0F7E /* ABwebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B801D1FD7E1E000BD0F7E /* ABwebView.xib */; };
-		A82B802C1FD7E2C600BD0F7E /* LvInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80251FD7E2C600BD0F7E /* LvInputView.m */; };
-		A82B802D1FD7E2C600BD0F7E /* LvInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80251FD7E2C600BD0F7E /* LvInputView.m */; };
-		A82B802E1FD7E2C600BD0F7E /* LvInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80251FD7E2C600BD0F7E /* LvInputView.m */; };
+		A82B80091FD7DE5600BD0F7E /* CBBasicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFE1FD7DE5600BD0F7E /* CBBasicVC.m */; };
+		A82B800A1FD7DE5600BD0F7E /* CBBasicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFE1FD7DE5600BD0F7E /* CBBasicVC.m */; };
+		A82B800B1FD7DE5600BD0F7E /* CBBasicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFE1FD7DE5600BD0F7E /* CBBasicVC.m */; };
+		A82B800C1FD7DE5600BD0F7E /* CBTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFF1FD7DE5600BD0F7E /* CBTableVC.m */; };
+		A82B800D1FD7DE5600BD0F7E /* CBTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFF1FD7DE5600BD0F7E /* CBTableVC.m */; };
+		A82B800E1FD7DE5600BD0F7E /* CBTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B7FFF1FD7DE5600BD0F7E /* CBTableVC.m */; };
+		A82B80121FD7DE5600BD0F7E /* CBRootNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80011FD7DE5600BD0F7E /* CBRootNavVC.m */; };
+		A82B80131FD7DE5600BD0F7E /* CBRootNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80011FD7DE5600BD0F7E /* CBRootNavVC.m */; };
+		A82B80141FD7DE5600BD0F7E /* CBRootNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80011FD7DE5600BD0F7E /* CBRootNavVC.m */; };
+		A82B80151FD7DE5600BD0F7E /* CBTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80021FD7DE5600BD0F7E /* CBTabBarVC.m */; };
+		A82B80161FD7DE5600BD0F7E /* CBTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80021FD7DE5600BD0F7E /* CBTabBarVC.m */; };
+		A82B80171FD7DE5600BD0F7E /* CBTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80021FD7DE5600BD0F7E /* CBTabBarVC.m */; };
+		A82B80181FD7DE5600BD0F7E /* CBMustLable.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80031FD7DE5600BD0F7E /* CBMustLable.m */; };
+		A82B80191FD7DE5600BD0F7E /* CBMustLable.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80031FD7DE5600BD0F7E /* CBMustLable.m */; };
+		A82B801A1FD7DE5600BD0F7E /* CBMustLable.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80031FD7DE5600BD0F7E /* CBMustLable.m */; };
+		A82B801E1FD7E1E000BD0F7E /* CBwebView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B801C1FD7E1E000BD0F7E /* CBwebView.m */; };
+		A82B801F1FD7E1E000BD0F7E /* CBwebView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B801C1FD7E1E000BD0F7E /* CBwebView.m */; };
+		A82B80201FD7E1E000BD0F7E /* CBwebView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B801C1FD7E1E000BD0F7E /* CBwebView.m */; };
+		A82B802C1FD7E2C600BD0F7E /* CBInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80251FD7E2C600BD0F7E /* CBInputView.m */; };
+		A82B802D1FD7E2C600BD0F7E /* CBInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80251FD7E2C600BD0F7E /* CBInputView.m */; };
+		A82B802E1FD7E2C600BD0F7E /* CBInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80251FD7E2C600BD0F7E /* CBInputView.m */; };
 		A82B802F1FD7E2C600BD0F7E /* CBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80261FD7E2C600BD0F7E /* CBTextField.m */; };
 		A82B80301FD7E2C600BD0F7E /* CBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80261FD7E2C600BD0F7E /* CBTextField.m */; };
 		A82B80311FD7E2C600BD0F7E /* CBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80261FD7E2C600BD0F7E /* CBTextField.m */; };
-		A82B80321FD7E2C600BD0F7E /* LvInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B80271FD7E2C600BD0F7E /* LvInputView.xib */; };
-		A82B80331FD7E2C600BD0F7E /* LvInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B80271FD7E2C600BD0F7E /* LvInputView.xib */; };
-		A82B80341FD7E2C600BD0F7E /* LvInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B80271FD7E2C600BD0F7E /* LvInputView.xib */; };
-		A82B80351FD7E2C600BD0F7E /* XXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B802B1FD7E2C600BD0F7E /* XXTextView.m */; };
-		A82B80361FD7E2C600BD0F7E /* XXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B802B1FD7E2C600BD0F7E /* XXTextView.m */; };
-		A82B80371FD7E2C600BD0F7E /* XXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B802B1FD7E2C600BD0F7E /* XXTextView.m */; };
+		A82B80321FD7E2C600BD0F7E /* CBInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B80271FD7E2C600BD0F7E /* CBInputView.xib */; };
+		A82B80331FD7E2C600BD0F7E /* CBInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B80271FD7E2C600BD0F7E /* CBInputView.xib */; };
+		A82B80341FD7E2C600BD0F7E /* CBInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82B80271FD7E2C600BD0F7E /* CBInputView.xib */; };
+		A82B80351FD7E2C600BD0F7E /* CBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B802B1FD7E2C600BD0F7E /* CBTextView.m */; };
+		A82B80361FD7E2C600BD0F7E /* CBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B802B1FD7E2C600BD0F7E /* CBTextView.m */; };
+		A82B80371FD7E2C600BD0F7E /* CBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B802B1FD7E2C600BD0F7E /* CBTextView.m */; };
 		A82B804E1FD7E45400BD0F7E /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80391FD7E45400BD0F7E /* NSString+URL.m */; };
 		A82B804F1FD7E45400BD0F7E /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80391FD7E45400BD0F7E /* NSString+URL.m */; };
 		A82B80501FD7E45400BD0F7E /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B80391FD7E45400BD0F7E /* NSString+URL.m */; };
@@ -150,26 +147,25 @@
 		06BAEDB2E12CE79118C6E904 /* Pods-BasicUtilsTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicUtilsTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasicUtilsTest/Pods-BasicUtilsTest.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B7FF71FD7DD3700BD0F7E /* bank.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bank.plist; sourceTree = "<group>"; };
 		A82B7FFC1FD7DE5600BD0F7E /* CBBasicVCHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBasicVCHeader.h; sourceTree = "<group>"; };
-		A82B7FFD1FD7DE5600BD0F7E /* ABMustLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMustLable.h; sourceTree = "<group>"; };
-		A82B7FFE1FD7DE5600BD0F7E /* ABBasicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBasicVC.m; sourceTree = "<group>"; };
-		A82B7FFF1FD7DE5600BD0F7E /* ABTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTableVC.m; sourceTree = "<group>"; };
-		A82B80011FD7DE5600BD0F7E /* ABRootNavVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRootNavVC.m; sourceTree = "<group>"; };
-		A82B80021FD7DE5600BD0F7E /* DATabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATabBarVC.m; sourceTree = "<group>"; };
-		A82B80031FD7DE5600BD0F7E /* ABMustLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABMustLable.m; sourceTree = "<group>"; };
-		A82B80051FD7DE5600BD0F7E /* ABTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTableVC.h; sourceTree = "<group>"; };
-		A82B80061FD7DE5600BD0F7E /* ABBasicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBasicVC.h; sourceTree = "<group>"; };
-		A82B80071FD7DE5600BD0F7E /* ABRootNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRootNavVC.h; sourceTree = "<group>"; };
-		A82B80081FD7DE5600BD0F7E /* DATabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATabBarVC.h; sourceTree = "<group>"; };
-		A82B801B1FD7E1E000BD0F7E /* ABwebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABwebView.h; sourceTree = "<group>"; };
-		A82B801C1FD7E1E000BD0F7E /* ABwebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABwebView.m; sourceTree = "<group>"; };
-		A82B801D1FD7E1E000BD0F7E /* ABwebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABwebView.xib; sourceTree = "<group>"; };
-		A82B80251FD7E2C600BD0F7E /* LvInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LvInputView.m; sourceTree = "<group>"; };
+		A82B7FFD1FD7DE5600BD0F7E /* CBMustLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMustLable.h; sourceTree = "<group>"; };
+		A82B7FFE1FD7DE5600BD0F7E /* CBBasicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBBasicVC.m; sourceTree = "<group>"; };
+		A82B7FFF1FD7DE5600BD0F7E /* CBTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTableVC.m; sourceTree = "<group>"; };
+		A82B80011FD7DE5600BD0F7E /* CBRootNavVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRootNavVC.m; sourceTree = "<group>"; };
+		A82B80021FD7DE5600BD0F7E /* CBTabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTabBarVC.m; sourceTree = "<group>"; };
+		A82B80031FD7DE5600BD0F7E /* CBMustLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMustLable.m; sourceTree = "<group>"; };
+		A82B80051FD7DE5600BD0F7E /* CBTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTableVC.h; sourceTree = "<group>"; };
+		A82B80061FD7DE5600BD0F7E /* CBBasicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBasicVC.h; sourceTree = "<group>"; };
+		A82B80071FD7DE5600BD0F7E /* CBRootNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRootNavVC.h; sourceTree = "<group>"; };
+		A82B80081FD7DE5600BD0F7E /* CBTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTabBarVC.h; sourceTree = "<group>"; };
+		A82B801B1FD7E1E000BD0F7E /* CBwebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBwebView.h; sourceTree = "<group>"; };
+		A82B801C1FD7E1E000BD0F7E /* CBwebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBwebView.m; sourceTree = "<group>"; };
+		A82B80251FD7E2C600BD0F7E /* CBInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBInputView.m; sourceTree = "<group>"; };
 		A82B80261FD7E2C600BD0F7E /* CBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTextField.m; sourceTree = "<group>"; };
-		A82B80271FD7E2C600BD0F7E /* LvInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LvInputView.xib; sourceTree = "<group>"; };
-		A82B80281FD7E2C600BD0F7E /* XXTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXTextView.h; sourceTree = "<group>"; };
+		A82B80271FD7E2C600BD0F7E /* CBInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBInputView.xib; sourceTree = "<group>"; };
+		A82B80281FD7E2C600BD0F7E /* CBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextView.h; sourceTree = "<group>"; };
 		A82B80291FD7E2C600BD0F7E /* CBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextField.h; sourceTree = "<group>"; };
-		A82B802A1FD7E2C600BD0F7E /* LvInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LvInputView.h; sourceTree = "<group>"; };
-		A82B802B1FD7E2C600BD0F7E /* XXTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXTextView.m; sourceTree = "<group>"; };
+		A82B802A1FD7E2C600BD0F7E /* CBInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBInputView.h; sourceTree = "<group>"; };
+		A82B802B1FD7E2C600BD0F7E /* CBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTextView.m; sourceTree = "<group>"; };
 		A82B80391FD7E45400BD0F7E /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
 		A82B803A1FD7E45400BD0F7E /* UIColor+Help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Help.m"; sourceTree = "<group>"; };
 		A82B803B1FD7E45400BD0F7E /* UIView+IB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IB.m"; sourceTree = "<group>"; };
@@ -220,7 +216,7 @@
 		A8BC02471FD7C47A0094B423 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		A8BC02481FD7C47A0094B423 /* CBURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBURLSession.h; sourceTree = "<group>"; };
 		A8BC02491FD7C47A0094B423 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
-		A8BC02511FD7C6690094B423 /* ABCreditHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCreditHeader.h; sourceTree = "<group>"; };
+		A8BC02511FD7C6690094B423 /* ABBasicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBasicHeader.h; sourceTree = "<group>"; };
 		A8BC02A81FD7C77A0094B423 /* CBUtilsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUtilsHeader.h; sourceTree = "<group>"; };
 		A8BC02A91FD7C77A0094B423 /* JsonFileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonFileUtils.m; sourceTree = "<group>"; };
 		A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBVerifyTool.m; sourceTree = "<group>"; };
@@ -300,20 +296,19 @@
 		A82B7FFB1FD7DE5600BD0F7E /* BasicVC */ = {
 			isa = PBXGroup;
 			children = (
-				A82B80061FD7DE5600BD0F7E /* ABBasicVC.h */,
-				A82B7FFE1FD7DE5600BD0F7E /* ABBasicVC.m */,
-				A82B7FFD1FD7DE5600BD0F7E /* ABMustLable.h */,
-				A82B80031FD7DE5600BD0F7E /* ABMustLable.m */,
-				A82B80071FD7DE5600BD0F7E /* ABRootNavVC.h */,
-				A82B80011FD7DE5600BD0F7E /* ABRootNavVC.m */,
-				A82B80051FD7DE5600BD0F7E /* ABTableVC.h */,
-				A82B7FFF1FD7DE5600BD0F7E /* ABTableVC.m */,
+				A82B80061FD7DE5600BD0F7E /* CBBasicVC.h */,
+				A82B7FFE1FD7DE5600BD0F7E /* CBBasicVC.m */,
+				A82B7FFD1FD7DE5600BD0F7E /* CBMustLable.h */,
+				A82B80031FD7DE5600BD0F7E /* CBMustLable.m */,
+				A82B80071FD7DE5600BD0F7E /* CBRootNavVC.h */,
+				A82B80011FD7DE5600BD0F7E /* CBRootNavVC.m */,
+				A82B80051FD7DE5600BD0F7E /* CBTableVC.h */,
+				A82B7FFF1FD7DE5600BD0F7E /* CBTableVC.m */,
 				A82B7FFC1FD7DE5600BD0F7E /* CBBasicVCHeader.h */,
-				A82B80081FD7DE5600BD0F7E /* DATabBarVC.h */,
-				A82B80021FD7DE5600BD0F7E /* DATabBarVC.m */,
-				A82B801B1FD7E1E000BD0F7E /* ABwebView.h */,
-				A82B801C1FD7E1E000BD0F7E /* ABwebView.m */,
-				A82B801D1FD7E1E000BD0F7E /* ABwebView.xib */,
+				A82B80081FD7DE5600BD0F7E /* CBTabBarVC.h */,
+				A82B80021FD7DE5600BD0F7E /* CBTabBarVC.m */,
+				A82B801B1FD7E1E000BD0F7E /* CBwebView.h */,
+				A82B801C1FD7E1E000BD0F7E /* CBwebView.m */,
 			);
 			path = BasicVC;
 			sourceTree = "<group>";
@@ -323,11 +318,11 @@
 			children = (
 				A82B80291FD7E2C600BD0F7E /* CBTextField.h */,
 				A82B80261FD7E2C600BD0F7E /* CBTextField.m */,
-				A82B802A1FD7E2C600BD0F7E /* LvInputView.h */,
-				A82B80251FD7E2C600BD0F7E /* LvInputView.m */,
-				A82B80271FD7E2C600BD0F7E /* LvInputView.xib */,
-				A82B80281FD7E2C600BD0F7E /* XXTextView.h */,
-				A82B802B1FD7E2C600BD0F7E /* XXTextView.m */,
+				A82B802A1FD7E2C600BD0F7E /* CBInputView.h */,
+				A82B80251FD7E2C600BD0F7E /* CBInputView.m */,
+				A82B80271FD7E2C600BD0F7E /* CBInputView.xib */,
+				A82B80281FD7E2C600BD0F7E /* CBTextView.h */,
+				A82B802B1FD7E2C600BD0F7E /* CBTextView.m */,
 				A89BDEAC1FE8F60000FE12B1 /* CBPickerView.h */,
 				A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */,
 				A8A2BFEE20070E8400CF2275 /* LoopProgressView.h */,
@@ -426,7 +421,7 @@
 		A8BC02501FD7C6690094B423 /* MacroAndConstant */ = {
 			isa = PBXGroup;
 			children = (
-				A8BC02511FD7C6690094B423 /* ABCreditHeader.h */,
+				A8BC02511FD7C6690094B423 /* ABBasicHeader.h */,
 			);
 			path = MacroAndConstant;
 			sourceTree = "<group>";
@@ -569,7 +564,7 @@
 		A8BCFF481FD68E860094B423 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = caobo56;
 				TargetAttributes = {
 					A8BCFF4F1FD68E860094B423 = {
@@ -614,10 +609,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A882D85D1FEB47E00016AB0F /* cb_success@3x.png in Resources */,
-				A82B80211FD7E1E000BD0F7E /* ABwebView.xib in Resources */,
 				A882D8661FEB47E00016AB0F /* cb_error@2x.png in Resources */,
 				A882D8631FEB47E00016AB0F /* cb_error@3x.png in Resources */,
-				A82B80321FD7E2C600BD0F7E /* LvInputView.xib in Resources */,
+				A82B80321FD7E2C600BD0F7E /* CBInputView.xib in Resources */,
 				A882D8601FEB47E00016AB0F /* cb_success@2x.png in Resources */,
 				A82B7FF81FD7DD3700BD0F7E /* bank.plist in Resources */,
 				A8BCFF601FD68E860094B423 /* LaunchScreen.storyboard in Resources */,
@@ -633,8 +627,7 @@
 				A882D8611FEB47E00016AB0F /* cb_success@2x.png in Resources */,
 				A882D8671FEB47E00016AB0F /* cb_error@2x.png in Resources */,
 				A882D85E1FEB47E00016AB0F /* cb_success@3x.png in Resources */,
-				A82B80221FD7E1E000BD0F7E /* ABwebView.xib in Resources */,
-				A82B80331FD7E2C600BD0F7E /* LvInputView.xib in Resources */,
+				A82B80331FD7E2C600BD0F7E /* CBInputView.xib in Resources */,
 				A82B7FF91FD7DD3700BD0F7E /* bank.plist in Resources */,
 				A882D8641FEB47E00016AB0F /* cb_error@3x.png in Resources */,
 			);
@@ -647,8 +640,7 @@
 				A882D8621FEB47E00016AB0F /* cb_success@2x.png in Resources */,
 				A882D8681FEB47E00016AB0F /* cb_error@2x.png in Resources */,
 				A882D85F1FEB47E00016AB0F /* cb_success@3x.png in Resources */,
-				A82B80231FD7E1E000BD0F7E /* ABwebView.xib in Resources */,
-				A82B80341FD7E2C600BD0F7E /* LvInputView.xib in Resources */,
+				A82B80341FD7E2C600BD0F7E /* CBInputView.xib in Resources */,
 				A82B7FFA1FD7DD3700BD0F7E /* bank.plist in Resources */,
 				A882D8651FEB47E00016AB0F /* cb_error@3x.png in Resources */,
 			);
@@ -714,18 +706,18 @@
 			files = (
 				A8BC024D1FD7C47A0094B423 /* APIClient.m in Sources */,
 				A8ACB3A31FDFF44C00BE0668 /* JsonHelper.m in Sources */,
-				A82B80351FD7E2C600BD0F7E /* XXTextView.m in Sources */,
+				A82B80351FD7E2C600BD0F7E /* CBTextView.m in Sources */,
 				A8A74C61200F237700A29841 /* NSObject+SwizzleMethod.m in Sources */,
 				A8BC02BA1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
-				A82B801E1FD7E1E000BD0F7E /* ABwebView.m in Sources */,
+				A82B801E1FD7E1E000BD0F7E /* CBwebView.m in Sources */,
 				A897962A1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */,
-				A82B80151FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
-				A82B80091FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
+				A82B80151FD7DE5600BD0F7E /* CBTabBarVC.m in Sources */,
+				A82B80091FD7DE5600BD0F7E /* CBBasicVC.m in Sources */,
 				A82B805A1FD7E45400BD0F7E /* NSDictionary+NullResult.m in Sources */,
 				A82B805D1FD7E45400BD0F7E /* UIImage+Category.m in Sources */,
 				A8ACB38C1FDFC04A00BE0668 /* UIControl+acceptEventInterval.m in Sources */,
 				A82B804E1FD7E45400BD0F7E /* NSString+URL.m in Sources */,
-				A82B800C1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
+				A82B800C1FD7DE5600BD0F7E /* CBTableVC.m in Sources */,
 				A8A74C73200F29DE00A29841 /* NSTimer+Addition.m in Sources */,
 				A82B80661FD7E45400BD0F7E /* UIView+toast.m in Sources */,
 				A8A2BFF220073FD600CF2275 /* UIButton+MCLayout.m in Sources */,
@@ -735,20 +727,20 @@
 				A82B80631FD7E45400BD0F7E /* UIImage+Color.m in Sources */,
 				A82B802F1FD7E2C600BD0F7E /* CBTextField.m in Sources */,
 				A8BCFF631FD68E860094B423 /* main.m in Sources */,
-				A82B802C1FD7E2C600BD0F7E /* LvInputView.m in Sources */,
+				A82B802C1FD7E2C600BD0F7E /* CBInputView.m in Sources */,
 				A89BDEAE1FE8F60000FE12B1 /* CBPickerView.m in Sources */,
 				A8ACB3891FDFC04A00BE0668 /* UIView+screenshots.m in Sources */,
 				A8A2BFEF20070E8500CF2275 /* LoopProgressView.m in Sources */,
 				A8ACB3A01FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A82B80541FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A8A74C62200F237700A29841 /* NSArray+ErrorHandle.m in Sources */,
-				A82B80181FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
+				A82B80181FD7DE5600BD0F7E /* CBMustLable.m in Sources */,
 				A8A74C63200F237700A29841 /* NSMutableArray+ErrorHandle.m in Sources */,
 				A8BCFF551FD68E860094B423 /* AppDelegate.m in Sources */,
 				A8ACB38F1FDFC04A00BE0668 /* UIView+WhenTappendBlocks.m in Sources */,
 				A82B80511FD7E45400BD0F7E /* UIColor+Help.m in Sources */,
 				A82B80601FD7E45400BD0F7E /* UIView+DDAddition.m in Sources */,
-				A82B80121FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */,
+				A82B80121FD7DE5600BD0F7E /* CBRootNavVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,14 +750,14 @@
 			files = (
 				A8ACB38A1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */,
 				A82B80671FD7E45400BD0F7E /* UIView+toast.m in Sources */,
-				A82B802D1FD7E2C600BD0F7E /* LvInputView.m in Sources */,
+				A82B802D1FD7E2C600BD0F7E /* CBInputView.m in Sources */,
 				A8ACB38D1FDFC04A00BE0668 /* UIControl+acceptEventInterval.m in Sources */,
-				A82B801F1FD7E1E000BD0F7E /* ABwebView.m in Sources */,
+				A82B801F1FD7E1E000BD0F7E /* CBwebView.m in Sources */,
 				A8ACB3901FDFC04A00BE0668 /* UIView+WhenTappendBlocks.m in Sources */,
-				A82B80161FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
+				A82B80161FD7DE5600BD0F7E /* CBTabBarVC.m in Sources */,
 				A89BDEAF1FE8F60000FE12B1 /* CBPickerView.m in Sources */,
 				A8BCFF6D1FD68E860094B423 /* BasicUtilsTestTests.m in Sources */,
-				A82B80191FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
+				A82B80191FD7DE5600BD0F7E /* CBMustLable.m in Sources */,
 				A82B80611FD7E45400BD0F7E /* UIView+DDAddition.m in Sources */,
 				A82B805B1FD7E45400BD0F7E /* NSDictionary+NullResult.m in Sources */,
 				A82B80301FD7E2C600BD0F7E /* CBTextField.m in Sources */,
@@ -775,11 +767,11 @@
 				A897962B1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */,
 				A82B80551FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80641FD7E45400BD0F7E /* UIImage+Color.m in Sources */,
-				A82B800D1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
-				A82B800A1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
-				A82B80361FD7E2C600BD0F7E /* XXTextView.m in Sources */,
+				A82B800D1FD7DE5600BD0F7E /* CBTableVC.m in Sources */,
+				A82B800A1FD7DE5600BD0F7E /* CBBasicVC.m in Sources */,
+				A82B80361FD7E2C600BD0F7E /* CBTextView.m in Sources */,
 				A8BC02BB1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
-				A82B80131FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */,
+				A82B80131FD7DE5600BD0F7E /* CBRootNavVC.m in Sources */,
 				A8BC024E1FD7C47A0094B423 /* APIClient.m in Sources */,
 				A82B80521FD7E45400BD0F7E /* UIColor+Help.m in Sources */,
 				A8BC024B1FD7C47A0094B423 /* CBURLSession.m in Sources */,
@@ -794,14 +786,14 @@
 			files = (
 				A8ACB38B1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */,
 				A82B80681FD7E45400BD0F7E /* UIView+toast.m in Sources */,
-				A82B802E1FD7E2C600BD0F7E /* LvInputView.m in Sources */,
+				A82B802E1FD7E2C600BD0F7E /* CBInputView.m in Sources */,
 				A8ACB38E1FDFC04A00BE0668 /* UIControl+acceptEventInterval.m in Sources */,
-				A82B80201FD7E1E000BD0F7E /* ABwebView.m in Sources */,
+				A82B80201FD7E1E000BD0F7E /* CBwebView.m in Sources */,
 				A8ACB3911FDFC04A00BE0668 /* UIView+WhenTappendBlocks.m in Sources */,
-				A82B80171FD7DE5600BD0F7E /* DATabBarVC.m in Sources */,
+				A82B80171FD7DE5600BD0F7E /* CBTabBarVC.m in Sources */,
 				A89BDEB01FE8F60000FE12B1 /* CBPickerView.m in Sources */,
 				A8BCFF781FD68E860094B423 /* BasicUtilsTestUITests.m in Sources */,
-				A82B801A1FD7DE5600BD0F7E /* ABMustLable.m in Sources */,
+				A82B801A1FD7DE5600BD0F7E /* CBMustLable.m in Sources */,
 				A82B80621FD7E45400BD0F7E /* UIView+DDAddition.m in Sources */,
 				A82B805C1FD7E45400BD0F7E /* NSDictionary+NullResult.m in Sources */,
 				A82B80311FD7E2C600BD0F7E /* CBTextField.m in Sources */,
@@ -811,11 +803,11 @@
 				A897962C1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */,
 				A82B80561FD7E45400BD0F7E /* UIView+IB.m in Sources */,
 				A82B80651FD7E45400BD0F7E /* UIImage+Color.m in Sources */,
-				A82B800E1FD7DE5600BD0F7E /* ABTableVC.m in Sources */,
-				A82B800B1FD7DE5600BD0F7E /* ABBasicVC.m in Sources */,
-				A82B80371FD7E2C600BD0F7E /* XXTextView.m in Sources */,
+				A82B800E1FD7DE5600BD0F7E /* CBTableVC.m in Sources */,
+				A82B800B1FD7DE5600BD0F7E /* CBBasicVC.m in Sources */,
+				A82B80371FD7E2C600BD0F7E /* CBTextView.m in Sources */,
 				A8BC02BC1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
-				A82B80141FD7DE5600BD0F7E /* ABRootNavVC.m in Sources */,
+				A82B80141FD7DE5600BD0F7E /* CBRootNavVC.m in Sources */,
 				A8BC024F1FD7C47A0094B423 /* APIClient.m in Sources */,
 				A82B80531FD7E45400BD0F7E /* UIColor+Help.m in Sources */,
 				A8BC024C1FD7C47A0094B423 /* CBURLSession.m in Sources */,
@@ -873,6 +865,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -880,6 +873,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -928,6 +922,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -935,6 +930,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

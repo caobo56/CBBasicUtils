@@ -1,18 +1,18 @@
 //
-//  DATabBarVC.m
+//  CBTabBarVC.m
 //  ABDigitalAsset
 //
 //  Created by caobo56 on 2017/10/30.
 //  Copyright © 2017年 caobo56. All rights reserved.
 //
 
-#import "DATabBarVC.h"
+#import "CBTabBarVC.h"
 
-@interface DATabBarVC ()
+@interface CBTabBarVC ()
 
 @end
 
-@implementation DATabBarVC
+@implementation CBTabBarVC
 
 -(void)awakeFromNib{
     [super awakeFromNib];

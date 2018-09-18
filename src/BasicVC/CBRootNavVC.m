@@ -1,21 +1,21 @@
 //
-//  ABRootNavVC.m
+//  CBRootNavVC.m
 //  ABCreditApp
 //
 //  Created by caobo56 on 2017/2/14.
 //  Copyright © 2017年 caobo56. All rights reserved.
 //
 
-#import "ABRootNavVC.h"
+#import "CBRootNavVC.h"
 
 #define RGB16(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
-@interface ABRootNavVC ()
+@interface CBRootNavVC ()
 
 @end
 
-@implementation ABRootNavVC
+@implementation CBRootNavVC
 
 -(void)awakeFromNib{
     [super awakeFromNib];

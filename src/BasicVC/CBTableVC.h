@@ -1,5 +1,5 @@
 //
-//  ABTableVC.h
+//  CBTableVC.h
 //  ABDigitalAsset
 //
 //  Created by caobo56 on 2017/10/31.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ABTableVC : UITableViewController
+@interface CBTableVC : UITableViewController
 
 @end

@@ -1,14 +1,14 @@
 //
-//  LvInputView.m
+//  CBInputView.m
 //  QMB
 //
 //  Created by LC_MAC-1 on 14-8-28.
 //  Copyright (c) 2014年 MLJ. All rights reserved.
 //
 
-#import "LvInputView.h"
+#import "CBInputView.h"
 
-@implementation LvInputView
+@implementation CBInputView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -18,9 +18,9 @@
     }
     return self;
 }
-+(LvInputView *)creatInputView
++(CBInputView *)creatInputView
 {
-  return [[[NSBundle mainBundle]loadNibNamed:@"LvInputView" owner:nil options:nil]lastObject];
+  return [[[NSBundle mainBundle]loadNibNamed:@"CBInputView" owner:nil options:nil]lastObject];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

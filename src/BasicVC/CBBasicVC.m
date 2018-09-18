@@ -1,14 +1,14 @@
 //
-//  ABBasicVC.m
+//  CBBasicVC.m
 //  ABCreditApp
 //
 //  Created by caobo56 on 2017/2/17.
 //  Copyright © 2017年 caobo56. All rights reserved.
 //
 
-#import "ABBasicVC.h"
+#import "CBBasicVC.h"
 
-@implementation ABBasicVC
+@implementation CBBasicVC
 
 -(void)viewDidLoad{
     [super viewDidLoad];

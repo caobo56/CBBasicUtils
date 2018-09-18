@@ -1,14 +1,14 @@
 //
-//  ABMustLable.m
+//  CBMustLable.m
 //  ABCreditApp
 //
 //  Created by caobo56 on 2017/6/20.
 //  Copyright © 2017年 caobo56. All rights reserved.
 //
 
-#import "ABMustLable.h"
+#import "CBMustLable.h"
 
-@implementation ABMustLable
+@implementation CBMustLable
 
 -(void)awakeFromNib{
     [super awakeFromNib];

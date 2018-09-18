@@ -10,7 +10,6 @@
 
 static CBURLSession *shareURLSession = nil;
 
-
 @implementation CBURLSession
 
 +(instancetype) sharedURLSession{
