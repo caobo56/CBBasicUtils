@@ -6,22 +6,9 @@
 //  Copyright (c) 2015年 kenneth. All rights reserved.
 //
 
-#import "UIImage+Category.h"
+#import "UIImage+Size.h"
 
-static const int kMaxLevel = 60;
-
-@implementation UIImage (Category)
-static NSMutableArray *sLavelImageArray;
-
-+ (void)initialize
-{
-    sLavelImageArray = [[NSMutableArray alloc] initWithCapacity:kMaxLevel];
-    
-    for (int i = 0; i < kMaxLevel; ++i)
-    {
-        [sLavelImageArray addObject:[NSNull null]];
-    }
-}
+@implementation UIImage (Size)
 
 + (UIImage *)imageWithColor:(UIColor *)color andSize:(CGSize)size
 {
@@ -34,6 +21,7 @@ static NSMutableArray *sLavelImageArray;
     UIGraphicsEndImageContext();
     return newImage;
 }
+
 //-(UIImage*)getSubImage:(CGRect)rect
 //{
 //    CGImageRef subImageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
@@ -66,7 +54,7 @@ static NSMutableArray *sLavelImageArray;
         return nil;
     }
     NSData* data ;
-    for (float i = 1.0; i >= 0.1; i = i-0.1) {
+    for (float i = 1.0; i >= 0.1; i = i - 0.1) {
         data = UIImageJPEGRepresentation(image, i);
         if (data.length < 524288 ) {
             break;
@@ -77,5 +65,54 @@ static NSMutableArray *sLavelImageArray;
 }
 
 
+/**
+ 将图片压缩
+
+ @param image 要压缩的图片
+ @param maxLength maxLength 要压缩到的byte大小
+ @return return image 压缩的图片
+ */
++ (UIImage *)compressImage:(UIImage *)image toByte:(NSUInteger)maxLength {
+    // Compress by quality
+    CGFloat compression = 1;
+    NSData *data = UIImageJPEGRepresentation(image, compression);
+    if (data.length < maxLength) return image;
+    
+    CGFloat max = 1;
+    CGFloat min = 0;
+    for (int i = 0; i < 6; ++i) {
+        compression = (max + min) / 2;
+        data = UIImageJPEGRepresentation(image, compression);
+        if (data.length < maxLength * 0.9) {
+            min = compression;
+        } else if (data.length > maxLength) {
+            max = compression;
+        } else {
+            break;
+        }
+    }
+    UIImage *resultImage = [UIImage imageWithData:data];
+    if (data.length < maxLength) return resultImage;
+    
+    // Compress by size
+    NSUInteger lastDataLength = 0;
+    while (data.length > maxLength && data.length != lastDataLength) {
+        lastDataLength = data.length;
+        CGFloat ratio = (CGFloat)maxLength / data.length;
+        CGSize size = CGSizeMake((NSUInteger)(resultImage.size.width * sqrtf(ratio)),
+                                 (NSUInteger)(resultImage.size.height * sqrtf(ratio))); // Use NSUInteger to prevent white blank
+        UIGraphicsBeginImageContext(size);
+        [resultImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
+        resultImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        data = UIImageJPEGRepresentation(resultImage, compression);
+    }
+    return resultImage;
+}
+
+-(UIImage *)wewixinSizeThumb{
+    //微信缩略图的大小
+    return [UIImage compressImage:self toByte:32768];
+}
 
 @end

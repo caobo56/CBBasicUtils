@@ -142,6 +142,16 @@ Pod::Spec.new do |s|
     re.frameworks = 'UIKit','Foundation'
   end
 
+  s.subspec "ShareView" do |sh|
+    sh.source_files = 'src/ShareView/View/*.{h,m}'
+    sh.resources = ['src/ShareView/source/*.png','src/ShareView/source/*.xib']
+    sh.frameworks = 'UIKit','Foundation'
+    sh.dependency 'Masonry'
+    sh.dependency 'CBBasicUtils/MacroAndConstant'
+    sh.dependency 'CBBasicUtils/Util'
+    sh.dependency 'WechatOpenSDK'
+
+  end
   # s.public_header_files = "Classes/**/*.h"
 
 
