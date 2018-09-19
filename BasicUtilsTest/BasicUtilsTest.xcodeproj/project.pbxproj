@@ -129,6 +129,7 @@
 		A8F7F07E2151DEDE00A878FA /* CBShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F7F0762151DEDE00A878FA /* CBShareView.xib */; };
 		A8F7F07F2151DEDE00A878FA /* friendscircle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8F7F0772151DEDE00A878FA /* friendscircle@3x.png */; };
 		A8F7F0802151DEDE00A878FA /* CBShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F7F0792151DEDE00A878FA /* CBShareView.m */; };
+		A8F7F0832151E81D00A878FA /* CBLayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F7F0812151E81C00A878FA /* CBLayoutButton.m */; };
 		B3E2789C0F0B94B49B25EF6B /* libPods-BasicUtilsTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0111A4125F4AA8ECD33A8CD /* libPods-BasicUtilsTest.a */; };
 /* End PBXBuildFile section */
 
@@ -251,6 +252,8 @@
 		A8F7F0772151DEDE00A878FA /* friendscircle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friendscircle@3x.png"; sourceTree = "<group>"; };
 		A8F7F0792151DEDE00A878FA /* CBShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBShareView.m; sourceTree = "<group>"; };
 		A8F7F07A2151DEDE00A878FA /* CBShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBShareView.h; sourceTree = "<group>"; };
+		A8F7F0812151E81C00A878FA /* CBLayoutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLayoutButton.m; sourceTree = "<group>"; };
+		A8F7F0822151E81C00A878FA /* CBLayoutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLayoutButton.h; sourceTree = "<group>"; };
 		E0111A4125F4AA8ECD33A8CD /* libPods-BasicUtilsTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasicUtilsTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC7A3E67DBD1315B0BC6F35 /* Pods-BasicUtilsTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicUtilsTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasicUtilsTest/Pods-BasicUtilsTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -444,6 +447,8 @@
 			isa = PBXGroup;
 			children = (
 				A8BC02A81FD7C77A0094B423 /* CBUtilsHeader.h */,
+				A8F7F0822151E81C00A878FA /* CBLayoutButton.h */,
+				A8F7F0812151E81C00A878FA /* CBLayoutButton.m */,
 				A8BC02B01FD7C77A0094B423 /* CBVerifyTool.h */,
 				A8BC02AB1FD7C77A0094B423 /* CBVerifyTool.m */,
 				A8BC02B21FD7C77A0094B423 /* JsonFileUtils.h */,
@@ -763,6 +768,7 @@
 				A82B80151FD7DE5600BD0F7E /* CBTabBarVC.m in Sources */,
 				A82B80091FD7DE5600BD0F7E /* CBBasicVC.m in Sources */,
 				A82B805A1FD7E45400BD0F7E /* NSDictionary+NullResult.m in Sources */,
+				A8F7F0832151E81D00A878FA /* CBLayoutButton.m in Sources */,
 				A82B805D1FD7E45400BD0F7E /* UIImage+Size.m in Sources */,
 				A8ACB38C1FDFC04A00BE0668 /* UIControl+acceptEventInterval.m in Sources */,
 				A82B804E1FD7E45400BD0F7E /* NSString+URL.m in Sources */,

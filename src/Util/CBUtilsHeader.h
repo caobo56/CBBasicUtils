@@ -13,5 +13,6 @@
 #import "JsonFileUtils.h"
 #import "CoreAnimationEffect.h"
 #import "JsonHelper.h"
+#import "CBLayoutButton.h"
 
 #endif /* CBUtilsHeader_h */

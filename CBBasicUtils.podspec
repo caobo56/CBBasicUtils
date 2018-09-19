@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CBBasicUtils"
-  s.version      = "1.0.17"
+  s.version      = "1.0.18"
   s.summary      = "caobo's BasicUtils."
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/caobo56/CBBasicUtils.git", :tag => "1.0.17" }
+  s.source       = { :git => "https://github.com/caobo56/CBBasicUtils.git", :tag => "1.0.18" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.default_subspec = 'ArrBounds','Requset','MacroAndConstant','Util','BasicVC','BasicClass','Catergory'
+  s.default_subspec = 'ArrBounds','Requset','MacroAndConstant','Util','BasicVC','BasicClass','Catergory','ShareView'
 
   s.subspec "ArrBounds" do |mc|
     mc.source_files = 'src/ArrBounds/*.{h,m}'
@@ -144,7 +144,7 @@ Pod::Spec.new do |s|
 
   s.subspec "ShareView" do |sh|
     sh.source_files = 'src/ShareView/View/*.{h,m}'
-    sh.resources = ['src/ShareView/source/*.png','src/ShareView/source/*.xib']
+    sh.resources = 'src/ShareView/source/*'
     sh.frameworks = 'UIKit','Foundation'
     sh.dependency 'Masonry'
     sh.dependency 'CBBasicUtils/MacroAndConstant'
