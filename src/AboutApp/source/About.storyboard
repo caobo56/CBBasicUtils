@@ -12,7 +12,7 @@
         <!--关于记笔记-->
         <scene sceneID="5ij-2d-8Rp">
             <objects>
-                <tableViewController storyboardIdentifier="CBAboutTableVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="twD-0e-QRq" customClass="CBAboutTableVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CBAboutTableVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="twD-0e-QRq" customClass="CBAboutTableVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="59F-O8-paE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,7 +147,7 @@
         <!--About DetailVC-->
         <scene sceneID="FbC-lG-wWz">
             <objects>
-                <viewController storyboardIdentifier="CBAboutDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qXu-Ne-JCt" customClass="CBAboutDetailVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CBAboutDetailVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qXu-Ne-JCt" customClass="CBAboutDetailVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3vo-Sr-Zk9"/>
                         <viewControllerLayoutGuide type="bottom" id="YmT-Ej-Udq"/>
@@ -158,6 +158,9 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconbg" translatesAutoresizingMaskIntoConstraints="NO" id="WHm-5A-Z3M">
                                 <rect key="frame" x="74" y="60" width="172" height="172"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WHm-5A-Z3M" secondAttribute="height" multiplier="1:1" id="OYZ-VP-uqb"/>
+                                </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owr-aH-NFe">
                                 <rect key="frame" x="20" y="252" width="280" height="208"/>
