@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CBBasicUtils"
-  s.version      = "1.0.20"
+  s.version      = "1.0.21"
   s.summary      = "caobo's BasicUtils."
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/caobo56/CBBasicUtils.git", :tag => "1.0.20" }
+  s.source       = { :git => "https://github.com/caobo56/CBBasicUtils.git", :tag => "1.0.21" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -160,7 +160,6 @@ Pod::Spec.new do |s|
     ab.dependency 'CBBasicUtils/BasicVC'
     ab.dependency 'WechatOpenSDK'
     ab.dependency 'LFMediaEditingController'
-    ab.dependency 'CBBasicUtils/ShareView'
   end
   # s.public_header_files = "Classes/**/*.h"
 
