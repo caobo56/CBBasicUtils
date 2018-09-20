@@ -9,7 +9,6 @@
 #import "CBAboutTableVC.h"
 #import "CBAboutDetailVC.h"
 #import "AboutAppManager.h"
-
 #import "ViewController.h"
 
 #import <StoreKit/StoreKit.h>
@@ -151,6 +150,7 @@
     CBAboutDetailVC * about = [[UIStoryboard storyboardWithName:@"About" bundle:nil] instantiateViewControllerWithIdentifier:@"CBAboutDetailVC"];
     about.appIconName = _appIconName;
     about.appDescription = _appDescription;
+    about.title = [NSString stringWithFormat:@"关于'%@'",appName];
     [self.navigationController pushViewController:about animated:YES];
 }
 

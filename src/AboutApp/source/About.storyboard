@@ -144,7 +144,7 @@
             </objects>
             <point key="canvasLocation" x="518" y="918"/>
         </scene>
-        <!--记笔记-->
+        <!--About DetailVC-->
         <scene sceneID="FbC-lG-wWz">
             <objects>
                 <viewController storyboardIdentifier="CBAboutDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qXu-Ne-JCt" customClass="CBAboutDetailVC" sceneMemberID="viewController">
@@ -157,16 +157,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconbg" translatesAutoresizingMaskIntoConstraints="NO" id="WHm-5A-Z3M">
-                                <rect key="frame" x="74" y="60" width="172" height="161"/>
+                                <rect key="frame" x="74" y="60" width="172" height="172"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owr-aH-NFe">
-                                <rect key="frame" x="20" y="241" width="280" height="219"/>
+                                <rect key="frame" x="20" y="252" width="280" height="208"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">记笔记是一款简洁设计的笔记本，你只需要通过语音输入，即可完成笔记的书写。
-
-同时支持发邮件、分享到微信、分享到朋友圈等附加功能。
-
-大部分情况下你无需动笔，只需要靠说，就可以记下所思所想，是提高效率的好工具。</string>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -184,7 +179,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="记笔记" id="dvL-3H-8Vs"/>
+                    <navigationItem key="navigationItem" id="dvL-3H-8Vs"/>
                     <connections>
                         <outlet property="descTxtView" destination="Owr-aH-NFe" id="i2l-LH-n2R"/>
                         <outlet property="iconImgView" destination="WHm-5A-Z3M" id="2WE-N8-9Vw"/>
