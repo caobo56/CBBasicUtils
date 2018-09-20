@@ -434,13 +434,13 @@
 			path = image;
 			sourceTree = "<group>";
 		};
-		A889248421538783009CF510 /* About&Bug */ = {
+		A889248421538783009CF510 /* AboutApp */ = {
 			isa = PBXGroup;
 			children = (
 				A889248521538783009CF510 /* source */,
 				A889249221538783009CF510 /* ViewController */,
 			);
-			path = "About&Bug";
+			path = AboutApp;
 			sourceTree = "<group>";
 		};
 		A889248521538783009CF510 /* source */ = {
@@ -496,7 +496,7 @@
 		A8BC02431FD7C47A0094B423 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				A889248421538783009CF510 /* About&Bug */,
+				A889248421538783009CF510 /* AboutApp */,
 				A8F7F0712151DEDE00A878FA /* ShareView */,
 				A8A74C5A200F237700A29841 /* ArrBounds */,
 				A82B80381FD7E45400BD0F7E /* Catergory */,
