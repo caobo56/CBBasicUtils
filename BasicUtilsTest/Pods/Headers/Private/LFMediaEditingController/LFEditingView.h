@@ -1,0 +1,1 @@
+../../../LFMediaEditingController/LFMediaEditingController/class/LFPhotoEditingController/view/LFEditingView.h

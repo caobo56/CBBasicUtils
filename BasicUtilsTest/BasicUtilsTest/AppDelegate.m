@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "AboutAppManager.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +16,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    AboutAppManager * ab = [AboutAppManager sharedManager];
+    [ab setAuthorEmail:@"caobo56@126.com"];
+    ab.appid = @"id1341244763";
+    ab.appLinkTitle = @"'记笔记'，记录我们心底的点滴感动!";
+    ab.appLinkDescription = @"'记笔记'是一款无后台的记事本app，通过麦克风可以方便的将您说的话转换成笔记文字内容，免去手机文字输入难用的烦恼。另外还可以通过邮件、剪贴版、分享到微信等方式发送笔记内容。";
+    ab.appDescription = @"'记笔记'是一款无后台的记事本app，通过麦克风可以方便的将您说的话转换成笔记文字内容，免去手机文字输入难用的烦恼。另外还可以通过邮件、剪贴版、分享到微信等方式发送笔记内容。";
+    ab.appIconName = @"iconbg";
+    
     return YES;
 }
 

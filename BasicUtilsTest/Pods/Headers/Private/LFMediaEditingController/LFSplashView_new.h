@@ -1,0 +1,1 @@
+../../../LFMediaEditingController/LFMediaEditingController/class/LFPhotoEditingController/view/subView/LFSplashView_new.h

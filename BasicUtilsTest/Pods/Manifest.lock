@@ -1,22 +1,44 @@
 PODS:
-  - IGListKit (3.1.1):
-    - IGListKit/Default (= 3.1.1)
-  - IGListKit/Default (3.1.1):
+  - IGListKit (3.4.0):
+    - IGListKit/Default (= 3.4.0)
+  - IGListKit/Default (3.4.0):
     - IGListKit/Diffing
-  - IGListKit/Diffing (3.1.1)
+  - IGListKit/Diffing (3.4.0)
+  - LFMediaEditingController (1.2.3):
+    - LFMediaEditingController/JRPickColorView (= 1.2.3)
+    - LFMediaEditingController/LFPhotoEditingController (= 1.2.3)
+    - LFMediaEditingController/LFVideoEditingController (= 1.2.3)
+  - LFMediaEditingController/JRPickColorView (1.2.3)
+  - LFMediaEditingController/LFPhotoEditingController (1.2.3):
+    - LFMediaEditingController/JRPickColorView
+  - LFMediaEditingController/LFVideoEditingController (1.2.3):
+    - LFMediaEditingController/JRPickColorView
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
+  - WechatOpenSDK (1.8.2)
 
 DEPENDENCIES:
   - IGListKit
+  - LFMediaEditingController
   - Masonry
   - MBProgressHUD
+  - WechatOpenSDK
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - IGListKit
+    - LFMediaEditingController
+    - Masonry
+    - MBProgressHUD
+    - WechatOpenSDK
 
 SPEC CHECKSUMS:
-  IGListKit: cb97f405ae43e59fe1da74271e19427ec20d3c07
+  IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
+  LFMediaEditingController: bebd55e96ece838a2ca6bb075a911d0af0018310
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
 
-PODFILE CHECKSUM: c27e68b57942219dea0cfc02c520fc29bf8b4e92
+PODFILE CHECKSUM: d3051f4cd2b136167f648a78ab51128c8f3115ba
 
-COCOAPODS: 1.4.0.beta.2
+COCOAPODS: 1.5.3
