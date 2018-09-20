@@ -15,7 +15,6 @@
 #import <StoreKit/StoreKit.h>
 
 #import "CBBasicHeader.h"
-#import "CBShareView.h"
 #import "UIView+toast.h"
 
 #import <WXApi.h>
