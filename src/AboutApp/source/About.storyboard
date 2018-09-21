@@ -157,13 +157,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconbg" translatesAutoresizingMaskIntoConstraints="NO" id="WHm-5A-Z3M">
-                                <rect key="frame" x="74" y="60" width="172" height="172"/>
+                                <rect key="frame" x="110" y="40" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WHm-5A-Z3M" secondAttribute="height" multiplier="1:1" id="OYZ-VP-uqb"/>
+                                    <constraint firstAttribute="height" constant="100" id="ap0-Ig-mn0"/>
+                                    <constraint firstAttribute="width" constant="100" id="ryi-rl-wGG"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owr-aH-NFe">
-                                <rect key="frame" x="20" y="252" width="280" height="208"/>
+                                <rect key="frame" x="20" y="160" width="280" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -173,7 +175,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WHm-5A-Z3M" firstAttribute="centerX" secondItem="NWd-lp-Dq5" secondAttribute="centerX" id="4Ql-Fn-dri"/>
-                            <constraint firstItem="WHm-5A-Z3M" firstAttribute="top" secondItem="3vo-Sr-Zk9" secondAttribute="bottom" constant="40" id="FXa-Rc-GrW"/>
+                            <constraint firstItem="WHm-5A-Z3M" firstAttribute="top" secondItem="3vo-Sr-Zk9" secondAttribute="bottom" constant="20" id="FXa-Rc-GrW"/>
                             <constraint firstItem="YmT-Ej-Udq" firstAttribute="top" secondItem="Owr-aH-NFe" secondAttribute="bottom" constant="20" id="VKO-Pj-htA"/>
                             <constraint firstItem="Owr-aH-NFe" firstAttribute="leading" secondItem="NWd-lp-Dq5" secondAttribute="leading" constant="20" id="f9o-3C-pGC"/>
                             <constraint firstItem="Owr-aH-NFe" firstAttribute="top" secondItem="WHm-5A-Z3M" secondAttribute="bottom" constant="20" id="nL4-sk-BbA"/>
