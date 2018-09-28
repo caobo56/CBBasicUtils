@@ -10,9 +10,7 @@
 
 @interface CBAboutDetailVC ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *iconImgView;
-
-@property (weak, nonatomic) IBOutlet UITextView *descTxtView;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -20,18 +18,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _iconImgView.image = [UIImage imageNamed:_appIconName];
-    _descTxtView.text = _appDescription;
+    [self laodWebView];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)laodWebView{
+    NSMutableString * str = [NSMutableString stringWithFormat:@"<!DOCTYPE html><html lang=\"zh-cn\"><head>    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>    <style type=\"text/css\">        .content{color:#383131;font-size:18px;margin-top:7px;margin-left:20px;margin-right:20px}        .gird{margin-top:50px}    </style></head><body><div class=\"gird\" align=\"center\"><img src=\""];
+    [str appendString:_appIconName];
+    [str appendString:@"\" height=\"100\" width=\"100\"/></img></div><dl style=\"text-indent: 2em;text-align:left;\">    <dt class=\"content\"> "];
+    [str appendString:_appDescription];
+    [str appendString:@"</dt></dl><div class=\"gird\"></div></body></html>"];
+    [_webView loadHTMLString:str baseURL:nil];
 }
-*/
+
 
 @end

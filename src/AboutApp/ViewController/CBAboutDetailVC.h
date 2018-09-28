@@ -12,6 +12,7 @@
 
 @property(strong,nonatomic)NSString *appDescription;
 @property(strong,nonatomic)NSString *appIconName;
+//appIconName 这里放的是app 图标，必须放在bundle的根目录下，不能在Assets中
 
 @end
 
