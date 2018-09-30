@@ -127,7 +127,11 @@
         //发送分享信息
         [WXApi sendReq:req];
     }else{
-        [self.view toastMessage:@"您的手机未安装微信，暂时不能使用该功能！"];
+//        [self.view toastMessage:@"您的手机未安装微信，暂时不能使用该功能！"];
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        NSString *kLinkURL = [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/%@",_appid];
+        pasteboard.string = kLinkURL;
+        [self.view toastSuccessMessage:@"已经复制该app的链接到剪贴板，可以去粘贴链接，推荐给好友！" complete:nil];
     }
 }
 

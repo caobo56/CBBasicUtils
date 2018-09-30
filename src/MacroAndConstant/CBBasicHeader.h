@@ -28,18 +28,18 @@
 //判断iPhoneXs Max
 #define SCREENSIZE_IS_XS_MAX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) && !UI_IS_IPAD : NO)
 
-#define isIPhoneXAll ([UIScreen mainScreen].bounds.size.height == 812 || [UIScreen mainScreen].bounds.size.height == 896)
+#define IS_IPhoneX_All ([UIScreen mainScreen].bounds.size.height == 812 || [UIScreen mainScreen].bounds.size.height == 896)
 
 //状态栏、导航栏、标签栏高度
 #define Height_NavContentBar 44.0f
 
-#define Height_StatusBar (isIPhoneXAll ? 44.0 : 20.0)
+#define Height_StatusBar (IS_IPhoneX_All ? 44.0 : 20.0)
 
-#define Height_NavBar (isIPhoneXAll ? 88.0 : 64.0)
+#define Height_NavBar (IS_IPhoneX_All ? 88.0 : 64.0)
 
 #define Height_TopBar (Height_StatusBar + Height_NavBar)
 
-#define Height_TapBar (isIPhoneXAll ? 83.0 : 49.0)
+#define Height_TapBar (IS_IPhoneX_All ? 83.0 : 49.0)
 
 #define SCREEN_HEIGHTL [UIScreen mainScreen].bounds.size.height
 #define SCREEN_WIDTHL [UIScreen mainScreen].bounds.size.width
