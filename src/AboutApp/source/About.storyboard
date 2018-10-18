@@ -134,7 +134,7 @@
                             <outlet property="delegate" destination="twD-0e-QRq" id="ce7-rO-N1K"/>
                         </connections>
                     </tableView>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="关于记笔记" id="65J-eL-wPC"/>
                     <connections>
                         <outlet property="aboutlable" destination="zWA-er-Pve" id="IOe-7u-DBo"/>
@@ -169,7 +169,7 @@
                             <constraint firstAttribute="trailing" secondItem="aJK-WC-pEV" secondAttribute="trailing" id="uP2-MO-DyV"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="dvL-3H-8Vs"/>
                     <connections>
                         <outlet property="webView" destination="aJK-WC-pEV" id="cO1-RH-QgE"/>

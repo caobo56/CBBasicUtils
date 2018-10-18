@@ -29,7 +29,7 @@ enum {
     NetworkErrCode_IMGError
 };
 
-typedef void(^NetworkCompletion)(NSError* error,NSDictionary* data);
+typedef void(^NetworkCompletion)(NSError* error,id data);
 
 @interface APIClient : NSObject
 

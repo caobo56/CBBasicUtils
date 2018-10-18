@@ -45,6 +45,18 @@
     _appDescription = ab.appDescription;
     _appIconName = ab.appIconName;
     _authorEmail = ab.authorEmail;
+    
+    self.navigationItem.backBarButtonItem = nil;
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc]
+                                 initWithTitle:@"返回"
+                                 style:UIBarButtonItemStylePlain
+                                 target:self
+                                 action:@selector(backItemAction)];
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:backItem, nil];
+}
+
+-(void)backItemAction{
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 #pragma mark - Table view delegate

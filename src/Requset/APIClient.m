@@ -33,7 +33,6 @@ NSString* const IMGErrorDomain        =@"IMGError";
     }
 #endif
     __block NSError* errOut = nil;
-    __block NSDictionary * dataOut = nil;
     
     NSString* url;
     if ([urlStr hasPrefix:@"https:/"] || [urlStr hasPrefix:@"http:/"]) {
@@ -47,7 +46,7 @@ NSString* const IMGErrorDomain        =@"IMGError";
     }
     
     NSMutableURLRequest *request = CreateRequest(url, method, param, token);
-
+    
     CBURLSession *session = [CBURLSession sharedURLSession];
     NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
@@ -67,24 +66,15 @@ NSString* const IMGErrorDomain        =@"IMGError";
                                     @"errorMsg":[APIClient NetWorkErrorMsg:NetworkErrCode_ReqParamError],
                                     @"data":[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]};
                 errOut = M_ERROR_INFO(NetworkErrCode_ReqParamError,ui);
-            }else{
-                dataOut = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                if (dataOut && [dataOut isKindOfClass:[NSDictionary class]])  {
-                    errOut = nil;
-                }else{
-                    NSDictionary* ui=@{@"statusCode":@(httpResponse.statusCode),
-                                       @"errorMsg":[APIClient NetWorkErrorMsg:NetworkErrCode_ReqParamError],
-                                       @"data":[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]};
-                    errOut = M_ERROR_INFO(NetworkErrCode_ReqParamError,ui);
-                }
             }
+            
         }
         dispatch_sync(dispatch_get_main_queue(), ^{
 #if DEBUG
             NSLog(@"data:%@",data);
             NSLog(@"error:%@",error);
 #endif
-            completion(errOut,dataOut);
+            completion(errOut,data);
         });
     }];
     
@@ -98,7 +88,6 @@ NSString* const IMGErrorDomain        =@"IMGError";
     }
 #endif
     __block NSError* errOut = nil;
-    __block NSDictionary * dataOut = nil;
     
     NSString* url;
     if ([urlStr hasPrefix:@"https:/"] || [urlStr hasPrefix:@"http:/"]) {
@@ -132,16 +121,6 @@ NSString* const IMGErrorDomain        =@"IMGError";
                                     @"errorMsg":[APIClient NetWorkErrorMsg:NetworkErrCode_ReqParamError],
                                     @"data":[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]};
                 errOut = M_ERROR_INFO(NetworkErrCode_ReqParamError,ui);
-            }else{
-                dataOut = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                if (dataOut && [dataOut isKindOfClass:[NSDictionary class]])  {
-                    errOut = nil;
-                }else{
-                    NSDictionary* ui=@{@"statusCode":@(httpResponse.statusCode),
-                                       @"errorMsg":[APIClient NetWorkErrorMsg:NetworkErrCode_ReqParamError],
-                                       @"data":[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]};
-                    errOut = M_ERROR_INFO(NetworkErrCode_ReqParamError,ui);
-                }
             }
         }
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -149,7 +128,7 @@ NSString* const IMGErrorDomain        =@"IMGError";
             NSLog(@"data:%@",data);
             NSLog(@"error:%@",error);
 #endif
-            completion(errOut,dataOut);
+            completion(errOut,data);
         });
     }];
     
@@ -164,8 +143,7 @@ NSString* const IMGErrorDomain        =@"IMGError";
     }
 #endif
     __block NSError* errOut = nil;
-    __block NSDictionary * dataOut = nil;
-
+    
     NSString* url;
     if ([urlStr hasPrefix:@"https:/"] || [urlStr hasPrefix:@"http:/"]) {
         url=urlStr;
@@ -231,9 +209,9 @@ NSString* const IMGErrorDomain        =@"IMGError";
     request.HTTPMethod = method;
     
     CBURLSession *session = [CBURLSession sharedURLSessionForUpload];
-
+    
     NSURLSessionUploadTask *task = [session uploadTaskWithRequest:request fromData:data completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//      NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        //      NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         
         if (error) {
@@ -251,16 +229,6 @@ NSString* const IMGErrorDomain        =@"IMGError";
                                     @"errorMsg":[APIClient NetWorkErrorMsg:NetworkErrCode_ReqParamError],
                                     @"data":[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]};
                 errOut = M_ERROR_INFO(NetworkErrCode_ReqParamError,ui);
-            }else{
-                dataOut = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                if (dataOut && [dataOut isKindOfClass:[NSDictionary class]])  {
-                    errOut = nil;
-                }else{
-                    NSDictionary* ui=@{@"statusCode":@(httpResponse.statusCode),
-                                       @"errorMsg":[APIClient NetWorkErrorMsg:NetworkErrCode_ReqParamError],
-                                       @"data":[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]};
-                    errOut = M_ERROR_INFO(NetworkErrCode_ReqParamError,ui);
-                }
             }
         }
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -268,9 +236,8 @@ NSString* const IMGErrorDomain        =@"IMGError";
             NSLog(@"%@:%@\n%@\nToken=%@",method,url,param,token);
             NSLog(@"data:%@\nerror:%@",data,error);
 #endif
-            completion(errOut,dataOut);
+            completion(errOut,data);
         });
-
     }];
     [task resume];
 }
@@ -322,7 +289,7 @@ static NSMutableURLRequest* CreateRequest(NSString* url,NSString* method,NSDicti
     }
     
     NSMutableURLRequest* req=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:@"application/json;application/x-www-form-urlencoded;multipart/form-data;text/plain" forHTTPHeaderField:@"Content-Type"];
     [req setTimeoutInterval:M_TIMEOUT];
     if (token) {
         [req setValue:token forHTTPHeaderField:@"token"];
@@ -373,7 +340,7 @@ static NSMutableURLRequest* CreateRequestPre(NSString* url,NSString* method,NSDi
     }
     
     NSMutableURLRequest* req=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:@"application/json;application/x-www-form-urlencoded;multipart/form-data;text/plain" forHTTPHeaderField:@"Content-Type"];
     [req setTimeoutInterval:M_TIMEOUT];
     if (token) {
         [req setValue:token forHTTPHeaderField:@"token"];
