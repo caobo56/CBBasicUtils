@@ -20,15 +20,8 @@
 
 #define appName [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
 
-
-
 @interface CBAboutTableVC ()
 
-//static NSString * appid = @"id1341244763";
-//static NSString * appLinkTitle = @"'记笔记'，记录我们心底的点滴感动!";
-//static NSString * appLinkDescription = @"'记笔记'是一款无后台的记事本app，通过麦克风可以方便的将您说的话转换成笔记文字内容，免去手机文字输入难用的烦恼。另外还可以通过邮件、剪贴版、分享到微信等方式发送笔记内容。";
-//static NSString * appIconName = @"iconbg";
-//
 @property (weak, nonatomic) IBOutlet UILabel *aboutlable;
 
 @end
@@ -46,7 +39,6 @@
     _appIconName = ab.appIconName;
     _authorEmail = ab.authorEmail;
     
-    self.navigationItem.backBarButtonItem = nil;
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc]
                                  initWithTitle:@"返回"
                                  style:UIBarButtonItemStylePlain
@@ -59,22 +51,36 @@
     [self.navigationController popViewControllerAnimated:NO];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationItem setHidesBackButton:YES];
+    [self.navigationItem setHidesBackButton:YES];
+    [self.navigationController.navigationBar.backItem setHidesBackButton:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationItem setHidesBackButton:NO];
+    [self.navigationItem setHidesBackButton:NO];
+    [self.navigationController.navigationBar.backItem setHidesBackButton:NO];
+}
+
 #pragma mark - Table view delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
-        case 0:
+            case 0:
             [self sendMailForHelp];
             break;
-        case 1:
+            case 1:
             [self sendMailFeedBack];
             break;
-        case 2:
+            case 2:
             [self shareToWeiXin];
             break;
-        case 3:
+            case 3:
             [self AddContent];
             break;
-        case 4:
+            case 4:
             [self aboutDetail];
             break;
         default:
@@ -139,7 +145,7 @@
         //发送分享信息
         [WXApi sendReq:req];
     }else{
-//        [self.view toastMessage:@"您的手机未安装微信，暂时不能使用该功能！"];
+        //        [self.view toastMessage:@"您的手机未安装微信，暂时不能使用该功能！"];
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         NSString *kLinkURL = [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/%@",_appid];
         pasteboard.string = kLinkURL;
