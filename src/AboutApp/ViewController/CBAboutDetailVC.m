@@ -26,9 +26,7 @@
     NSString *imgStr = [self image2String:[UIImage imageNamed:_appIconName]];
     [str appendString:imgStr];
     [str appendString:@"\" height=\"100\" width=\"100\"/></img></div><dl style=\"text-indent: 2em;text-align:left;\"><dt class=\"content\"> "];
-    [str appendString:@"<center>"];
     [str appendString:_appDescription];
-    [str appendString:@"</center>"];
     [str appendString:@"</dt></dl><div class=\"gird\"></div></body></html>"];
     [_webView loadHTMLString:str baseURL:nil];
 }
