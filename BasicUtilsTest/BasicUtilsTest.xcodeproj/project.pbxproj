@@ -102,9 +102,6 @@
 		A89BDEB01FE8F60000FE12B1 /* CBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BDEAD1FE8F60000FE12B1 /* CBPickerView.m */; };
 		A8A2BFEF20070E8500CF2275 /* LoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A2BFED20070E8400CF2275 /* LoopProgressView.m */; };
 		A8A2BFF220073FD600CF2275 /* UIButton+MCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A2BFF120073FD600CF2275 /* UIButton+MCLayout.m */; };
-		A8A74C61200F237700A29841 /* NSObject+SwizzleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A74C5B200F237700A29841 /* NSObject+SwizzleMethod.m */; };
-		A8A74C62200F237700A29841 /* NSArray+ErrorHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A74C5C200F237700A29841 /* NSArray+ErrorHandle.m */; };
-		A8A74C63200F237700A29841 /* NSMutableArray+ErrorHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A74C5D200F237700A29841 /* NSMutableArray+ErrorHandle.m */; };
 		A8A74C73200F29DE00A29841 /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A74C71200F29DD00A29841 /* NSTimer+Addition.m */; };
 		A8ACB3891FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
 		A8ACB38A1FDFC04A00BE0668 /* UIView+screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB3861FDFC04900BE0668 /* UIView+screenshots.m */; };
@@ -243,12 +240,6 @@
 		A8A2BFEE20070E8400CF2275 /* LoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopProgressView.h; sourceTree = "<group>"; };
 		A8A2BFF020073FD600CF2275 /* UIButton+MCLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+MCLayout.h"; sourceTree = "<group>"; };
 		A8A2BFF120073FD600CF2275 /* UIButton+MCLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+MCLayout.m"; sourceTree = "<group>"; };
-		A8A74C5B200F237700A29841 /* NSObject+SwizzleMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SwizzleMethod.m"; sourceTree = "<group>"; };
-		A8A74C5C200F237700A29841 /* NSArray+ErrorHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ErrorHandle.m"; sourceTree = "<group>"; };
-		A8A74C5D200F237700A29841 /* NSMutableArray+ErrorHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ErrorHandle.m"; sourceTree = "<group>"; };
-		A8A74C5E200F237700A29841 /* NSArray+ErrorHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ErrorHandle.h"; sourceTree = "<group>"; };
-		A8A74C5F200F237700A29841 /* NSObject+SwizzleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SwizzleMethod.h"; sourceTree = "<group>"; };
-		A8A74C60200F237700A29841 /* NSMutableArray+ErrorHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ErrorHandle.h"; sourceTree = "<group>"; };
 		A8A74C71200F29DD00A29841 /* NSTimer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Addition.m"; sourceTree = "<group>"; };
 		A8A74C72200F29DD00A29841 /* NSTimer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Addition.h"; sourceTree = "<group>"; };
 		A8ACB3831FDFC04800BE0668 /* UIView+WhenTappendBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WhenTappendBlocks.h"; sourceTree = "<group>"; };
@@ -480,25 +471,11 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		A8A74C5A200F237700A29841 /* ArrBounds */ = {
-			isa = PBXGroup;
-			children = (
-				A8A74C5E200F237700A29841 /* NSArray+ErrorHandle.h */,
-				A8A74C5C200F237700A29841 /* NSArray+ErrorHandle.m */,
-				A8A74C60200F237700A29841 /* NSMutableArray+ErrorHandle.h */,
-				A8A74C5D200F237700A29841 /* NSMutableArray+ErrorHandle.m */,
-				A8A74C5F200F237700A29841 /* NSObject+SwizzleMethod.h */,
-				A8A74C5B200F237700A29841 /* NSObject+SwizzleMethod.m */,
-			);
-			path = ArrBounds;
-			sourceTree = "<group>";
-		};
 		A8BC02431FD7C47A0094B423 /* src */ = {
 			isa = PBXGroup;
 			children = (
 				A889248421538783009CF510 /* AboutApp */,
 				A8F7F0712151DEDE00A878FA /* ShareView */,
-				A8A74C5A200F237700A29841 /* ArrBounds */,
 				A82B80381FD7E45400BD0F7E /* Catergory */,
 				A82B7FF61FD7DD3700BD0F7E /* Resource */,
 				A82B80241FD7E2C600BD0F7E /* BasicClass */,
@@ -847,7 +824,6 @@
 				A8ACB3A31FDFF44C00BE0668 /* JsonHelper.m in Sources */,
 				A82B80351FD7E2C600BD0F7E /* CBTextView.m in Sources */,
 				A88924B521539396009CF510 /* AboutAppManager.m in Sources */,
-				A8A74C61200F237700A29841 /* NSObject+SwizzleMethod.m in Sources */,
 				A8BC02BA1FD7C77A0094B423 /* CBVerifyTool.m in Sources */,
 				A82B801E1FD7E1E000BD0F7E /* CBwebView.m in Sources */,
 				A897962A1FE7C7E800807145 /* UIBarButtonItem+Extension.m in Sources */,
@@ -875,10 +851,8 @@
 				A8A2BFEF20070E8500CF2275 /* LoopProgressView.m in Sources */,
 				A8ACB3A01FDFF44C00BE0668 /* CoreAnimationEffect.m in Sources */,
 				A82B80541FD7E45400BD0F7E /* UIView+IB.m in Sources */,
-				A8A74C62200F237700A29841 /* NSArray+ErrorHandle.m in Sources */,
 				A88924AF21538B16009CF510 /* CBAboutDetailVC.m in Sources */,
 				A82B80181FD7DE5600BD0F7E /* CBMustLable.m in Sources */,
-				A8A74C63200F237700A29841 /* NSMutableArray+ErrorHandle.m in Sources */,
 				A8BCFF551FD68E860094B423 /* AppDelegate.m in Sources */,
 				A88924A921538783009CF510 /* CBAboutTableVC.m in Sources */,
 				A88924A621538783009CF510 /* ViewController.m in Sources */,
