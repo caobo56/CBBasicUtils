@@ -36,6 +36,10 @@
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     NSLog(@"end");
+    if ([CBAlertVC isShow]) {
+        return;
+    }
+    
     UIImage * img = [self cutterViewToDocument];
     __block UIImage * blkImg = img;
     
