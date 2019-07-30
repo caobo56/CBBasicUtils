@@ -1,0 +1,1 @@
+../../../LFMediaEditingController/LFMediaEditingController/class/vendors/JRFilterBar/Model/JRFilterModel.h

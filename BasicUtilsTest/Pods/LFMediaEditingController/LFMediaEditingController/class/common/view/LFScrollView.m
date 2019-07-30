@@ -30,8 +30,8 @@
 
 - (void)lf_customInit
 {
-    self.delaysContentTouches = NO;
-    self.canCancelContentTouches = NO;
+//    self.delaysContentTouches = NO;
+//    self.canCancelContentTouches = NO;
     
     self.scrollsToTop = NO;
     self.showsHorizontalScrollIndicator = NO;
@@ -40,6 +40,14 @@
     if (@available(iOS 11.0, *)){
         [self setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     }
+}
+
+- (void)scrollViewEnabled:(BOOL)enabled
+{
+    /** 手势 */
+    self.pinchGestureRecognizer.enabled = enabled;
+    self.panGestureRecognizer.enabled = enabled;
+    self.scrollEnabled = enabled;
 }
 
 - (BOOL)touchesShouldBegin:(NSSet *)touches withEvent:(UIEvent *)event inContentView:(UIView *)view

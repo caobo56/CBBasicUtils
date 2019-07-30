@@ -20,6 +20,10 @@
 @property (nonatomic, weak) id<LFClippingViewDelegate> clippingDelegate;
 /** 首次缩放后需要记录最小缩放值 */
 @property (nonatomic, readonly) CGFloat first_minimumZoomScale;
+/** 与父视图中心偏差坐标 */
+@property (nonatomic, assign) CGPoint offsetSuperCenter;
+/** 是否存在剪切以外的编辑操作 */
+@property (nonatomic, readonly) BOOL hasZoomingViewData;
 
 /** 原始坐标 */
 @property (nonatomic, readonly) CGRect originalRect;
@@ -39,6 +43,8 @@
 @property (nonatomic, assign) CGRect editRect;
 /** 剪切范围 */
 @property (nonatomic, assign) CGRect cropRect;
+/** 手势开关，一般编辑模式下开启 默认NO */
+@property (nonatomic, assign) BOOL useGesture;
 
 /** 缩小到指定坐标 */
 - (void)zoomOutToRect:(CGRect)toRect;

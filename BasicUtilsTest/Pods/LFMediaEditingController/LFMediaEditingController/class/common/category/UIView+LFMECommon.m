@@ -26,11 +26,13 @@
     }
     
     /** 参数取整，否则可能会出现1像素偏差 */
-    rect.origin.x = (rect.origin.x+FLT_EPSILON);
-    rect.origin.y = (rect.origin.y+FLT_EPSILON);
-    rect.size.width = (rect.size.width+FLT_EPSILON);
-    rect.size.height = (rect.size.height+FLT_EPSILON);
-    
+    /** 有小数部分才调整差值 */
+#define lfme_fixDecimal(d) ((fmod(d, (int)d)) > 0.59f ? ((int)(d+0.5)*1.f) : (((fmod(d, (int)d)) < 0.59f && (fmod(d, (int)d)) > 0.1f) ? ((int)(d)*1.f+0.5f) : (int)(d)*1.f))
+    rect.origin.x = lfme_fixDecimal(rect.origin.x);
+    rect.origin.y = lfme_fixDecimal(rect.origin.y);
+    rect.size.width = lfme_fixDecimal(rect.size.width);
+    rect.size.height = lfme_fixDecimal(rect.size.height);
+#undef lfme_fixDecimal
     CGSize size = rect.size;
     
     //1.开启上下文

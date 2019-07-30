@@ -19,8 +19,12 @@ typedef NS_ENUM(NSUInteger, LFVideoEditOperationType) {
     LFVideoEditOperationType_text = 1 << 2,
     /** 音频 */
     LFVideoEditOperationType_audio = 1 << 3,
+    /** 滤镜 */
+    LFVideoEditOperationType_filter NS_ENUM_AVAILABLE_IOS(9_0) = 1 << 4,
+    /** 速率 */
+    LFVideoEditOperationType_rate = 1 << 5,
     /** 剪辑 */
-    LFVideoEditOperationType_clip = 1 << 4,
+    LFVideoEditOperationType_clip = 1 << 6,
     /** 所有 */
     LFVideoEditOperationType_All = ~0UL,
 };
@@ -40,10 +44,16 @@ typedef NS_ENUM(NSUInteger, LFVideoEditOperationType) {
 
 /** 设置操作类型 default is LFVideoEditOperationType_All */
 @property (nonatomic, assign) LFVideoEditOperationType operationType;
-/** 自定义贴图资源 */
-@property (nonatomic, strong) NSString *stickerPath;
+/** 设置默认的操作类型(可以选择最多2种操作，优先级以类型为准，但剪辑类型优于所有。所有类型可与剪辑类型搭配显示2种；剪辑以外的其它多种类型搭配以优先级排序仅显示1种) default is 0
+    ps:当operationType 与 defaultOperationType 只有LFVideoEditOperationType_clip的情况，无需返回，直接完成整个编辑
+ */
+@property (nonatomic, assign) LFVideoEditOperationType defaultOperationType;
 /** 允许剪辑的最小时长 1秒 */
 @property (nonatomic, assign) double minClippingDuration;
+/** 自定义贴图资源 */
+@property (nonatomic, strong) NSString *stickerPath;
+/** 自定义音频资源（fileURLWithPath:） */
+@property (nonatomic, strong) NSArray <NSURL *>*defaultAudioUrls;
 
 /** 代理 */
 @property (nonatomic, weak) id<LFVideoEditingControllerDelegate> delegate;

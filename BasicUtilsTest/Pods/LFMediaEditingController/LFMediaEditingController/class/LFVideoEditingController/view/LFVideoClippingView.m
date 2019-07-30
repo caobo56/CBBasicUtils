@@ -16,21 +16,25 @@
 /** 编辑功能 */
 #import "LFDrawView.h"
 #import "LFSplashView.h"
-#import "LFSplashView_new.h"
 #import "LFStickerView.h"
+
+/** 滤镜框架 */
+#import "LFDataFilterVideoView.h"
 
 NSString *const kLFVideoCLippingViewData = @"LFVideoCLippingViewData";
 
 NSString *const kLFVideoCLippingViewData_startTime = @"LFVideoCLippingViewData_startTime";
 NSString *const kLFVideoCLippingViewData_endTime = @"LFVideoCLippingViewData_endTime";
+NSString *const kLFVideoCLippingViewData_rate = @"LFVideoCLippingViewData_rate";
 
 NSString *const kLFVideoCLippingViewData_draw = @"LFVideoCLippingViewData_draw";
 NSString *const kLFVideoCLippingViewData_sticker = @"LFVideoCLippingViewData_sticker";
 NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_splash";
+NSString *const kLFVideoCLippingViewData_filter = @"LFVideoCLippingViewData_filter";
 
 @interface LFVideoClippingView () <LFVideoPlayerDelegate, UIScrollViewDelegate>
 
-@property (nonatomic, weak) LFVideoPlayerLayerView *playerLayerView;
+@property (nonatomic, weak) LFDataFilterVideoView *playerView;
 @property (nonatomic, strong) LFVideoPlayer *videoPlayer;
 
 /** 原始坐标 */
@@ -44,12 +48,12 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
 /** 贴图 */
 @property (nonatomic, weak) LFStickerView *stickerView;
 /** 模糊 */
-@property (nonatomic, weak) LFSplashView_new *splashView;
+@property (nonatomic, weak) LFSplashView *splashView;
 
 /** 代理 */
 @property (nonatomic ,weak) id<LFPhotoEditDelegate> editDelegate_self;
 @property (nonatomic, assign) BOOL muteOriginal;
-@property (nonatomic, strong) NSArray *audioMix;
+@property (nonatomic, strong) NSArray <NSURL *>*audioUrls;
 @property (nonatomic, strong) AVAsset *asset;
 
 /** 记录编辑层是否可控 */
@@ -68,6 +72,8 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
 @end
 
 @implementation LFVideoClippingView
+
+@synthesize rate = _rate;
 
 /*
  1、播放功能（无限循环）
@@ -101,10 +107,10 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
     
     
     /** 播放视图 */
-    LFVideoPlayerLayerView *playerLayerView = [[LFVideoPlayerLayerView alloc] initWithFrame:self.bounds];
-    playerLayerView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.zoomView addSubview:playerLayerView];
-    _playerLayerView = playerLayerView;
+    LFDataFilterVideoView *playerView = [[LFDataFilterVideoView alloc] initWithFrame:self.bounds];
+    playerView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.zoomView addSubview:playerView];
+    _playerView = playerView;
     
     /** 涂抹 - 最底层 */
 //    LFSplashView_new *splashView = [[LFSplashView_new alloc] initWithFrame:self.bounds];
@@ -142,15 +148,16 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
 - (void)setVideoAsset:(AVAsset *)asset placeholderImage:(UIImage *)image
 {
     _asset = asset;
-    [self.playerLayerView setImage:image];
+    [self.playerView setImageByUIImage:image];
     if (self.videoPlayer == nil) {
         self.videoPlayer = [LFVideoPlayer new];
         self.videoPlayer.delegate = self;
-        if (self.endTime > 0) {
-            self.videoPlayer.endTime = self.endTime;
-        }
     }
-    [self.videoPlayer setAsset:asset audioUrls:self.audioMix];
+    [self.videoPlayer setAsset:asset];
+    [self.videoPlayer setAudioUrls:self.audioUrls];
+    if (_rate > 0 && !(_rate + FLT_EPSILON > 1.0 && _rate - FLT_EPSILON < 1.0)) {
+        self.videoPlayer.rate = _rate;
+    }
     
     /** 重置编辑UI位置 */
     CGSize videoSize = self.videoPlayer.size;
@@ -160,7 +167,7 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
     CGRect editRect = AVMakeRectWithAspectRatioInsideRect(videoSize, self.superview.bounds);
     self.frame = editRect;
     _zoomView.size = editRect.size;
-    _playerLayerView.frame = _drawView.frame = _splashView.frame = _stickerView.frame = _zoomView.bounds;
+    _playerView.frame = _drawView.frame = _splashView.frame = _stickerView.frame = _zoomView.bounds;
 }
 
 - (void)setMoveCenter:(BOOL (^)(CGRect))moveCenter
@@ -222,6 +229,17 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
     self.videoPlayer.muteOriginalSound = mute;
 }
 
+- (float)rate
+{
+    return self.videoPlayer.rate ?: 1.0;
+}
+
+- (void)setRate:(float)rate
+{
+    _rate = rate;
+    self.videoPlayer.rate = rate;
+}
+
 /** 是否播放 */
 - (BOOL)isPlaying
 {
@@ -249,8 +267,8 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
 /** 增加音效 */
 - (void)addAudioMix:(NSArray <NSURL *>*)audioMix
 {
-    _audioMix = audioMix;
-    [self.videoPlayer setAsset:self.asset audioUrls:audioMix];
+    _audioUrls = audioMix;
+    [self.videoPlayer setAudioUrls:self.audioUrls];
 }
 
 /** 移动到某帧 */
@@ -269,7 +287,6 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
 {
     _isScrubbing = NO;
     [self.videoPlayer endScrubbing];
-    self.videoPlayer.endTime = self.endTime;
 }
 
 /** 是否存在水印 */
@@ -310,6 +327,11 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
     return nil;
 }
 
+- (LFFilter *)filter
+{
+    return self.playerView.filter;
+}
+
 #pragma mark - UIScrollViewDelegate
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
@@ -323,13 +345,13 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
     if (self.startTime > 0) {
         [player seekToTime:self.startTime];
     }
-    [self.playerLayerView setPlayer:avplayer];
+    [self.playerView setPlayer:avplayer];
 //    [self.playerLayerView setImage:nil];
 }
 /** 可以播放 */
 - (void)LFVideoPlayerReadyToPlay:(LFVideoPlayer *)player duration:(double)duration
 {
-    if (self.endTime == 0) {
+    if (_endTime == 0) { /** 读取配置优于视频初始化的情况 */
         _endTime = duration;
     }
     _totalDuration = duration;
@@ -348,12 +370,15 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
 /** 错误回调 */
 - (void)LFVideoPlayerFailedToPrepare:(LFVideoPlayer *)player error:(NSError *)error
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [[[UIAlertView alloc] initWithTitle:@"LFVideoPlayer_Error"
                                 message:error.localizedDescription
                                delegate:nil
                       cancelButtonTitle:[NSBundle LFME_localizedStringForKey:@"_LFME_alertViewCancelTitle"]
                       otherButtonTitles:nil]
      show];
+#pragma clang diagnostic pop
 }
 
 /** 进度回调2-手动实现 */
@@ -402,7 +427,7 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
         };
         
         /** 贴图 */
-        _stickerView.tapEnded = ^(BOOL isActive){
+        _stickerView.tapEnded = ^(LFStickerItem *item, BOOL isActive) {
             if ([weakSelf.editDelegate_self respondsToSelector:@selector(lf_photoEditStickerDidSelectViewIsActive:)]) {
                 [weakSelf.editDelegate_self lf_photoEditStickerDidSelectViewIsActive:isActive];
             }
@@ -455,22 +480,30 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
     }
 }
 
+/** 显示视图 */
+- (UIView *)displayView
+{
+    return self.playerView;
+}
+
 #pragma mark - 数据
 - (NSDictionary *)photoEditData
 {
     NSDictionary *drawData = _drawView.data;
     NSDictionary *stickerData = _stickerView.data;
     NSDictionary *splashData = _splashView.data;
+    NSDictionary *filterData = _playerView.data;
     
     NSMutableDictionary *data = [@{} mutableCopy];
     if (drawData) [data setObject:drawData forKey:kLFVideoCLippingViewData_draw];
     if (stickerData) [data setObject:stickerData forKey:kLFVideoCLippingViewData_sticker];
     if (splashData) [data setObject:splashData forKey:kLFVideoCLippingViewData_splash];
+    if (filterData) [data setObject:filterData forKey:kLFVideoCLippingViewData_filter];
     
-    if (self.startTime > 0 || self.endTime < self.totalDuration) {
+    if (self.startTime > 0 || self.endTime < self.totalDuration || (_rate > 0 && !(_rate + FLT_EPSILON > 1.0 && _rate - FLT_EPSILON < 1.0))) {
         NSDictionary *myData = @{kLFVideoCLippingViewData_startTime:@(self.startTime)
                                  , kLFVideoCLippingViewData_endTime:@(self.endTime)
-                                 };
+                                 , kLFVideoCLippingViewData_rate:@(self.rate)};
         [data setObject:myData forKey:kLFVideoCLippingViewData];
     }
     
@@ -486,10 +519,29 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
     if (myData) {
         self.startTime = self.old_startTime = [myData[kLFVideoCLippingViewData_startTime] doubleValue];
         self.endTime = self.old_endTime = [myData[kLFVideoCLippingViewData_endTime] doubleValue];
+        self.rate = [myData[kLFVideoCLippingViewData_rate] floatValue];
     }
     _drawView.data = photoEditData[kLFVideoCLippingViewData_draw];
     _stickerView.data = photoEditData[kLFVideoCLippingViewData_sticker];
     _splashView.data = photoEditData[kLFVideoCLippingViewData_splash];
+    _playerView.data = photoEditData[kLFVideoCLippingViewData_filter];
+}
+
+#pragma mark - 滤镜功能
+/** 滤镜类型 */
+- (void)changeFilterType:(NSInteger)cmType
+{
+    self.playerView.type = cmType;
+}
+/** 当前使用滤镜类型 */
+- (NSInteger)getFilterType
+{
+    return self.playerView.type;
+}
+/** 获取滤镜图片 */
+- (UIImage *)getFilterImage
+{
+    return [self.playerView renderedUIImage];
 }
 
 #pragma mark - 绘画功能
@@ -501,6 +553,11 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
 - (BOOL)drawEnable
 {
     return _drawView.userInteractionEnabled;
+}
+
+- (BOOL)isDrawing
+{
+    return _drawView.isDrawing;
 }
 
 - (BOOL)drawCanUndo
@@ -515,6 +572,12 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
 - (void)setDrawColor:(UIColor *)color
 {
     _drawView.lineColor = color;
+}
+
+/** 设置绘画线粗 */
+- (void)setDrawLineWidth:(CGFloat)lineWidth
+{
+    _drawView.lineWidth = lineWidth;
 }
 
 #pragma mark - 贴图功能
@@ -533,30 +596,44 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
 {
     [_stickerView removeSelectStickerView];
 }
-/** 获取选中贴图的内容 */
-- (LFText *)getSelectStickerText
+/** 屏幕缩放率 */
+- (void)setScreenScale:(CGFloat)scale
 {
-    return [_stickerView getSelectStickerText];
+    _stickerView.screenScale = scale;
 }
-/** 更改选中贴图内容 */
-- (void)changeSelectStickerText:(LFText *)text
+/** 最小缩放率 默认0.2 */
+- (void)setStickerMinScale:(CGFloat)stickerMinScale
 {
-    [_stickerView changeSelectStickerText:text];
+    _stickerView.minScale = stickerMinScale;
+}
+- (CGFloat)stickerMinScale
+{
+    return _stickerView.minScale;
+}
+/** 最大缩放率 默认3.0 */
+- (void)setStickerMaxScale:(CGFloat)stickerMaxScale
+{
+    _stickerView.maxScale = stickerMaxScale;
+}
+- (CGFloat)stickerMaxScale
+{
+    return _stickerView.maxScale;
 }
 
 /** 创建贴图 */
-- (void)createStickerImage:(UIImage *)image
+- (void)createSticker:(LFStickerItem *)item
 {
-    [_stickerView createImage:image];
+    [_stickerView createStickerItem:item];
 }
-
-#pragma mark - 文字功能
-/** 创建文字 */
-- (void)createStickerText:(LFText *)text
+/** 获取选中贴图的内容 */
+- (LFStickerItem *)getSelectSticker
 {
-    if (text) {
-        [_stickerView createText:text];
-    }
+    return [_stickerView getSelectStickerItem];
+}
+/** 更改选中贴图内容 */
+- (void)changeSelectSticker:(LFStickerItem *)item
+{
+    [_stickerView changeSelectStickerItem:item];
 }
 
 #pragma mark - 模糊功能
@@ -579,7 +656,10 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
 {
     [_splashView undo];
 }
-
+- (BOOL)isSplashing
+{
+    return _splashView.isDrawing;
+}
 - (void)setSplashState:(BOOL)splashState
 {
     if (splashState) {
@@ -592,6 +672,17 @@ NSString *const kLFVideoCLippingViewData_splash = @"LFVideoCLippingViewData_spla
 - (BOOL)splashState
 {
     return _splashView.state == LFSplashStateType_Paintbrush;
+}
+
+/** 设置马赛克大小 */
+- (void)setSplashWidth:(CGFloat)squareWidth
+{
+    _splashView.squareWidth = squareWidth;
+}
+/** 设置画笔大小 */
+- (void)setPaintWidth:(CGFloat)paintWidth
+{
+    _splashView.paintSize = CGSizeMake(paintWidth, paintWidth);
 }
 
 @end

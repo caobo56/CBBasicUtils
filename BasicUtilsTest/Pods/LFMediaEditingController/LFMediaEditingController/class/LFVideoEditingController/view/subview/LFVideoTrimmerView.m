@@ -12,6 +12,13 @@
 
 #define LFVideoTrimmerView_timeLabel_height 11.f
 
+/** 视频时间（取整：四舍五入） */
+NSTimeInterval lfme_videoDuration(NSTimeInterval duration)
+{
+    return (NSInteger)(duration+0.5f)*1.f;
+}
+
+
 @interface LFVideoTrimmerView () <LFVideoTrimmerGridViewDelegate>
 
 /** 视频图片解析器 */
@@ -97,6 +104,26 @@
     return timeLabel;
 }
 
+- (BOOL)isEnabledLeftCorner
+{
+    return self.gridView.isEnabledLeftCorner;
+}
+
+- (void)setEnabledLeftCorner:(BOOL)enabledLeftCorner
+{
+    self.gridView.enabledLeftCorner = enabledLeftCorner;
+}
+
+- (BOOL)isEnabledRightCorner
+{
+    return self.gridView.isEnabledRightCorner;
+}
+
+- (void)setEnabledRightCorner:(BOOL)enabledRightCorner
+{
+    self.gridView.enabledRightCorner = enabledRightCorner;
+}
+
 - (void)setMaxImageCount:(NSInteger)maxImageCount
 {
     if (maxImageCount > 0) {
@@ -154,6 +181,13 @@
 /** 重设控制区域 */
 - (void)setGridRange:(NSRange)gridRange animated:(BOOL)animated
 {
+//    if (gridRange.length < self.gridView.controlMinWidth) {
+//        gridRange.length = self.gridView.controlMinWidth;
+//    }
+//    if (gridRange.length > self.gridView.controlMaxWidth) {
+//        gridRange.length = self.gridView.controlMaxWidth;
+//    }
+    
     [self.gridView setGridRect:CGRectMake(gridRange.location, 0, gridRange.length, self.gridView.frame.size.height) animated:animated];
     [self calcTime];
 }
@@ -234,12 +268,17 @@
 - (void)calcTime
 {
     if (self.totalDuration) {
-        double startTime = self.gridView.gridRect.origin.x/self.width*self.totalDuration;
-        double endTime = (self.gridView.gridRect.origin.x+self.gridView.gridRect.size.width)/self.width*self.totalDuration;
+
+        double startTime = MIN(lfme_videoDuration(self.gridView.gridRect.origin.x/self.width*self.totalDuration), self.totalDuration);
+        double endTime = MIN(lfme_videoDuration((self.gridView.gridRect.origin.x+self.gridView.gridRect.size.width)/self.width*self.totalDuration), self.totalDuration);
         
-        self.startTimeLabel.text = [LFVideoTrimmerView getMMSSWithSecond:ceil(startTime)];
-        self.endTimeLabel.text = [LFVideoTrimmerView getMMSSWithSecond:ceil(endTime)];
-        self.totalTimeLabel.text = [LFVideoTrimmerView getMMSSWithSecond:ceil(endTime)-ceil(startTime)];
+        _startTime = startTime;
+        _endTime = endTime;
+        
+        
+        self.startTimeLabel.text = [LFVideoTrimmerView getMMSSWithSecond:startTime];
+        self.endTimeLabel.text = [LFVideoTrimmerView getMMSSWithSecond:endTime];
+        self.totalTimeLabel.text = [LFVideoTrimmerView getMMSSWithSecond:endTime-startTime];
     }
 }
 

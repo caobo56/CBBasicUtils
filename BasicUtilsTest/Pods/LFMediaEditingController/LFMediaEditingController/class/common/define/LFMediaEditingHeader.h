@@ -22,12 +22,14 @@
 
 #define bundleEditImageNamed(name) [NSBundle LFME_imageNamed:name]
 #define bundleStickerImageNamed(name) [NSBundle LFME_stickersImageNamed:name]
+#define bundleAudioTrackImageNamed(name) [NSBundle LFME_audioTrackImageNamed:name]
 
 #define kCustomTopbarHeight CGRectGetHeight(self.navigationController.navigationBar.frame) + (CGRectGetWidth([UIScreen mainScreen].bounds) < CGRectGetHeight([UIScreen mainScreen].bounds) ? 20 : 0)
-#define kCustomTopbarHeight_iOS11 CGRectGetHeight(self.navigationController.navigationBar.frame) + (self.view.safeAreaInsets.top > 0 ? self.view.safeAreaInsets.top : (CGRectGetWidth([UIScreen mainScreen].bounds) < CGRectGetHeight([UIScreen mainScreen].bounds) ? 20 : 0))
+#define kCustomTopbarHeight_iOS11 CGRectGetHeight(self.navigationController.navigationBar.frame) + (self.navigationController.view.safeAreaInsets.top > 0 ? self.navigationController.view.safeAreaInsets.top : (CGRectGetWidth([UIScreen mainScreen].bounds) < CGRectGetHeight([UIScreen mainScreen].bounds) ? 20 : 0))
 
 
-#define kSliderColors @[[UIColor colorWithRed:246.f/255.f green:246.f/255.f blue:246.f/255.f alpha:1.f]/*白色*/\
+#define kSliderColors @[[UIColor whiteColor]/*白色*/\
+, [UIColor blackColor]/*黑色*/\
 , [UIColor colorWithRed:235.f/255.f green:51.f/255.f blue:16.f/255.f alpha:1.f]/*红色*/\
 , [UIColor colorWithRed:245.f/255.f green:181.f/255.f blue:71.f/255.f alpha:1.f]/*浅黄色*/\
 , [UIColor colorWithRed:248.f/255.f green:229.f/255.f blue:7.f/255.f alpha:1.f]/*黄色*/\

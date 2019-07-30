@@ -1,1 +1,1 @@
-../../../LFMediaEditingController/LFMediaEditingController/class/LFPhotoEditingController/utils/CancelBlock/LFMECancelBlock.h
+../../../LFMediaEditingController/LFMediaEditingController/class/common/utils/CancelBlock/LFMECancelBlock.h

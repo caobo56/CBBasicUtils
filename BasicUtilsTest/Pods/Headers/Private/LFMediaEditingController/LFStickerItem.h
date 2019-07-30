@@ -1,0 +1,1 @@
+../../../LFMediaEditingController/LFMediaEditingController/class/LFPhotoEditingController/view/model/LFStickerItem.h

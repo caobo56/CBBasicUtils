@@ -9,25 +9,27 @@
 #import "LFZoomingView.h"
 #import "UIView+LFMEFrame.h"
 #import "UIView+LFMECommon.h"
+#import "UIImage+LFMECommon.h"
 
 #import <AVFoundation/AVFoundation.h>
 
 /** 编辑功能 */
+#import "LFDataFilterImageView.h"
 #import "LFDrawView.h"
 #import "LFSplashView.h"
-#import "LFSplashView_new.h"
 #import "LFStickerView.h"
 
 NSString *const kLFZoomingViewData_draw = @"LFZoomingViewData_draw";
 NSString *const kLFZoomingViewData_sticker = @"LFZoomingViewData_sticker";
 NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
+NSString *const kLFZoomingViewData_filter = @"LFZoomingViewData_filter";
 
 @interface LFZoomingView ()
 
 /** 原始坐标 */
 @property (nonatomic, assign) CGRect originalRect;
 
-@property (nonatomic, weak) UIImageView *imageView;
+@property (nonatomic, weak) LFDataFilterImageView *imageView;
 
 /** 绘画 */
 @property (nonatomic, weak) LFDrawView *drawView;
@@ -36,7 +38,7 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
 /** 模糊（马赛克、高斯模糊） */
 //@property (nonatomic, weak) LFSplashView *splashView;
 /** 模糊 */
-@property (nonatomic, weak) LFSplashView_new *splashView;
+@property (nonatomic, weak) LFSplashView *splashView;
 
 /** 代理 */
 @property (nonatomic ,weak) id delegate;
@@ -67,22 +69,18 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
     self.contentMode = UIViewContentModeScaleAspectFit;
     self.editEnable = YES;
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    LFDataFilterImageView *imageView = [[LFDataFilterImageView alloc] initWithFrame:self.bounds];
     imageView.backgroundColor = [UIColor clearColor];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:imageView];
     self.imageView = imageView;
-    
-    /** 涂抹 - 最底层 */
-//    LFSplashView *splashView = [[LFSplashView alloc] initWithFrame:self.bounds];
-//    /** 默认不能涂抹 */
-//    splashView.userInteractionEnabled = NO;
-//    [self addSubview:splashView];
-//    self.splashView = splashView;
-    LFSplashView_new *splashView = [[LFSplashView_new alloc] initWithFrame:self.bounds];
+    LFSplashView *splashView = [[LFSplashView alloc] initWithFrame:self.bounds];
     __weak typeof(self) weakSelf = self;
     splashView.splashColor = ^UIColor *(CGPoint point) {
-        return [weakSelf.imageView LFME_colorOfPoint:point];
+//        return [weakSelf.imageView LFME_colorOfPoint:point];
+        point.x = point.x/weakSelf.frame.size.width*weakSelf.image.size.width;
+        point.y = point.y/weakSelf.frame.size.height*weakSelf.image.size.height;
+        return [weakSelf.image colorAtPixel:point];
     };
     /** 默认不能涂抹 */
     splashView.userInteractionEnabled = NO;
@@ -117,8 +115,15 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
         }];
     }
     
-    [self.imageView setImage:image];
-    [self.imageView startAnimating];
+    /** 判断是否大图、长图之类的图片，暂时规定超出当前手机屏幕的n倍就是大图了 */
+    CGFloat scale = 10.f;
+    BOOL isLongImage = MAX(image.size.height/image.size.width, image.size.width/image.size.height) > scale;
+    if (image.images.count == 0 && (isLongImage || (image.size.width > [UIScreen mainScreen].bounds.size.width * scale || image.size.height > [UIScreen mainScreen].bounds.size.height * scale))) {
+        self.imageView.contextType = LFContextTypeLargeImage;
+    } else {
+        self.imageView.contextType = LFContextTypeAuto;
+    }
+    [self.imageView setImageByUIImage:image];
 }
 
 - (void)setImageViewHidden:(BOOL)imageViewHidden
@@ -128,7 +133,7 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
 
 - (BOOL)isImageViewHidden
 {
-    return self.imageView.hidden;
+    return self.imageView.isHidden;
 }
 
 - (void)setMoveCenter:(BOOL (^)(CGRect))moveCenter
@@ -164,7 +169,7 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
         };
         
         /** 贴图 */
-        _stickerView.tapEnded = ^(BOOL isActive){
+        _stickerView.tapEnded = ^(LFStickerItem *item, BOOL isActive) {
             if ([weakSelf.delegate respondsToSelector:@selector(lf_photoEditStickerDidSelectViewIsActive:)]) {
                 [weakSelf.delegate lf_photoEditStickerDidSelectViewIsActive:isActive];
             }
@@ -217,17 +222,28 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
     }
 }
 
+/** 显示视图 */
+- (UIView *)displayView
+{
+    if (self.imageView.contentView) {
+        return self.imageView;
+    }
+    return nil;
+}
+
 #pragma mark - 数据
 - (NSDictionary *)photoEditData
 {
     NSDictionary *drawData = _drawView.data;
     NSDictionary *stickerData = _stickerView.data;
     NSDictionary *splashData = _splashView.data;
+    NSDictionary *filterData = _imageView.data;
     
     NSMutableDictionary *data = [@{} mutableCopy];
     if (drawData) [data setObject:drawData forKey:kLFZoomingViewData_draw];
     if (stickerData) [data setObject:stickerData forKey:kLFZoomingViewData_sticker];
     if (splashData) [data setObject:splashData forKey:kLFZoomingViewData_splash];
+    if (filterData) [data setObject:filterData forKey:kLFZoomingViewData_filter];
     
     if (data.count) {
         return data;
@@ -240,6 +256,24 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
     _drawView.data = photoEditData[kLFZoomingViewData_draw];
     _stickerView.data = photoEditData[kLFZoomingViewData_sticker];
     _splashView.data = photoEditData[kLFZoomingViewData_splash];
+    _imageView.data = photoEditData[kLFZoomingViewData_filter];
+}
+
+#pragma mark - 滤镜功能
+/** 滤镜类型 */
+- (void)changeFilterType:(NSInteger)cmType
+{
+    self.imageView.type = cmType;
+}
+/** 当前使用滤镜类型 */
+- (NSInteger)getFilterType
+{
+    return self.imageView.type;
+}
+/** 获取滤镜图片 */
+- (UIImage *)getFilterImage
+{
+    return [self.imageView renderedAnimatedUIImage];
 }
 
 #pragma mark - 绘画功能
@@ -251,6 +285,11 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
 - (BOOL)drawEnable
 {
     return _drawView.userInteractionEnabled;
+}
+/** 正在绘画 */
+- (BOOL)isDrawing
+{
+    return _drawView.isDrawing;
 }
 
 - (BOOL)drawCanUndo
@@ -265,6 +304,12 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
 - (void)setDrawColor:(UIColor *)color
 {
     _drawView.lineColor = color;
+}
+
+/** 设置绘画线粗 */
+- (void)setDrawLineWidth:(CGFloat)lineWidth
+{
+    _drawView.lineWidth = lineWidth;
 }
 
 #pragma mark - 贴图功能
@@ -283,30 +328,43 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
 {
     [_stickerView removeSelectStickerView];
 }
-/** 获取选中贴图的内容 */
-- (LFText *)getSelectStickerText
+/** 屏幕缩放率 */
+- (void)setScreenScale:(CGFloat)scale
 {
-    return [_stickerView getSelectStickerText];
+    _stickerView.screenScale = scale;
+}
+/** 最小缩放率 默认0.2 */
+- (void)setStickerMinScale:(CGFloat)stickerMinScale
+{
+    _stickerView.minScale = stickerMinScale;
+}
+- (CGFloat)stickerMinScale
+{
+    return _stickerView.minScale;
+}
+/** 最大缩放率 默认3.0 */
+- (void)setStickerMaxScale:(CGFloat)stickerMaxScale
+{
+    _stickerView.maxScale = stickerMaxScale;
+}
+- (CGFloat)stickerMaxScale
+{
+    return _stickerView.maxScale;
+}
+/** 创建贴图 */
+- (void)createSticker:(LFStickerItem *)item
+{
+    [_stickerView createStickerItem:item];
+}
+/** 获取选中贴图的内容 */
+- (LFStickerItem *)getSelectSticker
+{
+    return [_stickerView getSelectStickerItem];
 }
 /** 更改选中贴图内容 */
-- (void)changeSelectStickerText:(LFText *)text
+- (void)changeSelectSticker:(LFStickerItem *)item
 {
-    [_stickerView changeSelectStickerText:text];
-}
-
-/** 创建贴图 */
-- (void)createStickerImage:(UIImage *)image
-{
-    [_stickerView createImage:image];
-}
-
-#pragma mark - 文字功能
-/** 创建文字 */
-- (void)createStickerText:(LFText *)text
-{
-    if (text) {
-        [_stickerView createText:text];
-    }
+    [_stickerView changeSelectStickerItem:item];
 }
 
 #pragma mark - 模糊功能
@@ -318,6 +376,11 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
 - (BOOL)splashEnable
 {
     return _splashView.userInteractionEnabled;
+}
+/** 正在模糊 */
+- (BOOL)isSplashing
+{
+    return _splashView.isDrawing;
 }
 /** 是否可撤销 */
 - (BOOL)splashCanUndo
@@ -342,6 +405,17 @@ NSString *const kLFZoomingViewData_splash = @"LFZoomingViewData_splash";
 - (BOOL)splashState
 {
     return _splashView.state == LFSplashStateType_Paintbrush;
+}
+
+/** 设置马赛克大小 */
+- (void)setSplashWidth:(CGFloat)squareWidth
+{
+    _splashView.squareWidth = squareWidth;
+}
+/** 设置画笔大小 */
+- (void)setPaintWidth:(CGFloat)paintWidth
+{
+    _splashView.paintSize = CGSizeMake(paintWidth, paintWidth);
 }
 
 @end

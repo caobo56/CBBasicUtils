@@ -23,6 +23,10 @@ typedef NS_ENUM(NSUInteger, LFEditToolbarType) {
     LFEditToolbarType_audio = 1 << 5,
     /** 剪辑 */
     LFEditToolbarType_clip = 1 << 6,
+    /** 滤镜 */
+    LFEditToolbarType_filter = 1 << 7,
+    /** 速率 */
+    LFEditToolbarType_rate = 1 << 8,
     /** 所有 */
     LFEditToolbarType_All = ~0UL,
 };
@@ -34,6 +38,9 @@ typedef NS_ENUM(NSUInteger, LFEditToolbarType) {
 - (instancetype)initWithType:(LFEditToolbarType)type;
 
 @property (nonatomic, weak) id<LFEditToolbarDelegate> delegate;
+
+/** 播放速率 */
+@property (nonatomic, assign) float rate;
 
 /** 当前激活主菜单 return -1 没有激活 */
 - (NSUInteger)mainSelectAtIndex;
@@ -47,6 +54,9 @@ typedef NS_ENUM(NSUInteger, LFEditToolbarType) {
 /** 设置绘画拾色器默认颜色 */
 - (void)setDrawSliderColor:(UIColor *)color;
 - (void)setDrawSliderColorAtIndex:(NSUInteger)index;
+
+/** 选择主菜单的功能类型（会触发代理） */
+- (void)selectMainMenuIndex:(NSUInteger)index;
 
 @end
 
@@ -68,4 +78,7 @@ typedef NS_ENUM(NSUInteger, LFEditToolbarType) {
 - (BOOL)lf_editToolbar:(LFEditToolbar *)editToolbar canRevokeAtIndex:(NSUInteger)index;
 /** 二级菜单滑动事件-绘画 */
 - (void)lf_editToolbar:(LFEditToolbar *)editToolbar drawColorDidChange:(UIColor *)color;
+@optional
+/** 二级菜单滑动事件-速率 */
+- (void)lf_editToolbar:(LFEditToolbar *)editToolbar rateDidChange:(float)value;
 @end
