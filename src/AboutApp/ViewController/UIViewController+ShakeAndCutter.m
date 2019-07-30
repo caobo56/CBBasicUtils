@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "CBBugReportVC.h"
+#import "CBAlertVC.h"
 
 
 @implementation UIViewController (ShakeAndCutter)
@@ -37,20 +38,22 @@
     NSLog(@"end");
     UIImage * img = [self cutterViewToDocument];
     __block UIImage * blkImg = img;
-    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"摇一摇反馈错误" message:@"当前页面截图,将通过邮件反馈给开发者，谢谢您的配合！" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    
+    CBAlertVC * alertVC = [CBAlertVC alertWithTitle:@"摇一摇反馈错误" Message:@"当前页面截图,将通过邮件反馈给开发者，谢谢您的配合！"];
+    
+    [alertVC actionWithTitle:@"确定" handle:^(CBAlertVC * _Nullable alertVC) {
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0/*延迟执行时间*/ * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             [self bugReportWith:blkImg];
         });
+        
     }];
-    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"误操作了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [alertVC cancleActionWithTitle:@"误操作了" handle:^(CBAlertVC * _Nullable alertVC) {
+        
     }];
-    [actionSheet addAction:action];
-    [actionSheet addAction:cancleAction];
-    [self presentViewController:actionSheet animated:YES completion:nil];
+    
+    [alertVC showAt:self];
 }
 
 #pragma mark - 截屏处理
@@ -64,9 +67,9 @@
     UIImage *screenShot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return screenShot;
-//    NSData *screenShotPNG = UIImagePNGRepresentation(screenShot);
-//    NSError *error = nil;
-//    [screenShotPNG writeToFile:[[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"sc_error.png"] options:NSAtomicWrite error:&error];
+    //    NSData *screenShotPNG = UIImagePNGRepresentation(screenShot);
+    //    NSError *error = nil;
+    //    [screenShotPNG writeToFile:[[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"sc_error.png"] options:NSAtomicWrite error:&error];
 }
 
 
