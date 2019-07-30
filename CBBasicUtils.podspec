@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CBBasicUtils"
-  s.version      = "1.0.37"
+  s.version      = "1.0.39"
   s.summary      = "caobo's BasicUtils."
 
   # This description is used to generate tags and improve search results.
