@@ -356,20 +356,20 @@
 		A8890C1122F059DC0061BEC2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A8890C1222F059DC0061BEC2 /* CBBugReportVC.h */,
-				A8890C1322F059DC0061BEC2 /* CBAlertVC.m */,
-				A8890C1422F059DC0061BEC2 /* CBAboutDetailVC.m */,
-				A8890C1522F059DC0061BEC2 /* UIViewController+ShakeAndCutter.h */,
-				A8890C1622F059DC0061BEC2 /* AboutAppManager.m */,
-				A8890C1722F059DC0061BEC2 /* ViewController.m */,
-				A8890C1822F059DC0061BEC2 /* CBAboutTableVC.h */,
-				A8890C1922F059DC0061BEC2 /* CBAlertVC.h */,
-				A8890C1A22F059DC0061BEC2 /* CBBugReportVC.m */,
 				A8890C1B22F059DC0061BEC2 /* AboutAppManager.h */,
-				A8890C1C22F059DC0061BEC2 /* UIViewController+ShakeAndCutter.m */,
+				A8890C1622F059DC0061BEC2 /* AboutAppManager.m */,
 				A8890C1D22F059DC0061BEC2 /* CBAboutDetailVC.h */,
+				A8890C1422F059DC0061BEC2 /* CBAboutDetailVC.m */,
+				A8890C1822F059DC0061BEC2 /* CBAboutTableVC.h */,
 				A8890C1E22F059DC0061BEC2 /* CBAboutTableVC.m */,
+				A8890C1922F059DC0061BEC2 /* CBAlertVC.h */,
+				A8890C1322F059DC0061BEC2 /* CBAlertVC.m */,
+				A8890C1222F059DC0061BEC2 /* CBBugReportVC.h */,
+				A8890C1A22F059DC0061BEC2 /* CBBugReportVC.m */,
+				A8890C1522F059DC0061BEC2 /* UIViewController+ShakeAndCutter.h */,
+				A8890C1C22F059DC0061BEC2 /* UIViewController+ShakeAndCutter.m */,
 				A8890C1F22F059DC0061BEC2 /* ViewController.h */,
+				A8890C1722F059DC0061BEC2 /* ViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

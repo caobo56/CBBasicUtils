@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" restorationIdentifier="CBAlertView" translatesAutoresizingMaskIntoConstraints="NO" id="89q-SI-K5A" customClass="CBAlertView">
-                    <rect key="frame" x="43" y="337" width="328" height="232"/>
+                    <rect key="frame" x="43" y="332" width="328" height="232"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码重置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOe-ca-a9Y">
                             <rect key="frame" x="0.0" y="0.0" width="328" height="59"/>
@@ -100,11 +100,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.29997843174846628" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="89q-SI-K5A" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="43" id="DL5-JD-ai5"/>
-                <constraint firstItem="89q-SI-K5A" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="gPD-zv-eg6"/>
-                <constraint firstItem="89q-SI-K5A" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="yGx-r8-b90"/>
+                <constraint firstItem="89q-SI-K5A" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="43" id="DL5-JD-ai5"/>
+                <constraint firstItem="89q-SI-K5A" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gPD-zv-eg6"/>
+                <constraint firstItem="89q-SI-K5A" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yGx-r8-b90"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="alertView" destination="89q-SI-K5A" id="BOC-rx-JfS"/>
                 <outlet property="contentLable" destination="P3A-ys-mrN" id="vN1-s8-jro"/>
