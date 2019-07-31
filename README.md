@@ -15,7 +15,7 @@
     end
 ```
 
-
+### 现在稳定的版本是1.0.51
 
 -> CBBasicUtils (1.0.11)
    caobo's BasicUtils.
