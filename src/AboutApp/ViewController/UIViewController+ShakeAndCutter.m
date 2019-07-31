@@ -80,7 +80,11 @@
 #pragma mark - BugReport
 -(void)bugReportWith:(UIImage *)image{
     CBRootNavVC * report = [CBBugReportVC initializeWith:image];
-    [self.navigationController presentViewController:report animated:NO completion:nil];
+    if (self.navigationController) {
+        [self.navigationController presentViewController:report animated:NO completion:nil];
+    }else{
+        [self presentViewController:report animated:NO completion:nil];
+    }
 }
 
 @end
