@@ -10,7 +10,6 @@
 
 @interface CBURLSession : NSURLSession
 
-
 /**
  sharedURLSession
 
@@ -18,6 +17,6 @@
  */
 +(instancetype)sharedURLSession;
 
-
 +(instancetype) sharedURLSessionForUpload;
+
 @end

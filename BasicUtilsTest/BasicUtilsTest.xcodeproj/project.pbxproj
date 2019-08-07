@@ -71,6 +71,8 @@
 		A8890C9F22F059DC0061BEC2 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = A8890C6022F059DC0061BEC2 /* UIImage+Color.m */; };
 		A8890CA022F059DC0061BEC2 /* UIView+toast.m in Sources */ = {isa = PBXBuildFile; fileRef = A8890C6122F059DC0061BEC2 /* UIView+toast.m */; };
 		A88924AC215389EC009CF510 /* CBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A88924AB215389EC009CF510 /* CBViewController.m */; };
+		A894414522F8003D0050F1E4 /* CBAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A894414422F8003D0050F1E4 /* CBAPIClient.m */; };
+		A894414822F8007A0050F1E4 /* CBAPISerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A894414722F8007A0050F1E4 /* CBAPISerializer.m */; };
 		A8BCFF551FD68E860094B423 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCFF541FD68E860094B423 /* AppDelegate.m */; };
 		A8BCFF5B1FD68E860094B423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BCFF591FD68E860094B423 /* Main.storyboard */; };
 		A8BCFF5D1FD68E860094B423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8BCFF5C1FD68E860094B423 /* Assets.xcassets */; };
@@ -208,6 +210,11 @@
 		A8890C6122F059DC0061BEC2 /* UIView+toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+toast.m"; sourceTree = "<group>"; };
 		A88924AA215389EC009CF510 /* CBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBViewController.h; sourceTree = "<group>"; };
 		A88924AB215389EC009CF510 /* CBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBViewController.m; sourceTree = "<group>"; };
+		A894414322F8003D0050F1E4 /* CBAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAPIClient.h; sourceTree = "<group>"; };
+		A894414422F8003D0050F1E4 /* CBAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAPIClient.m; sourceTree = "<group>"; };
+		A894414622F8007A0050F1E4 /* CBAPISerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAPISerializer.h; sourceTree = "<group>"; };
+		A894414722F8007A0050F1E4 /* CBAPISerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAPISerializer.m; sourceTree = "<group>"; };
+		A894414922FA693F0050F1E4 /* CBAPIHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAPIHeader.h; sourceTree = "<group>"; };
 		A8BCFF501FD68E860094B423 /* BasicUtilsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicUtilsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCFF531FD68E860094B423 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8BCFF541FD68E860094B423 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -277,7 +284,6 @@
 				A8890C0322F059DC0061BEC2 /* AboutApp */,
 				A8890C2022F059DC0061BEC2 /* ShareView */,
 				A8890C2A22F059DC0061BEC2 /* MacroAndConstant */,
-				A8890C2C22F059DC0061BEC2 /* ArrBounds */,
 				A8890C2D22F059DC0061BEC2 /* BasicClass */,
 				A8890C3922F059DC0061BEC2 /* Requset */,
 				A8890C3E22F059DC0061BEC2 /* Resource */,
@@ -310,17 +316,17 @@
 		A8890BF722F059DC0061BEC2 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				A8890BF822F059DC0061BEC2 /* CBUtilsHeader.h */,
-				A8890BF922F059DC0061BEC2 /* CoreAnimationEffect.h */,
-				A8890BFA22F059DC0061BEC2 /* JsonHelper.h */,
-				A8890BFB22F059DC0061BEC2 /* JsonFileUtils.m */,
-				A8890BFC22F059DC0061BEC2 /* CBVerifyTool.m */,
-				A8890BFD22F059DC0061BEC2 /* CBLayoutButton.m */,
-				A8890BFE22F059DC0061BEC2 /* JsonHelper.m */,
-				A8890BFF22F059DC0061BEC2 /* CoreAnimationEffect.m */,
-				A8890C0022F059DC0061BEC2 /* CBVerifyTool.h */,
-				A8890C0122F059DC0061BEC2 /* JsonFileUtils.h */,
 				A8890C0222F059DC0061BEC2 /* CBLayoutButton.h */,
+				A8890BFD22F059DC0061BEC2 /* CBLayoutButton.m */,
+				A8890BF822F059DC0061BEC2 /* CBUtilsHeader.h */,
+				A8890C0022F059DC0061BEC2 /* CBVerifyTool.h */,
+				A8890BFC22F059DC0061BEC2 /* CBVerifyTool.m */,
+				A8890BF922F059DC0061BEC2 /* CoreAnimationEffect.h */,
+				A8890BFF22F059DC0061BEC2 /* CoreAnimationEffect.m */,
+				A8890C0122F059DC0061BEC2 /* JsonFileUtils.h */,
+				A8890BFB22F059DC0061BEC2 /* JsonFileUtils.m */,
+				A8890BFA22F059DC0061BEC2 /* JsonHelper.h */,
+				A8890BFE22F059DC0061BEC2 /* JsonHelper.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -412,13 +418,6 @@
 			path = MacroAndConstant;
 			sourceTree = "<group>";
 		};
-		A8890C2C22F059DC0061BEC2 /* ArrBounds */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ArrBounds;
-			sourceTree = "<group>";
-		};
 		A8890C2D22F059DC0061BEC2 /* BasicClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,10 +439,15 @@
 		A8890C3922F059DC0061BEC2 /* Requset */ = {
 			isa = PBXGroup;
 			children = (
-				A8890C3A22F059DC0061BEC2 /* CBURLSession.m */,
 				A8890C3B22F059DC0061BEC2 /* APIClient.h */,
-				A8890C3C22F059DC0061BEC2 /* CBURLSession.h */,
 				A8890C3D22F059DC0061BEC2 /* APIClient.m */,
+				A8890C3C22F059DC0061BEC2 /* CBURLSession.h */,
+				A8890C3A22F059DC0061BEC2 /* CBURLSession.m */,
+				A894414922FA693F0050F1E4 /* CBAPIHeader.h */,
+				A894414322F8003D0050F1E4 /* CBAPIClient.h */,
+				A894414422F8003D0050F1E4 /* CBAPIClient.m */,
+				A894414622F8007A0050F1E4 /* CBAPISerializer.h */,
+				A894414722F8007A0050F1E4 /* CBAPISerializer.m */,
 			);
 			path = Requset;
 			sourceTree = "<group>";
@@ -791,12 +795,14 @@
 				A8890C6C22F059DC0061BEC2 /* CoreAnimationEffect.m in Sources */,
 				A8890C7D22F059DC0061BEC2 /* CBBugReportVC.m in Sources */,
 				A8890C7B22F059DC0061BEC2 /* AboutAppManager.m in Sources */,
+				A894414822F8007A0050F1E4 /* CBAPISerializer.m in Sources */,
 				A8890C6522F059DC0061BEC2 /* CBTableVC.m in Sources */,
 				A8890CA022F059DC0061BEC2 /* UIView+toast.m in Sources */,
 				A8890C8822F059DC0061BEC2 /* CBTextView.m in Sources */,
 				A8890C6A22F059DC0061BEC2 /* CBLayoutButton.m in Sources */,
 				A8890C7F22F059DC0061BEC2 /* CBAboutTableVC.m in Sources */,
 				A8890C8D22F059DC0061BEC2 /* APIClient.m in Sources */,
+				A894414522F8003D0050F1E4 /* CBAPIClient.m in Sources */,
 				A8890C8722F059DC0061BEC2 /* CBTextField.m in Sources */,
 				A8890C9622F059DC0061BEC2 /* UIView+DDAddition.m in Sources */,
 				A8890C6822F059DC0061BEC2 /* JsonFileUtils.m in Sources */,
@@ -972,10 +978,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3SLH35FY4;
 				INFOPLIST_FILE = BasicUtilsTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cb.BasicUtilsTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -987,10 +994,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3SLH35FY4;
 				INFOPLIST_FILE = BasicUtilsTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cb.BasicUtilsTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

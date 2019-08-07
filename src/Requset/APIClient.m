@@ -18,7 +18,7 @@ NSString* const NetworkMethod_Put     =@"PUT";
 NSString* const NetworkMethod_Delete  =@"DELETE";
 
 NSString* const NetworkErrorDomain    =@"NetworkError";
-NSString* const IMGErrorDomain        =@"IMGError";
+NSString* const IMGErrorDomain        =@"CBError";
 
 @interface APIClient()<NSURLSessionDelegate>
 

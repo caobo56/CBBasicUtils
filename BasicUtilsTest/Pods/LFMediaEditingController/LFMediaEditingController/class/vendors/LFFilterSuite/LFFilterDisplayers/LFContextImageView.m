@@ -89,9 +89,6 @@
                 options = @{LFContextOptionsCGContextKey: (__bridge id)contextRef};
             }
                 break;
-            case LFContextTypeCPU:
-                [NSException raise:@"UnsupportedContextType" format:@"LFContextImageView does not support CPU context type."];
-                break;
             default:
                 break;
         }
@@ -173,13 +170,18 @@
                 break;
             case LFContextTypeLargeImage:
             {
+                CGFloat normalSizeScale = MIN(1, MIN(self.bounds.size.width/self.CIImage.extent.size.width,self.bounds.size.height/self.CIImage.extent.size.height));
                 LFLView *view = [[LFLView alloc] initWithFrame:self.bounds];
+                view.bounds = self.CIImage.extent;
+                view.transform = CGAffineTransformMakeScale(normalSizeScale, normalSizeScale);
                 view.contentScaleFactor = self.contentScaleFactor;
+                //按照屏幕大小截取图片
+                view.tileSize = CGSizeMake(self.CIImage.extent.size.width, self.bounds.size.height);
                 [self insertSubview:view atIndex:0];
                 _LFLView = view;
             }
                 break;
-            case LFContextTypeUIKit:
+            case LFContextTypeDefault:
             {
                 UIView *view = [[UIView alloc] initWithFrame:self.bounds];
                 view.contentScaleFactor = self.contentScaleFactor;
@@ -216,8 +218,12 @@
     [super setNeedsDisplay];
     
     [_GLKView setNeedsDisplay];
-    _LFLView.image = [self renderedUIImage];
-    _UIView.layer.contents = (__bridge id _Nullable)([self renderedUIImage].CGImage);
+    if (_LFLView) {
+        _LFLView.image = [self renderedUIImage];
+    }
+    if (_UIView) {
+        _UIView.layer.contents = (__bridge id _Nullable)([self renderedUIImage].CGImage);
+    }
 #if !(TARGET_IPHONE_SIMULATOR)
     [_MTKView setNeedsDisplay];
 #endif
@@ -266,10 +272,7 @@
         image = [image imageByApplyingTransform:self.preferredCIImageTransform];
         
         switch (self.contextType) {
-            case LFContextTypeMetal:
             case LFContextTypeCoreGraphics:
-            case LFContextTypeDefault:
-            case LFContextTypeCPU:
                 image = [image imageByApplyingOrientation:4];
                 break;
             default:
@@ -285,11 +288,13 @@
 }
 
 - (CIImage *)renderedCIImage {
-    return [self renderedCIImageInRect:self.CIImage.extent];
+    CGRect extent = CGRectApplyAffineTransform(self.CIImage.extent, self.preferredCIImageTransform);
+    return [self renderedCIImageInRect:extent];
 }
 
 - (UIImage *)renderedUIImage {
-    return [self renderedUIImageInRect:self.CIImage.extent];
+    CGRect extent = CGRectApplyAffineTransform(self.CIImage.extent, self.preferredCIImageTransform);
+    return [self renderedUIImageInRect:extent];
 }
 
 - (CIImage *)scaleAndResizeCIImage:(CIImage *)image forRect:(CGRect)rect {

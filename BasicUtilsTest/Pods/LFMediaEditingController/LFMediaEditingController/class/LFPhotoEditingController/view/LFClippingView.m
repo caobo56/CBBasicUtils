@@ -9,6 +9,7 @@
 #import "LFClippingView.h"
 #import "LFZoomingView.h"
 #import "UIView+LFMEFrame.h"
+#import "UIImage+LFMECommon.h"
 #import <AVFoundation/AVFoundation.h>
 
 #define kRound(x) (round(x*100000)/100000)
@@ -107,8 +108,10 @@ NSString *const kLFClippingViewData_zoomingView = @"LFClippingViewData_zoomingVi
 {
     _image = image;
     [self setZoomScale:1.f];
-    if (image) {        
-        CGRect cropRect = AVMakeRectWithAspectRatioInsideRect(image.size, self.originalRect);
+    if (image) {
+        CGAffineTransform transform = [UIImage LFME_exchangeOrientation:image.imageOrientation size:image.size];
+        CGSize imageSize = CGSizeApplyAffineTransform(image.size, transform);
+        CGRect cropRect = AVMakeRectWithAspectRatioInsideRect(imageSize, self.originalRect);
         self.frame = cropRect;
         {
             if (cropRect.size.width < cropRect.size.height) {
@@ -246,8 +249,9 @@ NSString *const kLFClippingViewData_zoomingView = @"LFClippingViewData_zoomingVi
 
 - (BOOL)canReset
 {
-    CGRect trueFrame = CGRectMake((CGRectGetWidth(self.superview.frame)-CGRectGetWidth(self.zoomingView.frame))/2-self.offsetSuperCenter.x/2
-                                  , (CGRectGetHeight(self.superview.frame)-CGRectGetHeight(self.zoomingView.frame))/2-self.offsetSuperCenter.y/2
+    CGRect superViewRect = self.superview.bounds;
+    CGRect trueFrame = CGRectMake((CGRectGetWidth(superViewRect)-CGRectGetWidth(self.zoomingView.frame))/2-self.offsetSuperCenter.x/2
+                                  , (CGRectGetHeight(superViewRect)-CGRectGetHeight(self.zoomingView.frame))/2-self.offsetSuperCenter.y/2
                                   , CGRectGetWidth(self.zoomingView.frame)
                                   , CGRectGetHeight(self.zoomingView.frame));
     
