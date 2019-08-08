@@ -200,6 +200,43 @@ static NSString * const CBAPIClientLockName = @"com.cb.apiclient.manager.lock";
     [dataTask resume];
 }
 
+-(void)sendUrl:(NSString * __nonnull)url
+        method:(NSString * __nonnull)method
+        params:(NSDictionary * __nonnull)params
+    upProgress:(NetworkProgressHandler __nullable)upProgress
+  downProgress:(NetworkProgressHandler __nullable)downProgress
+    completion:(NetworkCompletion __nonnull)comp{
+    NSError *serializationError = nil;
+    
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:url relativeToURL:self.baseURL] absoluteString] parameters:params error:&serializationError];
+    
+    if (serializationError) {
+        if (comp) {
+            dispatch_async(self.completionQueue ?: dispatch_get_main_queue(), ^{
+                comp(serializationError,nil);
+            });
+        }
+        return;
+    }
+    
+    __block NSURLSessionDataTask *dataTask = nil;
+    __weak typeof(self) weakSelf = self;
+    dataTask = [self dataTaskWithRequest:request uploadProgress:upProgress downloadProgress:downProgress completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        [weakSelf.responseSerializer serializeData:data response:response error:error completionHandler:^(NSData * _Nullable r_data, NSURLResponse * _Nullable r_response, NSError * _Nullable r_error) {
+            if (error) {
+                if (comp) {
+                    comp(r_error, nil);
+                }
+            } else {
+                if (comp) {
+                    comp(nil,r_data);
+                }
+            }
+        }];
+    }];
+    [dataTask resume];
+}
+
 - (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
                                uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                              downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock
@@ -352,6 +389,50 @@ expectedTotalBytes:(int64_t)expectedTotalBytes{
         success:(NetworkSuccessHandler)success
         failure:(NetworkFailureHandler)failure{
     [self sendUrl:url method:@"PATCH" params:params upProgress:nil downProgress:nil success:success failure:failure];
+}
+
+
+#pragma  - mark SubSendUrl completion
+
+-(void)getUrl:(NSString * )url
+       params:(NSDictionary * )params
+   completion:(NetworkCompletion __nonnull)comp{
+    [self sendUrl:url method:@"GET" params:params upProgress:nil downProgress:nil completion:comp];
+}
+
+
+-(void)postUrl:(NSString * )url
+        params:(NSDictionary * )params
+    completion:(NetworkCompletion __nonnull)comp{
+    [self sendUrl:url method:@"POST" params:params upProgress:nil downProgress:nil completion:comp];
+}
+
+
+-(void)deleteUrl:(NSString * )url
+          params:(NSDictionary * )params
+      completion:(NetworkCompletion __nonnull)comp{
+    [self sendUrl:url method:@"DELETE" params:params upProgress:nil downProgress:nil completion:comp];
+}
+
+
+-(void)headUrl:(NSString * )url
+        params:(NSDictionary * )params
+    completion:(NetworkCompletion __nonnull)comp{
+    [self sendUrl:url method:@"HEAD" params:params upProgress:nil downProgress:nil completion:comp];
+}
+
+
+-(void)putUrl:(NSString * )url
+       params:(NSDictionary * )params
+   completion:(NetworkCompletion __nonnull)comp{
+    [self sendUrl:url method:@"PUT" params:params upProgress:nil downProgress:nil completion:comp];
+}
+
+
+-(void)patchUrl:(NSString * )url
+         params:(NSDictionary * )params
+     completion:(NetworkCompletion __nonnull)comp{
+    [self sendUrl:url method:@"PATCH" params:params upProgress:nil downProgress:nil completion:comp];
 }
 
 @end

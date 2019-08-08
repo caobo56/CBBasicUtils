@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^NetworkCompletion)(NSError* error,id data);
+typedef void(^NetworkCompletion)(NSError* __nullable error,id __nullable data);
 
 typedef void(^NetworkProgressHandler)(NSProgress * progress);
 typedef void(^NetworkSuccessHandler)(NSURLSessionDataTask * __nullable sessionTask,id data);
@@ -45,6 +45,13 @@ typedef void(^NetworkFailureHandler)(NSURLSessionDataTask * __nullable sessionTa
        success:(NetworkSuccessHandler __nonnull)success
        failure:(NetworkFailureHandler __nonnull)failure;
 
+-(void)sendUrl:(NSString * __nonnull)url
+        method:(NSString * __nonnull)method
+        params:(NSDictionary * __nonnull)params
+    upProgress:(NetworkProgressHandler __nullable)upProgress
+  downProgress:(NetworkProgressHandler __nullable)downProgress
+    completion:(NetworkCompletion __nonnull)comp;
+
 #pragma  - mark SubSendUrl
 -(void)getUrl:(NSString * )url
        params:(NSDictionary * )params
@@ -75,6 +82,38 @@ typedef void(^NetworkFailureHandler)(NSURLSessionDataTask * __nullable sessionTa
          params:(NSDictionary * )params
         success:(NetworkSuccessHandler)success
         failure:(NetworkFailureHandler)failure;
+
+#pragma  - mark SubSendUrl completion
+
+-(void)getUrl:(NSString * )url
+       params:(NSDictionary * )params
+   completion:(NetworkCompletion __nonnull)comp;
+
+
+-(void)postUrl:(NSString * )url
+        params:(NSDictionary * )params
+    completion:(NetworkCompletion __nonnull)comp;
+
+
+-(void)deleteUrl:(NSString * )url
+          params:(NSDictionary * )params
+      completion:(NetworkCompletion __nonnull)comp;
+
+
+-(void)headUrl:(NSString * )url
+        params:(NSDictionary * )params
+    completion:(NetworkCompletion __nonnull)comp;
+
+
+-(void)putUrl:(NSString * )url
+       params:(NSDictionary * )params
+   completion:(NetworkCompletion __nonnull)comp;
+
+
+-(void)patchUrl:(NSString * )url
+         params:(NSDictionary * )params
+     completion:(NetworkCompletion __nonnull)comp;
+
 @end
 
 NS_ASSUME_NONNULL_END
