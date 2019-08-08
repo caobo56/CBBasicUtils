@@ -168,8 +168,10 @@ static NSString * const CBAPIClientLockName = @"com.cb.apiclient.manager.lock";
   downProgress:(NetworkProgressHandler __nullable)downProgress
        success:(NetworkSuccessHandler __nonnull)success
        failure:(NetworkFailureHandler __nonnull)failure{
+    
     NSError *serializationError = nil;
     
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:url relativeToURL:self.baseURL] absoluteString] parameters:params error:&serializationError];
     
     if (serializationError) {
@@ -212,6 +214,7 @@ static NSString * const CBAPIClientLockName = @"com.cb.apiclient.manager.lock";
     completion:(NetworkCompletion __nonnull)comp{
     NSError *serializationError = nil;
     
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:url relativeToURL:self.baseURL] absoluteString] parameters:params error:&serializationError];
     
     if (serializationError) {

@@ -12,23 +12,13 @@
 
 - (NSString *)URLEncodedString
 {
-    NSString *encodedString = (NSString *)
-    CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                              (CFStringRef)self,
-                                                              (CFStringRef)@"!$&'()*+,-./:;=?@_~%#[]",
-                                                              NULL,
-                                                              kCFStringEncodingUTF8));
+    NSString *encodedString = [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     return encodedString;
 }
 
 - (NSString *)URLDecodedString{
-    //NSString *decodedString = [encodedString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding ];
-    
-    NSString *encodedString = self;
-    NSString *decodedString  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,
-                                                                                                                     (__bridge CFStringRef)encodedString,
-                                                                                                                     CFSTR(""),
-                                                                                                                     CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+    NSString *decodedString  = [self stringByRemovingPercentEncoding];
     return decodedString;
 }
+
 @end

@@ -49,8 +49,6 @@
 		A8890C8922F059DC0061BEC2 /* LoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8890C3422F059DC0061BEC2 /* LoopProgressView.m */; };
 		A8890C8A22F059DC0061BEC2 /* CBInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8890C3522F059DC0061BEC2 /* CBInputView.xib */; };
 		A8890C8B22F059DC0061BEC2 /* CBPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8890C3722F059DC0061BEC2 /* CBPickerView.m */; };
-		A8890C8C22F059DC0061BEC2 /* CBURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8890C3A22F059DC0061BEC2 /* CBURLSession.m */; };
-		A8890C8D22F059DC0061BEC2 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A8890C3D22F059DC0061BEC2 /* APIClient.m */; };
 		A8890C8E22F059DC0061BEC2 /* bank.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8890C3F22F059DC0061BEC2 /* bank.plist */; };
 		A8890C8F22F059DC0061BEC2 /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = A8890C4222F059DC0061BEC2 /* NSString+URL.m */; };
 		A8890C9022F059DC0061BEC2 /* UIColor+Help.m in Sources */ = {isa = PBXBuildFile; fileRef = A8890C4322F059DC0061BEC2 /* UIColor+Help.m */; };
@@ -171,10 +169,6 @@
 		A8890C3622F059DC0061BEC2 /* CBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextField.h; sourceTree = "<group>"; };
 		A8890C3722F059DC0061BEC2 /* CBPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPickerView.m; sourceTree = "<group>"; };
 		A8890C3822F059DC0061BEC2 /* CBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTextView.h; sourceTree = "<group>"; };
-		A8890C3A22F059DC0061BEC2 /* CBURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBURLSession.m; sourceTree = "<group>"; };
-		A8890C3B22F059DC0061BEC2 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
-		A8890C3C22F059DC0061BEC2 /* CBURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBURLSession.h; sourceTree = "<group>"; };
-		A8890C3D22F059DC0061BEC2 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		A8890C3F22F059DC0061BEC2 /* bank.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bank.plist; sourceTree = "<group>"; };
 		A8890C4122F059DC0061BEC2 /* UIView+WhenTappendBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WhenTappendBlocks.h"; sourceTree = "<group>"; };
 		A8890C4222F059DC0061BEC2 /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
@@ -439,10 +433,6 @@
 		A8890C3922F059DC0061BEC2 /* Requset */ = {
 			isa = PBXGroup;
 			children = (
-				A8890C3B22F059DC0061BEC2 /* APIClient.h */,
-				A8890C3D22F059DC0061BEC2 /* APIClient.m */,
-				A8890C3C22F059DC0061BEC2 /* CBURLSession.h */,
-				A8890C3A22F059DC0061BEC2 /* CBURLSession.m */,
 				A894414922FA693F0050F1E4 /* CBAPIHeader.h */,
 				A894414322F8003D0050F1E4 /* CBAPIClient.h */,
 				A894414422F8003D0050F1E4 /* CBAPIClient.m */,
@@ -463,35 +453,35 @@
 		A8890C4022F059DC0061BEC2 /* Catergory */ = {
 			isa = PBXGroup;
 			children = (
-				A8890C4122F059DC0061BEC2 /* UIView+WhenTappendBlocks.h */,
-				A8890C4222F059DC0061BEC2 /* NSString+URL.m */,
-				A8890C4322F059DC0061BEC2 /* UIColor+Help.m */,
-				A8890C4422F059DC0061BEC2 /* UIView+IB.m */,
-				A8890C4522F059DC0061BEC2 /* UIButton+MCLayout.m */,
-				A8890C4622F059DC0061BEC2 /* UIImage+Size.m */,
-				A8890C4722F059DC0061BEC2 /* UIControl+acceptEventInterval.h */,
-				A8890C4822F059DC0061BEC2 /* UIView+screenshots.m */,
-				A8890C4922F059DC0061BEC2 /* NSDictionary+NullResult.m */,
-				A8890C4A22F059DC0061BEC2 /* NSTimer+Addition.h */,
-				A8890C4B22F059DC0061BEC2 /* UIImage+Color.h */,
-				A8890C4C22F059DC0061BEC2 /* UIView+DDAddition.m */,
-				A8890C4D22F059DC0061BEC2 /* UIBarButtonItem+Extension.h */,
-				A8890C4E22F059DC0061BEC2 /* UIView+toast.h */,
 				A8890C4F22F059DC0061BEC2 /* image */,
-				A8890C5422F059DC0061BEC2 /* UIImage+Size.h */,
-				A8890C5522F059DC0061BEC2 /* UIControl+acceptEventInterval.m */,
-				A8890C5622F059DC0061BEC2 /* UIButton+MCLayout.h */,
-				A8890C5722F059DC0061BEC2 /* UIView+IB.h */,
-				A8890C5822F059DC0061BEC2 /* NSString+URL.h */,
-				A8890C5922F059DC0061BEC2 /* UIColor+Help.h */,
-				A8890C5A22F059DC0061BEC2 /* UIView+WhenTappendBlocks.m */,
-				A8890C5B22F059DC0061BEC2 /* NSTimer+Addition.m */,
 				A8890C5C22F059DC0061BEC2 /* NSDictionary+NullResult.h */,
-				A8890C5D22F059DC0061BEC2 /* UIView+screenshots.h */,
+				A8890C4922F059DC0061BEC2 /* NSDictionary+NullResult.m */,
+				A8890C5822F059DC0061BEC2 /* NSString+URL.h */,
+				A8890C4222F059DC0061BEC2 /* NSString+URL.m */,
+				A8890C4A22F059DC0061BEC2 /* NSTimer+Addition.h */,
+				A8890C5B22F059DC0061BEC2 /* NSTimer+Addition.m */,
+				A8890C4D22F059DC0061BEC2 /* UIBarButtonItem+Extension.h */,
 				A8890C5E22F059DC0061BEC2 /* UIBarButtonItem+Extension.m */,
-				A8890C5F22F059DC0061BEC2 /* UIView+DDAddition.h */,
+				A8890C5622F059DC0061BEC2 /* UIButton+MCLayout.h */,
+				A8890C4522F059DC0061BEC2 /* UIButton+MCLayout.m */,
+				A8890C5922F059DC0061BEC2 /* UIColor+Help.h */,
+				A8890C4322F059DC0061BEC2 /* UIColor+Help.m */,
+				A8890C4722F059DC0061BEC2 /* UIControl+acceptEventInterval.h */,
+				A8890C5522F059DC0061BEC2 /* UIControl+acceptEventInterval.m */,
+				A8890C4B22F059DC0061BEC2 /* UIImage+Color.h */,
 				A8890C6022F059DC0061BEC2 /* UIImage+Color.m */,
+				A8890C5422F059DC0061BEC2 /* UIImage+Size.h */,
+				A8890C4622F059DC0061BEC2 /* UIImage+Size.m */,
+				A8890C5F22F059DC0061BEC2 /* UIView+DDAddition.h */,
+				A8890C4C22F059DC0061BEC2 /* UIView+DDAddition.m */,
+				A8890C5722F059DC0061BEC2 /* UIView+IB.h */,
+				A8890C4422F059DC0061BEC2 /* UIView+IB.m */,
+				A8890C5D22F059DC0061BEC2 /* UIView+screenshots.h */,
+				A8890C4822F059DC0061BEC2 /* UIView+screenshots.m */,
+				A8890C4E22F059DC0061BEC2 /* UIView+toast.h */,
 				A8890C6122F059DC0061BEC2 /* UIView+toast.m */,
+				A8890C4122F059DC0061BEC2 /* UIView+WhenTappendBlocks.h */,
+				A8890C5A22F059DC0061BEC2 /* UIView+WhenTappendBlocks.m */,
 			);
 			path = Catergory;
 			sourceTree = "<group>";
@@ -776,7 +766,6 @@
 				A8890C9522F059DC0061BEC2 /* NSDictionary+NullResult.m in Sources */,
 				A8890C8B22F059DC0061BEC2 /* CBPickerView.m in Sources */,
 				A88924AC215389EC009CF510 /* CBViewController.m in Sources */,
-				A8890C8C22F059DC0061BEC2 /* CBURLSession.m in Sources */,
 				A8890C6922F059DC0061BEC2 /* CBVerifyTool.m in Sources */,
 				A8890C6722F059DC0061BEC2 /* CBTabBarVC.m in Sources */,
 				A8BCFF631FD68E860094B423 /* main.m in Sources */,
@@ -801,7 +790,6 @@
 				A8890C8822F059DC0061BEC2 /* CBTextView.m in Sources */,
 				A8890C6A22F059DC0061BEC2 /* CBLayoutButton.m in Sources */,
 				A8890C7F22F059DC0061BEC2 /* CBAboutTableVC.m in Sources */,
-				A8890C8D22F059DC0061BEC2 /* APIClient.m in Sources */,
 				A894414522F8003D0050F1E4 /* CBAPIClient.m in Sources */,
 				A8890C8722F059DC0061BEC2 /* CBTextField.m in Sources */,
 				A8890C9622F059DC0061BEC2 /* UIView+DDAddition.m in Sources */,
