@@ -187,11 +187,15 @@ static NSString * const CBAPIClientLockName = @"com.cb.apiclient.manager.lock";
         [weakSelf.responseSerializer serializeData:data response:response error:error completionHandler:^(NSData * _Nullable r_data, NSURLResponse * _Nullable r_response, NSError * _Nullable r_error) {
             if (error) {
                 if (failure) {
-                    failure(dataTask, r_error);
+                    dispatch_async(self.completionQueue ?: dispatch_get_main_queue(), ^{
+                        failure(dataTask, r_error);
+                    });
                 }
             } else {
                 if (success) {
-                    success(dataTask, r_data);
+                    dispatch_async(self.completionQueue ?: dispatch_get_main_queue(), ^{
+                        success(dataTask, r_data);
+                    });
                 }
             }
         }];
@@ -225,11 +229,15 @@ static NSString * const CBAPIClientLockName = @"com.cb.apiclient.manager.lock";
         [weakSelf.responseSerializer serializeData:data response:response error:error completionHandler:^(NSData * _Nullable r_data, NSURLResponse * _Nullable r_response, NSError * _Nullable r_error) {
             if (error) {
                 if (comp) {
-                    comp(r_error, nil);
+                    dispatch_async(self.completionQueue ?: dispatch_get_main_queue(), ^{
+                        comp(r_error, nil);
+                    });
                 }
             } else {
                 if (comp) {
-                    comp(nil,r_data);
+                    dispatch_async(self.completionQueue ?: dispatch_get_main_queue(), ^{
+                        comp(nil,r_data);
+                    });
                 }
             }
         }];
