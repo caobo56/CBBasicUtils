@@ -346,10 +346,14 @@ NSString* const CBAPIClientKey = @"CBAPIClient";
 
 - (NSDictionary *)validateDictResponse:(nullable NSHTTPURLResponse *)response
                                   data:(nullable NSData *)data
-                                 error:(NSError * _Nullable __autoreleasing *)error{
+                                 error:(NSError * _Nullable __autoreleasing)error{
     NSMutableDictionary * validation = [NSMutableDictionary dictionaryWithCapacity:2];
     BOOL responseIsValid = YES;
     NSError *validationError = nil;
+    
+    if (!response && error) {
+        responseIsValid = NO;
+    }
     
     if (self.acceptableContentTypes && ![self.acceptableContentTypes containsObject:[response MIMEType]] &&
         !([response MIMEType] == nil && [data length] == 0)) {
@@ -391,7 +395,7 @@ NSString* const CBAPIClientKey = @"CBAPIClient";
     [validation setObject:@(responseIsValid) forKey:@"responseIsValid"];
     
     if (error && !responseIsValid) {
-        *error = validationError;
+        validationError = error;
         [validation setObject:validationError forKey:@"validationError"];
     }
     
@@ -404,7 +408,7 @@ NSString* const CBAPIClientKey = @"CBAPIClient";
                error:(NSError * _Nullable)error
    completionHandler:(nullable void (^)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error))completionHandler{
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-    NSDictionary * validateDict = [self validateDictResponse:httpResponse data:data error:&error];
+    NSDictionary * validateDict = [self validateDictResponse:httpResponse data:data error:error];
     if ([validateDict[@"responseIsValid"] boolValue]) {
         completionHandler(data,response,error);
     }else{
@@ -434,7 +438,7 @@ NSString* const CBAPIClientKey = @"CBAPIClient";
                error:(NSError * _Nullable)error
    completionHandler:(nullable void (^)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error))completionHandler{
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-    NSDictionary * validateDict = [self validateDictResponse:httpResponse data:data error:&error];
+    NSDictionary * validateDict = [self validateDictResponse:httpResponse data:data error:error];
     if ([validateDict[@"responseIsValid"] boolValue]) {
         id responseObject = [NSJSONSerialization JSONObjectWithData:data options:self.readingOptions error:&error];
         if (!responseObject)
@@ -498,7 +502,7 @@ static id JSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingOpt
                error:(NSError * _Nullable)error
    completionHandler:(nullable void (^)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error))completionHandler{
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-    NSDictionary * validateDict = [self validateDictResponse:httpResponse data:data error:&error];
+    NSDictionary * validateDict = [self validateDictResponse:httpResponse data:data error:error];
     if ([validateDict[@"responseIsValid"] boolValue]) {
         id responseObject = [[NSXMLParser alloc] initWithData:data];
 

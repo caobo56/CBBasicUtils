@@ -186,6 +186,7 @@ static NSString * const CBAPIClientLockName = @"com.cb.apiclient.manager.lock";
     __block NSURLSessionDataTask *dataTask = nil;
     __weak typeof(self) weakSelf = self;
     dataTask = [self dataTaskWithRequest:request uploadProgress:upProgress downloadProgress:downProgress completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
         [weakSelf.responseSerializer serializeData:data response:response error:error completionHandler:^(NSData * _Nullable r_data, NSURLResponse * _Nullable r_response, NSError * _Nullable r_error) {
             if (error) {
                 if (failure) {
@@ -229,6 +230,7 @@ static NSString * const CBAPIClientLockName = @"com.cb.apiclient.manager.lock";
     __block NSURLSessionDataTask *dataTask = nil;
     __weak typeof(self) weakSelf = self;
     dataTask = [self dataTaskWithRequest:request uploadProgress:upProgress downloadProgress:downProgress completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
         [weakSelf.responseSerializer serializeData:data response:response error:error completionHandler:^(NSData * _Nullable r_data, NSURLResponse * _Nullable r_response, NSError * _Nullable r_error) {
             if (error) {
                 if (comp) {
@@ -334,6 +336,26 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend{
 
 -(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error{
     [self removeHandlerForTask:task];
+}
+
+
+-(void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler{
+    //    NSLog(@"didReceiveChallenge %@", challenge.protectionSpace);
+    NSLog(@"调用了最外层");
+    // 1.判断服务器返回的证书类型, 是否是服务器信任
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+        NSLog(@"调用了里面这一层是服务器信任的证书");
+        /*
+         NSURLSessionAuthChallengeUseCredential = 0,                     使用证书
+         NSURLSessionAuthChallengePerformDefaultHandling = 1,            忽略证书(默认的处理方式)
+         NSURLSessionAuthChallengeCancelAuthenticationChallenge = 2,     忽略书证, 并取消这次请求
+         NSURLSessionAuthChallengeRejectProtectionSpace = 3,            拒绝当前这一次, 下一次再询问
+         */
+        //        NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+        
+        NSURLCredential *card = [[NSURLCredential alloc]initWithTrust:challenge.protectionSpace.serverTrust];
+        completionHandler(NSURLSessionAuthChallengeUseCredential , card);
+    }
 }
 
 #pragma mark - NSURLSessionDownloadDelegate
