@@ -188,7 +188,7 @@ static NSString * const CBAPIClientLockName = @"com.cb.apiclient.manager.lock";
     dataTask = [self dataTaskWithRequest:request uploadProgress:upProgress downloadProgress:downProgress completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         [weakSelf.responseSerializer serializeData:data response:response error:error completionHandler:^(NSData * _Nullable r_data, NSURLResponse * _Nullable r_response, NSError * _Nullable r_error) {
-            if (error) {
+            if (r_error) {
                 if (failure) {
                     dispatch_async(self.completionQueue ?: dispatch_get_main_queue(), ^{
                         failure(dataTask, r_error);
@@ -232,7 +232,7 @@ static NSString * const CBAPIClientLockName = @"com.cb.apiclient.manager.lock";
     dataTask = [self dataTaskWithRequest:request uploadProgress:upProgress downloadProgress:downProgress completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         [weakSelf.responseSerializer serializeData:data response:response error:error completionHandler:^(NSData * _Nullable r_data, NSURLResponse * _Nullable r_response, NSError * _Nullable r_error) {
-            if (error) {
+            if (r_error) {
                 if (comp) {
                     dispatch_async(self.completionQueue ?: dispatch_get_main_queue(), ^{
                         comp(r_error, nil);
