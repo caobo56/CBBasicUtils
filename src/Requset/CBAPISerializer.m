@@ -412,7 +412,7 @@ NSString* const CBAPIClientKey = @"CBAPIClient";
     if ([validateDict[@"responseIsValid"] boolValue]) {
         completionHandler(data,response,error);
     }else{
-        error = validateDict[@"validationError"];
+        error = CBERROR_INFO(NetworkErrCode_SerializerError,validateDict);
         completionHandler(data,response,error);
     }
 }
@@ -452,7 +452,7 @@ NSString* const CBAPIClientKey = @"CBAPIClient";
         }
         completionHandler(responseObject,response,error);
     }else{
-        error = validateDict[@"validationError"];
+        error = CBERROR_INFO(NetworkErrCode_SerializerError,validateDict);
         completionHandler(data,response,error);
     }
 }
@@ -513,7 +513,7 @@ static id JSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingOpt
         
         completionHandler(responseObject,response,error);
     }else{
-        error = validateDict[@"validationError"];
+        error = CBERROR_INFO(NetworkErrCode_SerializerError,validateDict);
         completionHandler(data,response,error);
     }
 }
