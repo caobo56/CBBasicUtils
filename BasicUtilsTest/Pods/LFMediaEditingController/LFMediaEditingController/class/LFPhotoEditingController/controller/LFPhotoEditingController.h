@@ -28,18 +28,75 @@ typedef NS_ENUM(NSUInteger, LFPhotoEditOperationType) {
 
 typedef NSString * LFPhotoEditOperationStringKey NS_EXTENSIBLE_STRING_ENUM;
 /************************ Attributes ************************/
-/** NSNumber containing LFPhotoEditOperationSubType, default 0 */
+/**
+ * 以下属性仅对未编辑过对象生效，若是已经编辑过的对象（LFPhotoEdit）忽略该属性。
+ * The following properties are only valid for unedited objects. If the object has been edited (LFPhotoEdit), the attribute is ignored.
+ */
+
+/**
+ 绘画的默认颜色
+ The default color of the painting.
+ 
+ NSNumber containing LFPhotoEditOperationSubType, default 0
+ */
 UIKIT_EXTERN LFPhotoEditOperationStringKey const LFPhotoEditDrawColorAttributeName;
-/** NSString containing string path, default nil. sticker resource path. */
+/**
+ 绘画的默认笔刷
+ The default brush of the painting.
+ 
+ NSNumber containing LFPhotoEditOperationSubType, default 0
+ */
+UIKIT_EXTERN LFPhotoEditOperationStringKey const LFPhotoEditDrawBrushAttributeName;
+/**
+ 自定义贴图资源路径，完整的资源路径目录file://...。将该目录下的所有后缀为@"png", @"jpg", @"jpeg", @"gif"的文件作为可选贴图，它完全代替了项目资源贴图。
+ The sticker are customizable. This path must be a full path directory (for example: file://... ). All files with the suffix @"png", @"jpg", @"jpeg", @"gif" in the directory as stickers.
+ 
+ NSString containing string path, default nil. sticker resource path.
+ */
 UIKIT_EXTERN LFPhotoEditOperationStringKey const LFPhotoEditStickerAttributeName;
-/** NSNumber containing LFPhotoEditOperationSubType, default 0 */
+/**
+ 文字的默认颜色
+ The default color of the text.
+ 
+ NSNumber containing LFPhotoEditOperationSubType, default 0
+ */
 UIKIT_EXTERN LFPhotoEditOperationStringKey const LFPhotoEditTextColorAttributeName;
-/** NSNumber containing LFPhotoEditOperationSubType, default 0 */
+/**
+ 模糊的默认类型
+ The default type of the blur.
+ 
+ NSNumber containing LFPhotoEditOperationSubType, default 0
+ */
 UIKIT_EXTERN LFPhotoEditOperationStringKey const LFPhotoEditSplashAttributeName;
-/** NSNumber containing LFPhotoEditOperationSubType, default 0 */
+/**
+ 滤镜的默认类型
+ The default type of the filter.
+ 
+ NSNumber containing LFPhotoEditOperationSubType, default 0
+ */
 UIKIT_EXTERN LFPhotoEditOperationStringKey const LFPhotoEditFilterAttributeName;
-/** NSNumber containing LFPhotoEditOperationSubType, default 0 */
+/**
+ 默认剪切比例
+ The default aspect ratio of the crop.
+ 
+ NSNumber containing LFPhotoEditOperationSubType, default 0
+ */
 UIKIT_EXTERN LFPhotoEditOperationStringKey const LFPhotoEditCropAspectRatioAttributeName;
+/**
+ 允许剪切旋转
+Allow rotation.
+ 
+ NSNumber containing LFPhotoEditOperationSubType, default YES
+ */
+UIKIT_EXTERN LFPhotoEditOperationStringKey const LFPhotoEditCropCanRotateAttributeName;
+/**
+ 允许剪切比例。如果值为NO，剪切比例将不会被重置。
+ Allow aspect ratio. If the value is NO, the aspect ratio will not be reset.
+ 
+ NSNumber containing LFPhotoEditOperationSubType, default YES
+ */
+UIKIT_EXTERN LFPhotoEditOperationStringKey const LFPhotoEditCropCanAspectRatioAttributeName;
+
 /************************ Attributes ************************/
 
 typedef NS_ENUM(NSUInteger, LFPhotoEditOperationSubType) {
@@ -61,6 +118,15 @@ typedef NS_ENUM(NSUInteger, LFPhotoEditOperationSubType) {
     LFPhotoEditOperationSubTypeDrawVioletRedColor,
     LFPhotoEditOperationSubTypeDrawPinkColor,
     
+    /** LFPhotoEditOperationType_draw && LFPhotoEditDrawBrushAttributeName */
+    LFPhotoEditOperationSubTypeDrawPaintBrush = 50,
+    LFPhotoEditOperationSubTypeDrawHighlightBrush,
+    LFPhotoEditOperationSubTypeDrawChalkBrush,
+    LFPhotoEditOperationSubTypeDrawFluorescentBrush,
+    LFPhotoEditOperationSubTypeDrawStampAnimalBrush,
+    LFPhotoEditOperationSubTypeDrawStampFruitBrush,
+    LFPhotoEditOperationSubTypeDrawStampHeartBrush,
+    
     /** LFPhotoEditOperationType_text && LFPhotoEditTextColorAttributeName */
     
     LFPhotoEditOperationSubTypeTextWhiteColor = 100,
@@ -81,7 +147,8 @@ typedef NS_ENUM(NSUInteger, LFPhotoEditOperationSubType) {
     /** LFPhotoEditOperationType_splash && LFPhotoEditSplashAttributeName */
     
     LFPhotoEditOperationSubTypeSplashMosaic = 300,
-    LFPhotoEditOperationSubTypeSplashPaintbrush = 301,
+    LFPhotoEditOperationSubTypeSplashBlurry,
+    LFPhotoEditOperationSubTypeSplashPaintbrush,
     
     /** LFPhotoEditOperationType_filter && LFPhotoEditFilterAttributeName */
     
@@ -113,20 +180,50 @@ typedef NS_ENUM(NSUInteger, LFPhotoEditOperationSubType) {
 @protocol LFPhotoEditingControllerDelegate;
 
 @interface LFPhotoEditingController : LFBaseEditingController
-/** 设置编辑图片->重新初始化 */
+/**
+ 设置编辑图片->重新初始化
+ Set edit photo -> init
+ */
 @property (nonatomic, strong) UIImage *editImage;
-/** 设置编辑对象->重新编辑 */
-@property (nonatomic, strong) LFPhotoEdit *photoEdit;
 
-/** 设置操作类型 default is LFPhotoEditOperationType_All */
+/**
+ 对GIF而言。editImage的每帧持续间隔是平均分配的，durations的每帧持续间隔是真实的。同时也会影响到最终生成的GIF数据。
+ 
+ For GIF. The per-frame duration of the editImage is evenly distributed, and the per-frame duration of the durations is real. It also affects the final generated GIF data.
+ 
+ NSError *error;
+ durations = LFME_UIImageGIFDurationsFromData(imageData, &error);
+ */
+- (void)setEditImage:(UIImage *)editImage durations:(NSArray<NSNumber *> *)durations;
+
+/**
+ 设置编辑对象->重新编辑
+ Set edit object -> re-edit
+ */
+- (void)setPhotoEdit:(LFPhotoEdit *)photoEdit;
+
+/**
+ 设置操作类型
+ The type of operation.
+ default is LFPhotoEditOperationType_All
+ */
 @property (nonatomic, assign) LFPhotoEditOperationType operationType;
-/** 设置默认的操作类型(可以选择最多2种操作，优先级以operationType类型为准，但修剪类型优于所有。所有类型可与修剪类型搭配显示2种；修剪类型以外的其它多种类型搭配以优先级排序仅显示1种) default is 0
-    ps:当operationType 与 defaultOperationType 只有LFPhotoEditOperationType_crop的情况，不会返回编辑界面，在剪切界面直接完成编辑。
+/**
+ 设置默认的操作类型，可以选择最多2种操作，优先级以operationType类型为准。
+ 1、LFPhotoEditOperationType_crop优于所有类型。所有类型可与LFPhotoEditOperationType_crop搭配；
+ 2、LFPhotoEditOperationType_crop以外的其它类型搭配以优先级排序仅显示1种。
+ ps:当operationType 与 defaultOperationType 只有LFPhotoEditOperationType_crop的情况，不会返回编辑界面，在剪切界面直接完成编辑。
+ 
+ The default type of the operation. You can select max to 2 LFPhotoEditOperationType, the priority is based on the operationType.
+ 1、LFPhotoEditOperationType_crop has the highest priority. All types can be paired with LFPhotoEditOperationType_crop;
+ 2、Types other than LFPhotoEditOperationType_crop are prioritized to get the first one.
+ ps:When the operationType and defaultOperationType are only LFPhotoEditOperationType_crop, the editing interface will not be returned, and editing will be completed directly in the cropping interface.
+ default is 0
  */
 @property (nonatomic, assign) LFPhotoEditOperationType defaultOperationType;
 /**
- 操作属性设置
-    根据operationType类型提供的操作，对应不同的操作设置相应的默认值。
+ 操作属性设置，根据operationType类型提供的操作，对应不同的操作设置相应的默认值。
+ The operation attribute is based on the operationType, and the corresponding default value is set for different operations.
 */
 @property (nonatomic, strong) NSDictionary<LFPhotoEditOperationStringKey, id> *operationAttrs;
 
@@ -141,7 +238,8 @@ typedef NS_ENUM(NSUInteger, LFPhotoEditOperationSubType) {
 
 @protocol LFPhotoEditingControllerDelegate <NSObject>
 
-- (void)lf_PhotoEditingController:(LFPhotoEditingController *)photoEditingVC didCancelPhotoEdit:(LFPhotoEdit *)photoEdit;
+- (void)lf_PhotoEditingControllerDidCancel:(LFPhotoEditingController *)photoEditingVC;
 - (void)lf_PhotoEditingController:(LFPhotoEditingController *)photoEditingVC didFinishPhotoEdit:(LFPhotoEdit *)photoEdit;
-
+@optional
+- (void)lf_PhotoEditingController:(LFPhotoEditingController *)photoEditingVC didCancelPhotoEdit:(LFPhotoEdit *)photoEdit __deprecated_msg("delete deprecated. Use `lf_PhotoEditingControllerDidCancel:`");
 @end

@@ -15,13 +15,11 @@ NSString *const kLFDataFilterImageViewData = @"LFDataFilterImageViewData";
 - (void)setType:(LFFilterNameType)type
 {
     _type = type;
-    NSString *name = lf_filterNameWithType(type);
-    LFFilter *filter = [LFFilter filterWithCIFilterName:name];
-    self.filter = filter;
+    self.filter = lf_filterWithType(type);
 }
 
 #pragma mark  - 数据
-- (NSDictionary *)data
+- (NSDictionary * __nullable)data
 {
     if (self.type != LFFilterNameType_None) {
         return @{kLFDataFilterImageViewData:@(self.type)};

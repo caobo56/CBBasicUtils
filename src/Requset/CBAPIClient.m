@@ -157,6 +157,8 @@ static NSString * const CBAPIClientLockName = @"com.cb.apiclient.manager.lock";
     self.lock = [[NSLock alloc] init];
     self.lock.name = CBAPIClientLockName;
 
+    self.securityPolicy = [[CASecurityPolicy alloc]init];
+    
     return self;
 }
 
@@ -340,21 +342,34 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend{
 
 
 -(void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler{
-    //    NSLog(@"didReceiveChallenge %@", challenge.protectionSpace);
-    NSLog(@"调用了最外层");
-    // 1.判断服务器返回的证书类型, 是否是服务器信任
+    
+    NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+    __block NSURLCredential *credential = nil;
+    
     if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
         NSLog(@"调用了里面这一层是服务器信任的证书");
-        /*
-         NSURLSessionAuthChallengeUseCredential = 0,                     使用证书
-         NSURLSessionAuthChallengePerformDefaultHandling = 1,            忽略证书(默认的处理方式)
-         NSURLSessionAuthChallengeCancelAuthenticationChallenge = 2,     忽略书证, 并取消这次请求
-         NSURLSessionAuthChallengeRejectProtectionSpace = 3,            拒绝当前这一次, 下一次再询问
-         */
-        //        NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
-        
-        NSURLCredential *card = [[NSURLCredential alloc]initWithTrust:challenge.protectionSpace.serverTrust];
-        completionHandler(NSURLSessionAuthChallengeUseCredential , card);
+        if (!self.securityPolicy.policyIsActive) {
+            credential = [[NSURLCredential alloc]initWithTrust:challenge.protectionSpace.serverTrust];
+            disposition = NSURLSessionAuthChallengeUseCredential;
+        }else{
+            if (self.securityPolicy.policyIsDefault) {
+                credential = [[NSURLCredential alloc]initWithTrust:challenge.protectionSpace.serverTrust];
+                disposition = NSURLSessionAuthChallengeUseCredential;
+            }else{
+                if (self.securityPolicy.delegate) {
+                    [self.securityPolicy.delegate URLSession:session didReceiveChallenge:challenge completionHandler:completionHandler];
+                }else{
+                    disposition = NSURLSessionAuthChallengeRejectProtectionSpace;
+                    //拒绝当前这一次, 下一次再询问
+                }
+            }
+        }
+    }else{
+        disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+    }
+    
+    if (completionHandler) {
+        completionHandler(disposition,credential);
     }
 }
 

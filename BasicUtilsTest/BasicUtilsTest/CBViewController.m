@@ -54,7 +54,7 @@
 
     client.responseSerializer = [CBAPIResponseJsonSerializer serializer];
 
-    [client postUrl:@"https://gank.io/api/data/Android/20/1"
+    [client getUrl:@"https://gank.io/api/data/Android/20/1"
              params:@{
 //                      @"username":@"aduser1",
 //                      @"password":@"abic@123",

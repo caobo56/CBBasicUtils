@@ -259,7 +259,7 @@
     //    self.exportSession.timeRange = self.timeRange;
     self.exportSession.videoComposition = self.videoComposition;
     self.exportSession.outputURL = trimURL;
-    self.exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+    self.exportSession.outputFileType = AVFileTypeMPEG4;
     self.exportSession.audioMix = self.audioMix;
     
     if (self.asset.duration.timescale == 0 || self.exportSession == nil) {
@@ -326,7 +326,7 @@
     
     if (customFilter != nil) {
         if (watermarkFilter != nil) {
-            LFMutableFilter *tempFilter = (LFMutableFilter *)[LFMutableFilter emptyFilter];
+            LFMutableFilter *tempFilter = [LFMutableFilter emptyFilter];
             [tempFilter addSubFilter:customFilter];
             [tempFilter addSubFilter:watermarkFilter];
             renderingFilter = tempFilter;

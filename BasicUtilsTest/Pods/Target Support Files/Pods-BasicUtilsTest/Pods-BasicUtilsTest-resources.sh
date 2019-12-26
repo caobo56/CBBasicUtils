@@ -97,10 +97,12 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/LFMediaEditingController/LFMediaEditingController/class/vendors/LFEasyNoticeBar/LFEasyNoticeBar.bundle"
   install_resource "${PODS_ROOT}/LFMediaEditingController/LFMediaEditingController/class/vendors/LFMediaDisplayView/resource/LFMediaDisplayView.bundle"
   install_resource "${PODS_ROOT}/LFMediaEditingController/LFMediaEditingController/class/common/LFMediaEditingController.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/LFMediaEditingController/LFMediaEditingController/class/vendors/LFEasyNoticeBar/LFEasyNoticeBar.bundle"
   install_resource "${PODS_ROOT}/LFMediaEditingController/LFMediaEditingController/class/vendors/LFMediaDisplayView/resource/LFMediaDisplayView.bundle"
   install_resource "${PODS_ROOT}/LFMediaEditingController/LFMediaEditingController/class/common/LFMediaEditingController.bundle"
 fi

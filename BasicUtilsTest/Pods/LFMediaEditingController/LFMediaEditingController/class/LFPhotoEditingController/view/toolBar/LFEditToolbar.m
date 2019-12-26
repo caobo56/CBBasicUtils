@@ -10,14 +10,33 @@
 #import "UIView+LFMEFrame.h"
 #import "LFMediaEditingHeader.h"
 #import "JRPickColorView.h"
+#import "SPDropMenu.h"
+
+#import "LFPaintBrush.h"
+#import "LFStampBrush.h"
+#import "LFHighlightBrush.h"
+#import "LFChalkBrush.h"
+#import "LFFluorescentBrush.h"
 
 #define EditToolbarButtonImageNormals @[@"EditImagePenToolBtn.png", @"EditImageEmotionToolBtn.png", @"EditImageTextToolBtn.png", @"EditImageMosaicToolBtn.png", @"EditImageCropToolBtn.png", @"EditImageAudioToolBtn.png", @"EditVideoCropToolBtn.png", @"EditImageFilterToolBtn.png", @"EditImageRateToolBtn.png"]
 #define EditToolbarButtonImageHighlighted @[@"EditImagePenToolBtn_HL.png", @"EditImageEmotionToolBtn_HL.png", @"EditImageTextToolBtn_HL.png", @"EditImageMosaicToolBtn_HL.png", @"EditImageCropToolBtn_HL.png", @"EditImageAudioToolBtn_HL.png", @"EditVideoCropToolBtn_HL.png", @"EditImageFilterToolBtn_HL.png", @"EditImageRateToolBtn_HL.png"]
+
+
+
+#define EditToolbarBrushTitles @[@"_LFME_brush_Paint", @"_LFME_brush_Highlight", @"_LFME_brush_Chalk", @"_LFME_brush_Fluorescent", @"_LFME_brush_Stamp"]
+
+#define EditToolbarBrushImageNormals @[@"EditImagePenTool_Paint.png", @"EditImagePenTool_Highlight.png", @"EditImagePenTool_Chalk.png", @"EditImagePenTool_Fluorescent.png", @"EditImagePenTool_Stamp.png"]
+#define EditToolbarBrushImageHighlighted @[@"EditImagePenTool_Paint_HL.png", @"EditImagePenTool_Highlight_HL.png", @"EditImagePenTool_Chalk_HL.png", @"EditImagePenTool_Fluorescent_HL.png", @"EditImagePenTool_Stamp_HL.png"]
+
+#define EditToolbarStampBrushImageNormals @[@"EditImageStampBrushAnimal.png", @"EditImageStampBrushFruit.png", @"EditImageStampBrushHeart.png"]
 
 #define kToolbar_MainHeight 44
 #define kToolbar_SubHeight 55
 
 #define kToolbar_RateTips(r) [NSString stringWithFormat:@"x %.1f", r]
+
+#define kToolbar_SelectedColor [UIColor colorWithRed:(26/255.0) green:(173/255.0) blue:(25/255.0) alpha:1.0]
+#define kToolbar_NormalsColor [UIColor whiteColor]
 
 @interface LFEditToolbar () <JRPickColorViewDelegate>
 
@@ -27,8 +46,15 @@
 /** 二级菜单 */
 @property (nonatomic, weak) UIView *edit_drawMenu;
 @property (nonatomic, weak) UIButton *edit_drawMenu_revoke;
-/** 绘画颜色显示 */
-@property (nonatomic, weak) UIView *edit_drawMenu_color;
+/** 笔刷类型 */
+@property (nonatomic, weak) UIButton *edit_drawMenu_brush;
+/** 绘画拾色器 */
+@property (nonatomic, weak) JRPickColorView *draw_colorSlider;
+/** 图章类型 */
+@property (nonatomic, weak) UIView *draw_stampView;
+@property (nonatomic, assign) EditToolbarBrushType edit_drawMenu_brushType;
+@property (nonatomic, assign) EditToolbarStampBrushType edit_drawMenu_stampBrushType;
+
 @property (nonatomic, weak) UIView *edit_splashMenu;
 @property (nonatomic, weak) UIButton *edit_splashMenu_revoke;
 /** 进度条 */
@@ -36,7 +62,9 @@
 @property (nonatomic, weak) UISlider *edit_rateMenu_slider;
 @property (nonatomic, weak) UIButton *edit_rateMenu_tipsButton;
 
-/** 当前激活菜单按钮 */
+/** 当前激活绘画菜单按钮 */
+@property (nonatomic, weak) UIButton *edit_drawMenu_action_button;
+/** 当前激活模糊菜单按钮 */
 @property (nonatomic, weak) UIButton *edit_splashMenu_action_button;
 
 /** 当前显示菜单 */
@@ -44,8 +72,6 @@
 /** 当前点击按钮 */
 @property (nonatomic, weak) UIButton *selectButton;
 
-/** 绘画拾色器 */
-@property (nonatomic, weak) JRPickColorView *draw_colorSlider;
 
 @property (nonatomic, assign) LFEditToolbarType type;
 @property (nonatomic, strong) NSArray *mainImageNormals;
@@ -84,7 +110,7 @@
         height += self.safeAreaInsets.bottom;
     }
     
-    self.frame = (CGRect){{0, [UIScreen mainScreen].bounds.size.height-height}, {[UIScreen mainScreen].bounds.size.width, height}};
+    self.frame = (CGRect){{0, self.superview.frame.size.height-height}, {self.superview.frame.size.width, height}};
     self.edit_menu.frame = CGRectMake(0, kToolbar_SubHeight, self.width, height-kToolbar_SubHeight);
 }
 
@@ -200,13 +226,13 @@
 
 - (void)subBar
 {
-    [self drawMenu];
-    [self splashMenu];
-    [self rateMenu];
+    [self edit_drawMenu];
+    [self edit_splashMenu];
+    [self edit_rateMenu];
 }
 
 #pragma mark - 二级菜单栏(懒加载)
-- (void)drawMenu
+- (UIView *)edit_drawMenu
 {
     if (_edit_drawMenu == nil && self.type&LFEditToolbarType_draw) {
         UIView *edit_drawMenu = [[UIView alloc] initWithFrame:CGRectMake(_edit_menu.x, _edit_menu.y, _edit_menu.width, kToolbar_SubHeight)];
@@ -229,39 +255,68 @@
         separateView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
         [edit_drawMenu addSubview:separateView];
         
+        CGFloat leftX = 0;
+        NSArray *brushImages = EditToolbarBrushImageNormals;
+        /** 画笔选择 */
+        UIButton *brush = [UIButton buttonWithType:UIButtonTypeCustom];
+        brush.frame = CGRectMake(5, 0, 44, kToolbar_SubHeight);
+        brush.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+        [brush setImage:bundleEditImageNamed(brushImages[self.edit_drawMenu_brushType]) forState:UIControlStateNormal];
+        [brush addTarget:self action:@selector(brush_buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [edit_drawMenu addSubview:brush];
+        _edit_drawMenu_brush = brush;
+        leftX = CGRectGetMaxX(brush.frame);
+        
         /** 颜色显示 */
         CGFloat margin = isiPad ? 85.f : 25.f;
-//        CGFloat colorViewHeight = 20.f;
-//        UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(margin, (CGRectGetHeight(edit_drawMenu.frame)-colorViewHeight)/2, colorViewHeight, colorViewHeight)];
-//        colorView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-//        colorView.layer.cornerRadius = colorViewHeight/2;
-//        colorView.layer.borderWidth = 1.0f;
-//        colorView.layer.borderColor = [UIColor whiteColor].CGColor;
-//        colorView.layer.masksToBounds = YES;
-//        colorView.userInteractionEnabled = NO;
-//        [edit_drawMenu addSubview:colorView];
-//        self.edit_drawMenu_color = colorView;
         
         /** 拾色器 */
-        CGFloat surplusWidth = CGRectGetMinX(separateView.frame)-CGRectGetMaxX(self.edit_drawMenu_color.frame)-2*margin;
+        CGFloat surplusWidth = CGRectGetMinX(separateView.frame)-2*margin-leftX;
         CGFloat sliderHeight = 34.f, sliderWidth = MIN(surplusWidth, 350);
-        JRPickColorView *_colorSlider = [[JRPickColorView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.edit_drawMenu_color.frame) + margin + (surplusWidth - sliderWidth) / 2, (CGRectGetHeight(edit_drawMenu.frame)-sliderHeight)/2, sliderWidth, sliderHeight) colors:kSliderColors];
+        JRPickColorView *_colorSlider = [[JRPickColorView alloc] initWithFrame:CGRectMake(leftX + margin + (surplusWidth - sliderWidth) / 2, (CGRectGetHeight(edit_drawMenu.frame)-sliderHeight)/2, sliderWidth, sliderHeight) colors:kSliderColors];
         _colorSlider.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         _colorSlider.delegate = self;
         [_colorSlider setMagnifierMaskImage:bundleEditImageNamed(@"EditImageWaterDrop.png")];
         [edit_drawMenu addSubview:_colorSlider];
         self.draw_colorSlider = _colorSlider;
         
-        /** 颜色显示 */
-        self.edit_drawMenu_color.backgroundColor = _colorSlider.color;
+        /** 图章类型 */
+        UIView *draw_stampView = [[UIView alloc] initWithFrame:_colorSlider.frame];
+        NSInteger stampCount = 3;
+        CGFloat averageWidth = CGRectGetWidth(draw_stampView.frame)/(stampCount+1);
+        NSArray *stampBrushImages = EditToolbarStampBrushImageNormals;
+        for (NSInteger i=0; i<stampCount; i++) {
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.frame = CGRectMake(averageWidth*(i+1)-33/2, (CGRectGetHeight(draw_stampView.frame)-30)/2, 33, 33);
+            button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+            [button setImage:bundleBrushImageNamed(stampBrushImages[i]) forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(drawMenu_stampButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+            button.tag = i+1;
+            if (i == self.edit_drawMenu_stampBrushType) {
+                button.selected = YES;
+                _edit_drawMenu_action_button = button;
+                button.layer.borderColor = kToolbar_SelectedColor.CGColor;
+            } else {
+                button.layer.borderColor = kToolbar_NormalsColor.CGColor;
+            }
+            button.layer.borderWidth = 1.0;
+            [draw_stampView addSubview:button];
+        }
         
-        self.edit_drawMenu = edit_drawMenu;
+        draw_stampView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        draw_stampView.hidden = YES;
+        [edit_drawMenu addSubview:draw_stampView];
+        self.draw_stampView = draw_stampView;
+        
+        _edit_drawMenu = edit_drawMenu;
         
         [self insertSubview:edit_drawMenu belowSubview:_edit_menu];
+        
     }
+    return _edit_drawMenu;
 }
 
-- (void)splashMenu
+- (UIView *)edit_splashMenu
 {
     if (_edit_splashMenu == nil && self.type&LFEditToolbarType_splash) {
         UIView *edit_splashMenu = [[UIView alloc] initWithFrame:CGRectMake(_edit_menu.x, _edit_menu.y, _edit_menu.width, kToolbar_SubHeight)];
@@ -287,37 +342,35 @@
         /** 剩余长度 */
         CGFloat width = CGRectGetMinX(edit_splashMenu_revoke.frame);
         /** 按钮个数 */
-        int count = 2;
+        int count = 3;
         /** 平分空间 */
         CGFloat averageWidth = width/(count+1);
         
-        UIButton *action1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        action1.frame = CGRectMake(averageWidth*1-44/2, (CGRectGetHeight(edit_splashMenu.frame)-30)/2, 44, 30);
-        action1.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        [action1 addTarget:self action:@selector(splashMenu_buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-        [action1 setImage:bundleEditImageNamed(@"EditImageTraditionalMosaicBtn.png") forState:UIControlStateNormal];
-        [action1 setImage:bundleEditImageNamed(@"EditImageTraditionalMosaicBtn_HL.png") forState:UIControlStateHighlighted];
-        [action1 setImage:bundleEditImageNamed(@"EditImageTraditionalMosaicBtn_HL.png") forState:UIControlStateSelected];
-        action1.tag = 1;
-        [edit_splashMenu addSubview:action1];
+        NSArray *icons = @[@"EditImageTraditionalMosaicBtn.png", @"EditImageBrushBlurryBtn.png", @"EditImageBrushMosaicBtn.png"];
+        NSArray *icons_HL = @[@"EditImageTraditionalMosaicBtn_HL.png", @"EditImageBrushBlurryBtn_HL.png", @"EditImageBrushMosaicBtn_HL.png"];
         
-        UIButton *action2 = [UIButton buttonWithType:UIButtonTypeCustom];
-        action2.frame = CGRectMake(averageWidth*2-44/2, (CGRectGetHeight(edit_splashMenu.frame)-30)/2, 44, 30);
-        action2.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        [action2 addTarget:self action:@selector(splashMenu_buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-        [action2 setImage:bundleEditImageNamed(@"EditImageBrushMosaicBtn.png") forState:UIControlStateNormal];
-        [action2 setImage:bundleEditImageNamed(@"EditImageBrushMosaicBtn_HL.png") forState:UIControlStateHighlighted];
-        [action2 setImage:bundleEditImageNamed(@"EditImageBrushMosaicBtn_HL.png") forState:UIControlStateSelected];
-        action2.tag = 2;
-        [edit_splashMenu addSubview:action2];
+        for (NSInteger i=0; i<count; i++) {
+            UIButton *action = [UIButton buttonWithType:UIButtonTypeCustom];
+            action.frame = CGRectMake(averageWidth*(i+1)-44/2, (CGRectGetHeight(edit_splashMenu.frame)-30)/2, 44, 30);
+            action.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+            [action addTarget:self action:@selector(splashMenu_buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+            [action setImage:bundleEditImageNamed(icons[i]) forState:UIControlStateNormal];
+            [action setImage:bundleEditImageNamed(icons_HL[i]) forState:UIControlStateHighlighted];
+            [action setImage:bundleEditImageNamed(icons_HL[i]) forState:UIControlStateSelected];
+            action.tag = i+1;
+            [edit_splashMenu addSubview:action];
+            
+            if (i == 0) {
+                /** 优先激活首个按钮 */
+                _edit_splashMenu_action_button = action;
+                action.selected = YES;
+            }
+        }
         
-        /** 优先激活首个按钮 */
-        _edit_splashMenu_action_button = action1;
-        action1.selected = YES;
-        
-        self.edit_splashMenu = edit_splashMenu;
+        _edit_splashMenu = edit_splashMenu;
         [self insertSubview:edit_splashMenu belowSubview:_edit_menu];
     }
+    return _edit_splashMenu;
 }
 
 - (UIButton *)revokeButtonWithType:(NSInteger)type
@@ -340,7 +393,7 @@
     return imageView;
 }
 
-- (UIView *)rateMenu
+- (UIView *)edit_rateMenu
 {
     if (_edit_rateMenu == nil && self.type&LFEditToolbarType_rate) {
         UIView *edit_rateMenu = [[UIView alloc] initWithFrame:CGRectMake(_edit_menu.x, _edit_menu.y, _edit_menu.width, kToolbar_SubHeight)];
@@ -379,7 +432,7 @@
         [edit_rateMenu addSubview:slider];
         _edit_rateMenu_slider = slider;
         
-        self.edit_rateMenu = edit_rateMenu;
+        _edit_rateMenu = edit_rateMenu;
         
         [self insertSubview:edit_rateMenu belowSubview:_edit_menu];
     }
@@ -410,7 +463,7 @@
     switch (button.tag) {
         case LFEditToolbarType_draw:
         {
-            [self showMenuView:_edit_drawMenu];
+            [self showMenuView:self.edit_drawMenu];
             if (button.isSelected == NO) {
                 if ([self.delegate respondsToSelector:@selector(lf_editToolbar:canRevokeAtIndex:)]) {
                     BOOL canRevoke = [self.delegate lf_editToolbar:self canRevokeAtIndex:button.tag];
@@ -422,7 +475,7 @@
             break;
         case LFEditToolbarType_splash:
         {
-            [self showMenuView:_edit_splashMenu];
+            [self showMenuView:self.edit_splashMenu];
             if (button.isSelected == NO) {
                 if ([self.delegate respondsToSelector:@selector(lf_editToolbar:canRevokeAtIndex:)]) {
                     BOOL canRevoke = [self.delegate lf_editToolbar:self canRevokeAtIndex:button.tag];
@@ -434,7 +487,7 @@
             break;
         case LFEditToolbarType_rate:
         {
-            [self showMenuView:_edit_rateMenu];
+            [self showMenuView:self.edit_rateMenu];
             [self changedButton:button];
         }
         default:
@@ -454,6 +507,50 @@
     if ([self.delegate respondsToSelector:@selector(lf_editToolbar:canRevokeAtIndex:)]) {
         BOOL canRevoke = [self.delegate lf_editToolbar:self canRevokeAtIndex:button.tag];
         button.enabled = canRevoke;
+    }
+}
+
+- (void)brush_buttonClick:(UIButton *)button
+{
+    NSArray *titles = EditToolbarBrushTitles;
+    NSArray *normals = EditToolbarBrushImageNormals;
+    NSArray *highlighted = EditToolbarBrushImageHighlighted;
+    NSMutableArray *items = [NSMutableArray arrayWithCapacity:4];
+    __weak typeof(self) weakSelf = self;
+    for (NSInteger i=0; i<titles.count; i++) {
+        SPDropItem *item = [[SPDropItem alloc] init];
+        item.title = [NSBundle LFME_localizedStringForKey:titles[i]];
+        [item setImage:bundleEditImageNamed(normals[i]) forState:SPDropItemStateNormal];
+        [item setImage:bundleEditImageNamed(highlighted[i]) forState:SPDropItemStateSelected];
+        [item setTitleColor:kToolbar_NormalsColor forState:SPDropItemStateNormal];
+        [item setTitleColor:kToolbar_SelectedColor forState:SPDropItemStateSelected];
+        if (i == self.edit_drawMenu_brushType) {
+            item.selected = YES;
+        }
+        item.tapHandler = ^(SPDropItem * _Nonnull item) {
+//            NSLog(@"onClick %@", item.title);
+            weakSelf.edit_drawMenu_brushType = i;
+        };
+        [items addObject:item];
+    }
+    [SPDropMenu setDirection:SPDropMainMenuDirectionTop];
+    [SPDropMenu showInView:button items:items];
+}
+
+- (void)drawMenu_stampButtonClick:(UIButton *)button
+{
+    if (_edit_drawMenu_action_button != button) {
+        _edit_drawMenu_action_button.selected = NO;
+        _edit_drawMenu_action_button.layer.borderColor = kToolbar_NormalsColor.CGColor;
+        button.selected = YES;
+        button.layer.borderColor = kToolbar_SelectedColor.CGColor;
+        _edit_drawMenu_action_button = button;
+        self.edit_drawMenu_stampBrushType = (EditToolbarStampBrushType)(button.tag-1);
+        /** 触发代理 */
+        self.edit_drawMenu_brushType = self.edit_drawMenu_brushType;
+//        if ([self.delegate respondsToSelector:@selector(lf_editToolbar:subDidSelectAtIndex:)]) {
+//            [self.delegate lf_editToolbar:self subDidSelectAtIndex:[NSIndexPath indexPathForRow:button.tag-1 inSection:LFEditToolbarType_draw]];
+//        }
     }
 }
 
@@ -535,27 +632,33 @@
     }
 }
 
-/** 获取拾色器的颜色 */
-- (NSArray <UIColor *>*)drawSliderColors
-{
-    return self.draw_colorSlider.colors;
-}
-- (UIColor *)drawSliderCurrentColor
-{
-    return self.draw_colorSlider.color;
-}
-
 /** 设置绘画拾色器默认颜色 */
-- (void)setDrawSliderColor:(UIColor *)color
-{
-    self.draw_colorSlider.color = color;
-    self.edit_drawMenu_color.backgroundColor = color;
-}
-
 - (void)setDrawSliderColorAtIndex:(NSUInteger)index
 {
     self.draw_colorSlider.index = index;
-    self.edit_drawMenu_color.backgroundColor = self.draw_colorSlider.color;
+    if ([self.delegate respondsToSelector:@selector(lf_editToolbar:drawColorDidChange:)]) {
+        [self.delegate lf_editToolbar:self drawColorDidChange:self.draw_colorSlider.color];
+    }
+}
+
+/** 设置绘画拾色器默认笔刷（会触发代理） */
+- (void)setDrawBrushAtIndex:(EditToolbarBrushType)index subIndex:(EditToolbarStampBrushType)subIndex
+{
+    NSArray *normals = EditToolbarBrushImageNormals;
+    if (normals.count > index) {
+        _edit_drawMenu_brushType = index;
+        if (_edit_drawMenu_stampBrushType != subIndex) {
+            /** 模拟点击按钮触发代理 */
+            UIButton *button = [self.draw_stampView viewWithTag:(subIndex+1)];
+            if (button) {
+                _edit_drawMenu_stampBrushType = subIndex;
+                [self drawMenu_stampButtonClick:button];
+                return;
+            }
+        }
+        /** 触发代理 */
+        self.edit_drawMenu_brushType = self.edit_drawMenu_brushType;
+    }
 }
 
 - (float)rate
@@ -569,10 +672,63 @@
     [_edit_rateMenu_tipsButton setTitle:kToolbar_RateTips(rate) forState:UIControlStateNormal];
 }
 
+- (void)setEdit_drawMenu_brushType:(EditToolbarBrushType)edit_drawMenu_brushType
+{
+    _edit_drawMenu_brushType = edit_drawMenu_brushType;
+    
+    // changed view
+    BOOL isStamp = (edit_drawMenu_brushType == EditToolbarBrushTypeStamp);
+    self.draw_colorSlider.hidden = isStamp;
+    self.draw_stampView.hidden = !isStamp;
+    
+    LFBrush *brush = nil;
+    switch (_edit_drawMenu_brushType) {
+        case EditToolbarBrushTypePaint:
+            brush = [LFPaintBrush new];
+            break;
+        case EditToolbarBrushTypeHighlight:
+            brush = [LFHighlightBrush new];
+            break;
+        case EditToolbarBrushTypeChalk:
+            brush = [LFChalkBrush new];
+            break;
+        case EditToolbarBrushTypeFluorescent:
+            brush = [LFFluorescentBrush new];
+            break;
+        case EditToolbarBrushTypeStamp:
+        {
+            switch (self.edit_drawMenu_stampBrushType) {
+                case EditToolbarStampBrushTypeAnimal:
+                    brush = LFStampBrushAnimal();
+                    break;
+                case EditToolbarStampBrushTypeFruit:
+                    brush = LFStampBrushFruit();
+                    break;
+                case EditToolbarStampBrushTypeHeart:
+                    brush = LFStampBrushHeart();
+                    break;
+            }
+        }
+            break;
+        default:
+            break;
+    }
+    
+    if (brush == nil) {
+        /** 超出定制范围，默认使用画笔 */
+        self.edit_drawMenu_brushType = EditToolbarBrushTypePaint;
+    }
+    [self.edit_drawMenu_brush setImage:bundleEditImageNamed(EditToolbarBrushImageNormals[self.edit_drawMenu_brushType]) forState:UIControlStateNormal];
+    
+    // callback
+    if ([self.delegate respondsToSelector:@selector(lf_editToolbar:drawBrushDidChange:)]) {
+        [self.delegate lf_editToolbar:self drawBrushDidChange:brush];
+    }
+}
+
 #pragma mark - JRPickColorViewDelegate
 - (void)JRPickColorView:(JRPickColorView *)pickColorView didSelectColor:(UIColor *)color
 {
-    self.edit_drawMenu_color.backgroundColor = color;
     if ([self.delegate respondsToSelector:@selector(lf_editToolbar:drawColorDidChange:)]) {
         [self.delegate lf_editToolbar:self drawColorDidChange:color];
     }
@@ -593,6 +749,29 @@
     UIView *view = [self.edit_splashMenu viewWithTag:index+1];
     if ([view isKindOfClass:[UIButton class]]) {
         [self splashMenu_buttonClick:(UIButton *)view];
+    }
+}
+
+/** 设置模糊等待状态 */
+- (void)setSplashWait:(BOOL)isWait index:(NSUInteger)index
+{
+    UIView *view = [self.edit_splashMenu viewWithTag:index+1];
+    if ([view isKindOfClass:[UIButton class]]) {
+        NSInteger tag = 100 + view.tag;
+        if (isWait) {
+            if ([view.superview viewWithTag:tag]) {
+                return;
+            }
+            UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+            aiView.frame = view.frame;
+            aiView.tag = tag;
+            [aiView startAnimating];
+            [view.superview addSubview:aiView];
+            view.hidden = YES;
+        } else {
+            [[view.superview viewWithTag:tag] removeFromSuperview];
+            view.hidden = NO;
+        }
     }
 }
 

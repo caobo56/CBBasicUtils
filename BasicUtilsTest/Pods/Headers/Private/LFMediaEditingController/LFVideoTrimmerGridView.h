@@ -1,1 +1,1 @@
-../../../LFMediaEditingController/LFMediaEditingController/class/LFVideoEditingController/view/subview/LFVideoTrimmerGridView.h
+../../../LFMediaEditingController/LFMediaEditingController/class/LFVideoEditingController/view/subView/LFVideoTrimmerGridView.h

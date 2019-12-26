@@ -9,6 +9,10 @@
 #import "LFBaseEditingController.h"
 #import "LFMediaEditingHeader.h"
 #import "UIDevice+LFMEOrientation.h"
+#import "LFEasyNoticeBar.h"
+#import "UIViewController+LFPresentation.h"
+
+#import "LFBrushCache.h"
 
 @interface LFBaseEditingController ()
 {
@@ -42,7 +46,14 @@
         [UIDevice LFME_setOrientation:orientation];
         _oKButtonTitleColorNormal = [UIColor colorWithRed:(26/255.0) green:(173/255.0) blue:(25/255.0) alpha:1.0];
         _cancelButtonTitleColorNormal = [UIColor colorWithWhite:0.8f alpha:1.f];
-        _isHiddenStatusBar = YES;
+        /** 创建笔刷缓存 */
+        [LFBrushCache share].countLimit = 20;
+        /** 刘海屏的顶部一直会存在安全区域，window的显示区域不在刘海屏范围，调整window的层级无法遮挡状态栏。 */
+        if (@available(iOS 11.0, *)) {
+            if (hasSafeArea) {
+                self.isHiddenStatusBar = YES;
+            }
+        }
     }
     return self;
 }
@@ -54,8 +65,40 @@
     self.view.backgroundColor = [UIColor blackColor];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    // 隐藏状态栏而不改变安全区域的高度
+    [UIApplication sharedApplication].keyWindow.windowLevel = UIWindowLevelStatusBar + 1;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (@available(iOS 13.0, *)) {
+        if (isiPhone && self.navigationController.modalPresentationStyle == UIModalPresentationPageSheet) {
+            // 不允许下拉关闭
+            self.modalInPresentation = YES;
+            // 彻底关闭下拉手势
+            self.lf_dropShadowPanGestureRecognizer.enabled = NO;            
+        }
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [UIApplication sharedApplication].keyWindow.windowLevel = UIWindowLevelNormal;
+    if (@available(iOS 13.0, *)) {
+        // 重新开启下拉手势
+        self.lf_dropShadowPanGestureRecognizer.enabled = YES;
+    }
+}
+
 - (void)dealloc
 {
+    /** 销毁笔刷缓存 */
+    [LFBrushCache free];
     [self hideProgressHUD];
 }
 
@@ -93,6 +136,60 @@
             break;
     }
     return mask;
+}
+
+/**
+ 从状态栏下拉或底部栏上滑，跟系统的下拉通知中心手势和上滑控制中心手势冲突。
+ 设置后下拉状态栏只会展示指示器，继续下拉才能将通知中心拉出来。如果返回UIRectEdgeNone则会直接下拉出来。
+ */
+- (UIRectEdge)preferredScreenEdgesDeferringSystemGestures
+{
+    return UIRectEdgeAll;
+}
+
+#pragma public
+- (void)showProgressHUDText:(NSString *)text
+{
+    [self showProgressHUDText:text isTop:NO needProcess:NO];
+}
+
+- (void)showProgressHUD
+{
+    [self showProgressHUDText:nil isTop:NO needProcess:NO];
+}
+
+- (void)hideProgressHUD {
+    if (_progressHUD) {
+        [_HUDIndicatorView stopAnimating];
+        [_progressHUD removeFromSuperview];
+        [_ProgressView setProgress:0.f];
+    }
+}
+
+- (void)showProgressVideoHUD
+{
+    [self showProgressHUDText:nil isTop:NO needProcess:YES];
+}
+
+- (void)setProgress:(float)progress
+{
+    [_ProgressView setProgress:progress animated:YES];
+}
+
+- (void)showInfoMessage:(NSString *)text
+{
+    LFEasyNoticeBarConfig config = LFEasyNoticeBarConfigDefault();
+    config.title = text;
+    config.type = LFEasyNoticeBarDisplayTypeInfo;
+    [LFEasyNoticeBar showAnimationWithConfig:config];
+}
+
+- (void)showErrorMessage:(NSString *)text
+{
+    LFEasyNoticeBarConfig config = LFEasyNoticeBarConfigDefault();
+    config.title = text;
+    config.type = LFEasyNoticeBarDisplayTypeError;
+    [LFEasyNoticeBar showAnimationWithConfig:config];
 }
 
 #pragma mark - private
@@ -140,31 +237,4 @@
     [view addSubview:_progressHUD];
 }
 
-- (void)showProgressHUDText:(NSString *)text
-{
-    [self showProgressHUDText:text isTop:NO needProcess:NO];
-}
-
-- (void)showProgressHUD
-{
-    [self showProgressHUDText:nil isTop:NO needProcess:NO];
-}
-
-- (void)hideProgressHUD {
-    if (_progressHUD) {
-        [_HUDIndicatorView stopAnimating];
-        [_progressHUD removeFromSuperview];
-        [_ProgressView setProgress:0.f];
-    }
-}
-
-- (void)showProgressVideoHUD
-{
-    [self showProgressHUDText:nil isTop:NO needProcess:YES];
-}
-
-- (void)setProgress:(float)progress
-{
-    [_ProgressView setProgress:progress animated:YES];
-}
 @end

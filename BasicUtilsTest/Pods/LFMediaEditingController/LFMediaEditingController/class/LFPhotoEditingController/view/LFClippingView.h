@@ -14,21 +14,16 @@
 @interface LFClippingView : LFScrollView <LFEditingProtocol>
 
 @property (nonatomic, strong) UIImage *image;
+- (void)setImage:(UIImage *)image durations:(NSArray <NSNumber *> *)durations;
 
-@property (nonatomic, assign, getter=isImageViewHidden) BOOL imageViewHidden;
+/** 获取除图片以外的编辑图层 */
+- (UIImage *)editOtherImagesInRect:(CGRect)rect rotate:(CGFloat)rotate;
 
 @property (nonatomic, weak) id<LFClippingViewDelegate> clippingDelegate;
 /** 首次缩放后需要记录最小缩放值 */
 @property (nonatomic, readonly) CGFloat first_minimumZoomScale;
 /** 与父视图中心偏差坐标 */
 @property (nonatomic, assign) CGPoint offsetSuperCenter;
-/** 是否存在剪切以外的编辑操作 */
-@property (nonatomic, readonly) BOOL hasZoomingViewData;
-
-/** 原始坐标 */
-@property (nonatomic, readonly) CGRect originalRect;
-/** 开始的基础坐标 */
-@property (nonatomic, readonly) CGRect normalRect;
 
 /** 是否重置中 */
 @property (nonatomic, readonly) BOOL isReseting;
@@ -38,6 +33,8 @@
 //@property (nonatomic, readonly) BOOL isZooming;
 /** 是否可还原 */
 @property (nonatomic, readonly) BOOL canReset;
+/** 以某个位置作为可还原的参照物 */
+- (BOOL)canResetWithRect:(CGRect)trueFrame;
 
 /** 可编辑范围 */
 @property (nonatomic, assign) CGRect editRect;
@@ -54,6 +51,8 @@
 - (void)rotateClockwise:(BOOL)clockwise;
 /** 还原 */
 - (void)reset;
+/** 还原到某个位置 */
+- (void)resetToRect:(CGRect)rect;
 /** 取消 */
 - (void)cancel;
 

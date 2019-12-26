@@ -12,6 +12,7 @@ target 'BasicUtilsTest' do
     pod 'MBProgressHUD'
     pod 'IGListKit'
     pod 'LFMediaEditingController'
+#    pod 'LFMediaEditingController', '~>1.3.4'
     pod 'WechatOpenSDK'
     pod 'AFNetworking'
     

@@ -15,9 +15,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) NSData *gifData;
 
 /**
- Set the CIImage using an UIImage(images)
+ Set the CIImage using an animation UIImage(images)
  */
 - (void)setImageByUIImage:(UIImage *__nullable)image;
+/**
+ Set the CIImage using an animation UIImage(images) and durations
+ */
+- (void)setImageByUIImage:(UIImage *__nullable)image durations:(NSArray <NSNumber *> *__nullable)durations;
+
+/**
+ The duration of each frame of gif played.
+ */
+@property (readonly, nonatomic, nullable) NSArray<NSNumber *> * durations;
 
 /**
  Whether this instance is auto play.

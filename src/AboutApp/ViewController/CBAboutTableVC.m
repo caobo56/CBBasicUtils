@@ -143,7 +143,9 @@
         urlMessage.mediaObject = webObj;
         req.message = urlMessage;
         //发送分享信息
-        [WXApi sendReq:req];
+        [WXApi sendReq:req completion:^(BOOL success) {
+            
+        }];
     }else{
         //        [self.view toastMessage:@"您的手机未安装微信，暂时不能使用该功能！"];
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];

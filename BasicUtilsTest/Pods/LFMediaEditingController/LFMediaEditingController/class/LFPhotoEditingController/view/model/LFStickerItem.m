@@ -7,7 +7,7 @@
 //
 
 #import "LFStickerItem.h"
-#import "NSString+LFMECoreText.h"
+#import "NSAttributedString+LFMECoreText.h"
 
 @interface LFStickerItem ()
 
@@ -64,32 +64,42 @@
     _generator = nil;
 }
 
-- (UIImage *)displayImage
+- (UIImage * __nullable)displayImage
 {
     if (self.image) {
         return self.image;
-    } else if (self.text.text.length) {
+    } else if (/*self.text.text.length || */self.text.attributedText.length) {
         
         if (_textCacheDisplayImage == nil) {
-            CGSize textSize = [self.text.text LFME_sizeWithConstrainedToWidth:[UIScreen mainScreen].bounds.size.width-(self.textInsets.left+self.textInsets.right) fromFont:self.text.font lineSpace:1.f lineBreakMode:kCTLineBreakByCharWrapping];
-            textSize.width += (self.textInsets.left+self.textInsets.right);
-            textSize.height += (self.textInsets.top+self.textInsets.bottom);
             
-            /** 创建画布 */
-            UIGraphicsBeginImageContextWithOptions(textSize, NO, 0.0);
-            CGContextRef context = UIGraphicsGetCurrentContext();
+            NSRange range = NSMakeRange(0, 1);
+            CGSize textSize = [self.text.attributedText LFME_sizeWithConstrainedToSize:CGSizeMake([UIScreen mainScreen].bounds.size.width-(self.textInsets.left+self.textInsets.right), CGFLOAT_MAX)];
+            NSDictionary *typingAttributes = [self.text.attributedText attributesAtIndex:0 effectiveRange:&range];
             
-            UIColor *shadowColor = ([self.text.textColor isEqual:[UIColor blackColor]]) ? [UIColor whiteColor] : [UIColor blackColor];
-            CGColorRef shadow = [shadowColor colorWithAlphaComponent:0.8f].CGColor;
-            CGContextSetShadowWithColor(context, CGSizeMake(1, 1), 3.f, shadow);
-            CGContextSetAllowsAntialiasing(context, YES);
+            UIColor *textColor = [typingAttributes objectForKey:NSForegroundColorAttributeName];
             
-            [self.text.text LFME_drawInContext:context withPosition:CGPointMake(self.textInsets.left, self.textInsets.top) andFont:self.text.font andTextColor:self.text.textColor andHeight:textSize.height andWidth:textSize.width linespace:1.f lineBreakMode:kCTLineBreakByCharWrapping];
+            CGPoint point = CGPointMake(self.textInsets.left, self.textInsets.top);
+            CGSize size = textSize;
+            size.width += (self.textInsets.left+self.textInsets.right);
+            size.height += (self.textInsets.top+self.textInsets.bottom);
             
-            UIImage *temp = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
+            @autoreleasepool {
+                /** 创建画布 */
+                UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
+                CGContextRef context = UIGraphicsGetCurrentContext();
+                
+                UIColor *shadowColor = ([textColor isEqual:[UIColor blackColor]]) ? [UIColor whiteColor] : [UIColor blackColor];
+                CGColorRef shadow = [shadowColor colorWithAlphaComponent:0.8f].CGColor;
+                CGContextSetShadowWithColor(context, CGSizeMake(1, 1), 3.f, shadow);
+                CGContextSetAllowsAntialiasing(context, YES);
+                
+                [self.text.attributedText LFME_drawInContext:context withPosition:point andHeight:textSize.height andWidth:textSize.width];
+                
+                UIImage *temp = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                _textCacheDisplayImage = temp;
+            }
             
-            _textCacheDisplayImage = temp;
         }
         
         return _textCacheDisplayImage;
@@ -97,7 +107,7 @@
     return nil;
 }
 
-- (UIImage *)displayImageAtTime:(NSTimeInterval)time
+- (UIImage * __nullable)displayImageAtTime:(NSTimeInterval)time
 {
     if (self.displayImage.images.count) {
         NSInteger frameCount = self.displayImage.images.count;
@@ -123,6 +133,38 @@
         
     }
     return self.displayImage;
+}
+
+#pragma mark - NSSecureCoding
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        _main = [coder decodeBoolForKey:@"main"];
+        _image = [coder decodeObjectForKey:@"image"];
+        NSURL *assetURL = [coder decodeObjectForKey:@"assetURL"];
+        if (assetURL) {
+            _asset = [AVAsset assetWithURL:assetURL];            
+        }
+        _textCacheDisplayImage = [coder decodeObjectForKey:@"textCacheDisplayImage"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeBool:self.isMain forKey:@"main"];
+    [coder encodeObject:self.image forKey:@"image"];
+    if ([_asset isKindOfClass:[AVURLAsset class]]) {
+        NSURL *assetURL = ((AVURLAsset *)_asset).URL;
+        [coder encodeObject:assetURL forKey:@"assetURL"];
+    }
+    [coder encodeObject:_textCacheDisplayImage forKey:@"textCacheDisplayImage"];
+}
+
++ (BOOL)supportsSecureCoding
+{
+    return YES;
 }
 
 @end

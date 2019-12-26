@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CBAPISerializer.h"
+#import "CASecurityPolicy.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,6 +25,8 @@ typedef void(^NetworkFailureHandler)(NSURLSessionDataTask * __nullable sessionTa
 @property (nonatomic, strong) CBAPIResponseSerializer * responseSerializer;
 
 @property (nonatomic, strong, nullable) dispatch_queue_t completionQueue;
+
+@property (nonatomic, strong) CASecurityPolicy * securityPolicy;
 
 #pragma  - mark Setting
 

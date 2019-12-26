@@ -78,6 +78,7 @@
 		A8BCFF631FD68E860094B423 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCFF621FD68E860094B423 /* main.m */; };
 		A8BCFF6D1FD68E860094B423 /* BasicUtilsTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCFF6C1FD68E860094B423 /* BasicUtilsTestTests.m */; };
 		A8BCFF781FD68E860094B423 /* BasicUtilsTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCFF771FD68E860094B423 /* BasicUtilsTestUITests.m */; };
+		A8C28E6B23B49D8900E57B94 /* CASecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C28E6A23B49D8900E57B94 /* CASecurityPolicy.m */; };
 		B3E2789C0F0B94B49B25EF6B /* libPods-BasicUtilsTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0111A4125F4AA8ECD33A8CD /* libPods-BasicUtilsTest.a */; };
 /* End PBXBuildFile section */
 
@@ -223,6 +224,8 @@
 		A8BCFF731FD68E860094B423 /* BasicUtilsTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasicUtilsTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCFF771FD68E860094B423 /* BasicUtilsTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicUtilsTestUITests.m; sourceTree = "<group>"; };
 		A8BCFF791FD68E860094B423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8C28E6923B49D8900E57B94 /* CASecurityPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CASecurityPolicy.h; sourceTree = "<group>"; };
+		A8C28E6A23B49D8900E57B94 /* CASecurityPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CASecurityPolicy.m; sourceTree = "<group>"; };
 		E0111A4125F4AA8ECD33A8CD /* libPods-BasicUtilsTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasicUtilsTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC7A3E67DBD1315B0BC6F35 /* Pods-BasicUtilsTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicUtilsTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasicUtilsTest/Pods-BasicUtilsTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -438,6 +441,8 @@
 				A894414422F8003D0050F1E4 /* CBAPIClient.m */,
 				A894414622F8007A0050F1E4 /* CBAPISerializer.h */,
 				A894414722F8007A0050F1E4 /* CBAPISerializer.m */,
+				A8C28E6923B49D8900E57B94 /* CASecurityPolicy.h */,
+				A8C28E6A23B49D8900E57B94 /* CASecurityPolicy.m */,
 			);
 			path = Requset;
 			sourceTree = "<group>";
@@ -733,11 +738,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicUtilsTest/Pods-BasicUtilsTest-resources.sh",
+				"${PODS_ROOT}/LFMediaEditingController/LFMediaEditingController/class/vendors/LFEasyNoticeBar/LFEasyNoticeBar.bundle",
 				"${PODS_ROOT}/LFMediaEditingController/LFMediaEditingController/class/vendors/LFMediaDisplayView/resource/LFMediaDisplayView.bundle",
 				"${PODS_ROOT}/LFMediaEditingController/LFMediaEditingController/class/common/LFMediaEditingController.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LFEasyNoticeBar.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LFMediaDisplayView.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LFMediaEditingController.bundle",
 			);
@@ -766,6 +773,7 @@
 				A8890C9522F059DC0061BEC2 /* NSDictionary+NullResult.m in Sources */,
 				A8890C8B22F059DC0061BEC2 /* CBPickerView.m in Sources */,
 				A88924AC215389EC009CF510 /* CBViewController.m in Sources */,
+				A8C28E6B23B49D8900E57B94 /* CASecurityPolicy.m in Sources */,
 				A8890C6922F059DC0061BEC2 /* CBVerifyTool.m in Sources */,
 				A8890C6722F059DC0061BEC2 /* CBTabBarVC.m in Sources */,
 				A8BCFF631FD68E860094B423 /* main.m in Sources */,

@@ -159,6 +159,7 @@
             {
                 GLKView *view = [[GLKView alloc] initWithFrame:self.bounds context:context.EAGLContext];
                 view.contentScaleFactor = self.contentScaleFactor;
+                view.backgroundColor = [UIColor clearColor];
                 view.delegate = self;
                 if (self.contentView) {
                     [_contentView insertSubview:view atIndex:0];
@@ -199,6 +200,7 @@
                 view.delegate = self;
                 view.opaque = NO;
                 view.enableSetNeedsDisplay = YES;
+                view.paused = YES;
                 view.framebufferOnly = NO;
                 [self insertSubview:view atIndex:0];
                 _MTKView = view;
@@ -222,7 +224,11 @@
         _LFLView.image = [self renderedUIImage];
     }
     if (_UIView) {
-        _UIView.layer.contents = (__bridge id _Nullable)([self renderedUIImage].CGImage);
+        CGImageRef imageRef = [self newRenderedCGImage];
+        if (imageRef) {
+            _UIView.layer.contents = (__bridge id _Nullable)(imageRef);
+            CGImageRelease(imageRef);
+        }
     }
 #if !(TARGET_IPHONE_SIMULATOR)
     [_MTKView setNeedsDisplay];
@@ -240,6 +246,27 @@
     UIImage *returnedImage = nil;
     
     if (image != nil) {
+        
+        CGImageRef imageRef = [self newRenderedCGImageInCIImage:image];
+        
+        if (imageRef != nil) {
+            returnedImage = [UIImage imageWithCGImage:imageRef];
+            CGImageRelease(imageRef);
+        }
+    }
+    
+    return returnedImage;
+}
+
+- (CGImageRef)newRenderedCGImageInRect:(CGRect)rect {
+    
+    CIImage *image = [self renderedCIImageInRect:rect];
+    return [self newRenderedCGImageInCIImage:image];
+}
+
+- (CGImageRef)newRenderedCGImageInCIImage:(CIImage * __nullable)image
+{
+    if (image != nil) {
         CIContext *context = nil;
         if (![self loadContextIfNeeded]) {
             context = [CIContext contextWithOptions:@{kCIContextUseSoftwareRenderer: @(NO)}];
@@ -249,13 +276,9 @@
         
         CGImageRef imageRef = [context createCGImage:image fromRect:image.extent];
         
-        if (imageRef != nil) {
-            returnedImage = [UIImage imageWithCGImage:imageRef];
-            CGImageRelease(imageRef);
-        }
+        return imageRef;
     }
-    
-    return returnedImage;
+    return NULL;
 }
 
 - (CIImage *)renderedCIImageInRect:(CGRect)rect {
@@ -297,6 +320,11 @@
     return [self renderedUIImageInRect:extent];
 }
 
+- (CGImageRef)newRenderedCGImage {
+    CGRect extent = CGRectApplyAffineTransform(self.CIImage.extent, self.preferredCIImageTransform);
+    return [self newRenderedCGImageInRect:extent];
+}
+
 - (CIImage *)scaleAndResizeCIImage:(CIImage *)image forRect:(CGRect)rect {
     CGSize imageSize = image.extent.size;
     
@@ -314,6 +342,34 @@
     }
     
     return [image imageByApplyingTransform:CGAffineTransformMakeScale(horizontalScale, verticalScale)];
+}
+
+- (CGRect)scaleAndResizeDrawRect:(CGRect)rect forCIImage:(CIImage *)image
+{
+    if (self.scaleAndResizeCIImageAutomatically) {
+        UIViewContentMode mode = self.contentMode;
+        switch (mode) {
+            case UIViewContentModeScaleAspectFill:
+            case UIViewContentModeScaleAspectFit:
+            {
+                if (self.context.type == LFContextTypeEAGL) {
+                    rect.origin.x = (rect.size.width - image.extent.size.width)/2;
+                    rect.origin.y = (rect.size.height - image.extent.size.height)/2;
+                    rect.size = image.extent.size;
+                }
+#if !(TARGET_IPHONE_SIMULATOR)
+                else if (self.context.type == LFContextTypeMetal) {
+                    rect.origin.x = -(rect.size.width - image.extent.size.width)/2;
+                    rect.origin.y = -(rect.size.height - image.extent.size.height)/2;
+                }
+#endif
+            }
+                break;
+            default:
+                break;
+        }
+    }
+    return rect;
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -432,7 +488,7 @@ static CGRect LF_CGRectMultiply(CGRect rect, CGFloat contentScale) {
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     @autoreleasepool {
         glClearColor(0, 0, 0, 0);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         if (self.contentView) {
             CGRect targetRect = [self convertRect:self.bounds toView:view];
@@ -475,6 +531,7 @@ static CGRect LF_CGRectMultiply(CGRect rect, CGFloat contentScale) {
             }
             
             if (image != nil) {
+                [self scaleAndResizeDrawRect:rect forCIImage:image];
                 [_context.CIContext drawImage:image inRect:inRect fromRect:image.extent];
             }
             
@@ -484,6 +541,7 @@ static CGRect LF_CGRectMultiply(CGRect rect, CGFloat contentScale) {
             CIImage *image = [self renderedCIImageInRect:rect];
             
             if (image != nil) {
+                rect = [self scaleAndResizeDrawRect:rect forCIImage:image];
                 [_context.CIContext drawImage:image inRect:rect fromRect:image.extent];
             }
         }
@@ -500,10 +558,11 @@ static CGRect LF_CGRectMultiply(CGRect rect, CGFloat contentScale) {
         CIImage *image = [self renderedCIImageInRect:rect];
         
         if (image != nil) {
+            rect = [self scaleAndResizeDrawRect:rect forCIImage:image];
             id<MTLCommandBuffer> commandBuffer = [_MTLCommandQueue commandBuffer];
             id<MTLTexture> texture = view.currentDrawable.texture;
             CGColorSpaceRef deviceRGB = CGColorSpaceCreateDeviceRGB();
-            [_context.CIContext render:image toMTLTexture:texture commandBuffer:commandBuffer bounds:image.extent colorSpace:deviceRGB];
+            [_context.CIContext render:image toMTLTexture:texture commandBuffer:commandBuffer bounds:rect colorSpace:deviceRGB];
             [commandBuffer presentDrawable:view.currentDrawable];
             [commandBuffer commit];
             

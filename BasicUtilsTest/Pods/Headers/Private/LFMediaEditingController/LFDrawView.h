@@ -1,1 +1,1 @@
-../../../LFMediaEditingController/LFMediaEditingController/class/LFPhotoEditingController/view/subView/LFDrawView.h
+../../../LFMediaEditingController/LFMediaEditingController/class/common/view/LFDrawView/LFDrawView.h
